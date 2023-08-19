@@ -206,7 +206,7 @@ const Tweet = ({
   return (
     <div
       className={cn(
-        "border-b border-zinc-800/90 w-full px-4 flex flex-col gap-y-1 cursor-pointer",
+        "border-b border-zinc-800/90 w-full px-2 sm:px-4 flex flex-col h-fit gap-y-1 cursor-pointer",
         { "pt-2": pinnedTweet, "pt-3": !pinnedTweet }
       )}
     >
@@ -234,7 +234,7 @@ const Tweet = ({
               </p>
               <span className="text-[#71767b] truncate">{username}</span>
               <span className="w-[2px] h-[2px] bg-[#71767b] rounded-full mt-0.5"></span>
-              <p className="text-[#71767b] cursor-pointer truncate">
+              <p className="text-[#71767b] cursor-pointer truncate hidden sm:block">
                 {tweetDate}
               </p>
             </div>

@@ -496,7 +496,7 @@ const Tabs = () => {
   return (
     <div className="w-full mt-4">
       <Tab.Group>
-        <Tab.List className="flex w-full border-b border-zinc-800/90">
+        <Tab.List className="flex w-full border-b border-zinc-800/90 overflow-x-auto no-scrollbar">
           {profileTabs.map((profileTab) => (
             <Tab
               key={profileTab}
@@ -595,10 +595,10 @@ export default function Home() {
       {/* main */}
       <div className="bg-black w-full min-h-screen overflow-y-auto ">
         <main
-          className={`${inter.className} bg-black h-full w-full min-h-screen flex fixed inset-0 overflow-y-auto max-w-2xl lg:max-w-[1260px] mx-auto no-scrollbar`}
+          className={`${inter.className} bg-black h-full overflow w-screen sm:w-full min-h-screen flex fixed inset-0 overflow-y-auto max-w-2xl lg:max-w-[1260px] mx-auto no-scrollbar`}
         >
           {/* Sidebar */}
-          <aside className="min-h-screen sticky top-0 w-[4.3rem] xl:w-[275px] md:pr-4 bg-black flex flex-col items-center xl:items-start py-4 gap-2">
+          <aside className="min-h-screen sticky top-0 w-[4.3rem] xl:w-[275px] md:pr-4 bg-black hidden sm:flex flex-col items-center xl:items-start py-4 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
