@@ -668,11 +668,11 @@ export default function Home() {
 
             {/* Profile */}
             <div className="relative">
-              <div className="w-full h-32 sm:h-48 bg-[#eff3f4] px-4 py-1 sm:py-3 xl:py-3.5 select-none cursor-pointer">
-                <h1 className="text-2xl sm:text-3xl xl:text-4xl tracking-tighter font-bold">
+              <div className="w-full h-32 sm:h-48 bg-[#eff3f4] px-4 py-2 sm:py-3 xl:py-3.5 select-none cursor-pointer">
+                <h1 className="text-xl sm:text-3xl xl:text-4xl tracking-tighter font-bold">
                   Building Beautiful web experiences
                 </h1>
-                <p className="text-sm sm:text-base text-zinc-700">
+                <p className="text-xs sm:text-base text-zinc-700">
                   a web developer,{" "}
                   <span className="underline italic bg-zinc-200 font-light">
                     sometimes designer.
