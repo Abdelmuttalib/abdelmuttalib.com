@@ -683,7 +683,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="w-full h-12 flex justify-between items-end px-4">
-                <div className="relative bg-blue-100">
+                <div className="relative bg-zinc-900/80">
                   <div className="w-20 h-20 sm:w-32 sm:h-32 absolute -top-20 sm:-top-[118px] rounded-full border-2 border-black">
                     <Image
                       src="/me.jpg"
