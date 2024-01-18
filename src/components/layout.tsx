@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
       className={`${inter.className} w-full h-full min-h-screen flex flex-col relative`}
     >
       {pathname !== "/" && <Header />}
-      <main className="w-full max-w-7xl mx-auto h-full min-h-screen px-8 sm:px-16 xl:px-36 py-72">
+      <main className="w-full max-w-7xl mx-auto h-full min-h-screen px-8 sm:px-16 xl:px-36 py-48 md:py-72">
         {children}
       </main>
       <Footer />
@@ -34,7 +34,7 @@ export default function Layout({ children }: LayoutProps) {
 
 function Header() {
   return (
-    <header className="w-full h-12 sticky top-0 max-w-7xl mx-auto px-16 xl:px-36 flex items-center bg-transparent backdrop-blur-xl">
+    <header className="w-full h-12 sticky top-0 max-w-7xl mx-auto px-8 sm:px-16 xl:px-36 flex items-center bg-transparent backdrop-blur-xl">
       <Button className="size-8" size="icon" variant="secondary" asChild>
         <Link href="/">
           <ArrowLeftIcon className="w-5 h-5" />
