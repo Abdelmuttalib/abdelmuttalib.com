@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import nextImage from "/public/next.svg";
 import Link from "next/link";
-import { Inter } from "@next/font/google";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
 import cn from "classnames";
@@ -34,15 +33,13 @@ import {
   XMarkIcon,
   XCircleIcon,
 } from "@heroicons/react/20/solid";
-import Tweet, { TweetPropsT } from "../src/components/Tweet/Tweet";
-import { projects } from "../src/data/projects";
-import { Url } from "../types";
+import Tweet, { TweetPropsT } from "./Tweet";
+import { Url } from "../../../types";
+import { projects } from "../../data/projects";
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface TweetActionT {
   colorStyles: string;
@@ -121,7 +118,7 @@ interface AsideLinksT {
   label: string;
 }
 
-const asideLinkIconStyles = "w-[26px] text-[#e7e9ea]";
+const asideLinkIconStyles = "w-[26px] text-[#0f1419]";
 
 function CheckBadge({ className }: { className?: string }) {
   return (
@@ -507,8 +504,8 @@ const Tabs = () => {
                   "relative whitespace-nowrap flex-1 pt-4 px-4 text-sm leading-5 flex justify-center",
                   "focus:outline-none hover:bg-zinc-900/90",
                   profileTab === selectedProfileTab
-                    ? "text-[#e7e9ea] font-bold border-[#1d9bf0]"
-                    : "font-medium text-[#71767b]"
+                    ? "text-[#0f1419] font-bold border-[#1d9bf0]"
+                    : "font-medium text-[#536471]"
                 )
               }
             >
@@ -594,12 +591,12 @@ export default function Home() {
       </Head>
 
       {/* main */}
-      <div className="bg-black w-full min-h-screen overflow-y-auto ">
+      <div className="bg-white w-full min-h-screen overflow-y-auto ">
         <main
-          className={`${inter.className} bg-black h-full overflow w-screen sm:w-full min-h-screen flex fixed inset-0 overflow-y-auto max-w-2xl lg:max-w-[1260px] mx-auto no-scrollbar`}
+          className={` bg-white h-full overflow w-screen sm:w-full min-h-screen flex fixed inset-0 overflow-y-auto max-w-2xl lg:max-w-[1260px] mx-auto no-scrollbar`}
         >
           {/* Sidebar */}
-          <aside className="min-h-screen sticky top-0 w-[4.3rem] xl:w-[275px] md:pr-4 bg-black hidden sm:flex flex-col items-center xl:items-start py-4 gap-2">
+          <aside className="min-h-screen sticky top-0 w-[4.3rem] xl:w-[275px] md:pr-4 bg-white hidden sm:flex flex-col items-center xl:items-start py-4 gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 48 48"
@@ -616,10 +613,11 @@ export default function Home() {
                 key={link.label}
                 href=""
                 title={link.href}
-                className="hover:bg-zinc-900/80 p-3 rounded-full xl:inline-flex xl:items-center xl:gap-x-5 xl:pr-6"
+                // #eff3f4
+                className="hover:bg-[#0f1419]/10 p-3 rounded-full xl:inline-flex xl:items-center xl:gap-x-5 xl:pr-6"
               >
                 {link.icon}{" "}
-                <span className="hidden xl:inline text-xl text-[#e7e9ea] tracking-tight">
+                <span className="hidden xl:inline text-xl text-[#0f1419] tracking-tight">
                   {link.label}
                 </span>
               </Link>
@@ -627,14 +625,14 @@ export default function Home() {
             <button className="hidden xl:block w-[95%] bg-[#1d9bf0] text-white rounded-full hover:bg-[#1a8cd8] py-3 font-bold mt-2">
               Tweet
             </button>
-            <button className="hidden xl:flex px-3 w-full bg-transparent text-white rounded-full hover:bg-zinc-900/80 py-3 font-bold mt-auto items-center justify-between">
+            <button className="hidden xl:flex px-3 w-full bg-transparent text-white rounded-full hover:bg-[#0f1419]/10 py-3 font-bold mt-auto items-center justify-between">
               <span className="inline-flex items-center justify-between gap-x-3 truncate">
-                <span className="w-10 h-10 bg-black rounded-full inline-block"></span>
+                <span className="w-10 h-10 bg-white rounded-full inline-block"></span>
                 <span className="flex flex-col text-left truncate pr-3 max-w-[155px]">
                   <span className="whitespace-nowrap truncate text-[15px]">
                     Abdelmuttalib Ahmed
                   </span>
-                  <span className="text-sm text-[#71767b] whitespace-nowrap truncate font-normal">
+                  <span className="text-sm text-[#536471] whitespace-nowrap truncate font-normal">
                     @Abdelmuttalib_
                   </span>
                 </span>
@@ -654,15 +652,15 @@ export default function Home() {
             </button>
           </aside>
           <div className="min-h-screen flex-1 h-fit w-full flex flex-col border-x border-zinc-800/90 lg:w-[550px] lg:max-w-[550px] xl:max-w-none pb-16 lg:pb-28    ">
-            <div className="w-full sticky top-0 z-20 bg-black/[0.8] backdrop-blur-2xl text-[#e7e9ea] h-14 py-3 flex items-center gap-8 px-2.5">
-              <span className="p-2 hover:bg-zinc-900/80 cursor-pointer rounded-full">
-                <ArrowLeftIcon className="w-5 text-[#e7e9ea]" />
+            <div className="w-full sticky top-0 z-20 bg-white/[0.8] backdrop-blur-2xl text-[#0f1419] h-14 py-3 flex items-center gap-8 px-2.5">
+              <span className="p-2 hover:bg-[#0f1419]/10 cursor-pointer rounded-full">
+                <ArrowLeftIcon className="w-5 text-[#0f1419]" />
               </span>
               <div className="flex flex-col">
                 <h3 className="font-bold text-xl inline">
                   Abdelmuttalib Ahmed
                 </h3>
-                <span className="text-xs text-[#71767b]">0 Tweets</span>
+                <span className="text-xs text-[#536471]">0 Tweets</span>
               </div>
             </div>
 
@@ -683,15 +681,15 @@ export default function Home() {
                 </p>
               </div>
               <div className="w-full h-12 flex justify-between items-end px-4">
-                <div className="relative bg-zinc-900/80">
-                  <div className="w-20 h-20 sm:w-32 sm:h-32 absolute -top-20 sm:-top-[118px] rounded-full border-2 border-black">
+                <div className="relative bg-[#0f1419]/10">
+                  <div className="w-20 h-20 sm:w-32 sm:h-32 absolute -top-20 sm:-top-[118px] rounded-full border-4 border-white">
                     <Image
                       src="/me.jpg"
                       alt="personal photo"
                       // width={24}
                       // height={24}
                       fill
-                      className="object-cover rounded-full w-20 h-20 sm:w-32 sm:h-32 hover:opacity-90 cursor-pointer"
+                      className="object-cover rounded-full w-20 h-20 sm:w-32 sm:h-32 hover:opacity-95 cursor-pointer"
                     />
                   </div>
                 </div>
@@ -700,7 +698,7 @@ export default function Home() {
                   <button
                     type="button"
                     title="More"
-                    className="p-2 text-[#e7e9ea] font-bold text-sm rounded-full border border-gray-600 hover:bg-zinc-900/80"
+                    className="p-2 text-[#0f1419] font-bold text-sm rounded-full border border-gray-600 hover:bg-[#0f1419]/10"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -716,7 +714,7 @@ export default function Home() {
                   <button
                     type="button"
                     title="Message"
-                    className="p-2 font-bold text-sm rounded-full border text-[#e7e9ea] border-gray-600 hover:bg-zinc-900/80"
+                    className="p-2 font-bold text-sm rounded-full border text-[#0f1419] border-gray-600 hover:bg-[#0f1419]/10"
                   >
                     <div>
                       <svg
@@ -738,7 +736,7 @@ export default function Home() {
               </div>
 
               <div className="py-2 sm:pt-7 flex flex-col px-4">
-                <h2 className="text-lg sm:text-xl text-[#e7e9ea] font-bold inline-flex items-center gap-x-0.5">
+                <h2 className="text-lg sm:text-xl text-[#0f1419] font-bold inline-flex items-center gap-x-0.5">
                   Abdelmuttalib Ahmed{" "}
                   <svg
                     viewBox="0 0 22 22"
@@ -753,12 +751,12 @@ export default function Home() {
                     </g>
                   </svg>
                 </h2>
-                <span className="text-sm text-[#71767b]">@Abdelmuttalib_</span>
+                <span className="text-sm text-[#536471]">@Abdelmuttalib_</span>
               </div>
 
               {/* Bio */}
               <div className="px-4 py-2 pb-3">
-                <p className="text-[#e7e9ea] text-sm sm:text-[15px]">
+                <p className="text-[#0f1419] text-sm sm:text-[15px]">
                   Full Stack developer with a strong eye for innovative design
                   and a keen understanding of techniques geared toward optimum
                   user experience. Dedicated to driving innovation with the
@@ -769,7 +767,7 @@ export default function Home() {
 
               {/* info */}
               <div className="flex flex-wrap w-full px-4 gap-x-3">
-                <div className="flex gap-1 text-[#71767b] text-sm">
+                <div className="flex gap-1 text-[#536471] text-sm">
                   {/* job icon */}
                   <svg
                     viewBox="0 0 24 24"
@@ -783,7 +781,7 @@ export default function Home() {
                   </svg>
                   <p>Software Developer</p>
                 </div>
-                <div className="flex gap-1 text-[#71767b] text-sm">
+                <div className="flex gap-1 text-[#536471] text-sm">
                   {/* map icon */}
                   <svg
                     viewBox="0 0 24 24"
@@ -797,7 +795,7 @@ export default function Home() {
                   </svg>
                   <p>Philippines</p>
                 </div>
-                <div className="flex gap-1 text-[#71767b] text-sm">
+                <div className="flex gap-1 text-[#536471] text-sm">
                   {/* link icon */}
                   <svg
                     viewBox="0 0 24 24"
@@ -813,7 +811,7 @@ export default function Home() {
                     abdelmuttalib.com
                   </p>
                 </div>
-                <div className="flex gap-1 text-[#71767b] text-sm">
+                <div className="flex gap-1 text-[#536471] text-sm">
                   {/* calendar icon */}
                   <svg
                     viewBox="0 0 24 24"
@@ -828,7 +826,7 @@ export default function Home() {
                   <p>Joined January 2021</p>
                 </div>
 
-                <div className="flex gap-1 text-[#71767b] text-sm">
+                <div className="flex gap-1 text-[#536471] text-sm">
                   {/* ballon icon */}
                   <svg
                     viewBox="0 0 24 24"
@@ -846,12 +844,12 @@ export default function Home() {
 
               {/* followers/following */}
               <div className="flex gap-3 px-4 py-3 text-sm">
-                <div className="flex gap-1 text-[#71767b]">
-                  <span className="text-[#e7e9ea] font-semibold">12</span>
+                <div className="flex gap-1 text-[#536471]">
+                  <span className="text-[#0f1419] font-semibold">12</span>
                   <p>Following</p>
                 </div>
-                <div className="flex gap-1 text-[#71767b]">
-                  <span className="text-[#e7e9ea] font-semibold">11k</span>
+                <div className="flex gap-1 text-[#536471]">
+                  <span className="text-[#0f1419] font-semibold">11k</span>
                   <p>Followers</p>
                 </div>
               </div>
@@ -878,16 +876,16 @@ export default function Home() {
               <input
                 type="text"
                 placeholder="Search"
-                className="py-3 rounded-full bg-[#202327] px-6 pl-14 w-full text-sm text-[#e7e9ea] border border-transparent focus:border-[#1d9bf0] focus-visible:border-[#1d9bf0] outline-none focus:outline-none peer"
+                className="py-3 rounded-full bg-[#202327] px-6 pl-14 w-full text-sm text-[#0f1419] border border-transparent focus:border-[#1d9bf0] focus-visible:border-[#1d9bf0] outline-none focus:outline-none peer"
                 required
               />
-              <MagnifyingGlassIcon className="absolute top-3 left-4 w-5 text-[#71767b] peer-focus:text-[#1d9bf0]" />
-              {/* <XCircleIcon className="absolute top-2 right-2 w-7 text-[#71767b] peer-focus:text-[#1d9bf0] cursor-pointer hover:opacity-90 invisible peer-invalid:visible peer-valid:visible" /> */}
+              <MagnifyingGlassIcon className="absolute top-3 left-4 w-5 text-[#536471] peer-focus:text-[#1d9bf0]" />
+              {/* <XCircleIcon className="absolute top-2 right-2 w-7 text-[#536471] peer-focus:text-[#1d9bf0] cursor-pointer hover:opacity-90 invisible peer-invalid:visible peer-valid:visible" /> */}
             </div>
 
             {/* You Might Like */}
-            <div className="flex flex-col bg-[#16181c] w-full rounded-2xl">
-              <h3 className="text-xl font-bold text-[#e7e9ea] px-4 pt-3">
+            <div className="flex flex-col bg-[#f7f9f9] w-full rounded-2xl">
+              <h3 className="text-xl font-bold text-[#0f1419] px-4 pt-3">
                 {/* You might like */}
                 Links
               </h3>
@@ -909,8 +907,8 @@ export default function Home() {
             </div>
 
             {/* Trends for you */}
-            <div className="flex flex-col bg-[#16181c] w-full rounded-2xl">
-              <h3 className="text-xl font-bold text-[#e7e9ea] px-4 pt-3">
+            <div className="flex flex-col bg-[#f7f9f9] w-full rounded-2xl">
+              <h3 className="text-xl font-bold text-[#0f1419] px-4 pt-3">
                 {/* Trends for you */}
                 Technologies
               </h3>
@@ -938,7 +936,7 @@ export default function Home() {
               <BottomPageLink label="Accessibility" />
               <BottomPageLink label="Ads info" />
               <BottomPageLink label="More" />
-              <p className="text-[#71767b] text-xs whitespace-nowrap">
+              <p className="text-[#536471] text-xs whitespace-nowrap">
                 © 2023 abdelmuttalib.com
               </p>
             </div>
@@ -953,7 +951,7 @@ function BottomPageLink({ label }: { label: string }) {
   return (
     <Link
       href=""
-      className="text-[#71767b] text-xs whitespace-nowrap hover:underline"
+      className="text-[#536471] text-xs whitespace-nowrap hover:underline"
     >
       {label}
     </Link>
@@ -973,7 +971,7 @@ function SuggestedUser({
 }) {
   return (
     <Link href={link} target="_blank">
-      <div className="w-full flex items-center justify-between px-4 py-3.5 hover:bg-[#1b1d22]">
+      <div className="w-full flex items-center justify-between px-4 py-3.5 hover:bg-[#f7f9f9]/60">
         <div className="flex gap-2.5 text-sm items-center">
           <div className="relative w-11 h-11 rounded-full overflow-hidden">
             <Image
@@ -986,8 +984,8 @@ function SuggestedUser({
             />
           </div>
           <div>
-            <p className="text-[#e7e9ea] font-bold">{name}</p>
-            <span className="text-[#71767b]">@{at}</span>
+            <p className="text-[#0f1419] font-bold">{name}</p>
+            <span className="text-[#536471]">@{at}</span>
           </div>
         </div>
         <div>
@@ -1013,9 +1011,9 @@ function TrendHashtag({
     <div className="w-full flex items-center justify-between px-4 py-3.5 hover:bg-[#1b1d22]">
       <div className="flex gap-2.5 text-sm items-center">
         <div>
-          <p className="text-[#71767b] text-xs">{trending}</p>
-          <h6 className="text-[#e7e9ea] font-bold">#{hashtag}</h6>
-          <span className="text-[#71767b] text-xs">
+          <p className="text-[#536471] text-xs">{trending}</p>
+          <h6 className="text-[#0f1419] font-bold">#{hashtag}</h6>
+          <span className="text-[#536471] text-xs">
             49.4k tweets
             {/* {tweets} */}
           </span>
@@ -1040,7 +1038,7 @@ function TrendHashtag({
             <svg
               viewBox="0 0 24 24"
               aria-hidden="true"
-              className="w-[18px] text-[#71767b] rounded-full hover:text-sky-500 group-hover:text-sky-500"
+              className="w-[18px] text-[#536471] rounded-full hover:text-sky-500 group-hover:text-sky-500"
               fill="currentColor"
             >
               <g>

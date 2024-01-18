@@ -10,7 +10,7 @@ export default function Document() {
           content="Abdelmuttalib Ahmed is a Full Stack Developer. Dedicated to driving innovation with the ability to follow industry and technological trends, and facilitating early adoption of innovations."
         />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
 
         <link rel="icon" href="/favicon.ico" />
 
