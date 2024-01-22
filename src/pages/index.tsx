@@ -117,7 +117,10 @@ export default function Home({ blogs }: HomeProps) {
             </div>
           </div>
 
-          <Section title="Projects" contentContainerClassName="space-y-36">
+          <Section
+            title="Projects"
+            contentContainerClassName="space-y-36 xl:space-y-60"
+          >
             {projects.map((project) => (
               <div
                 key={project.name}

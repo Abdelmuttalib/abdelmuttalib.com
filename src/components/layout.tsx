@@ -49,7 +49,7 @@ function Footer() {
     <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36">
       <div className="h-full w-full items-center flex px-4 sm:px-6 lg:px-8">
         <div className="py-6 flex flex-col md:flex-row w-full justify-center md:justify-between items-center gap-y-4">
-          <h5 className="lg:text-lg dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:via-neutral-500 tracking-tight dark:from-white dark:to-current">
+          <h5 className="dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:via-neutral-500 tracking-tight dark:from-white dark:to-current">
             Abdelmuttalib Ahmed
           </h5>
           <div className="w-full md:w-auto flex gap-x-4 flex-wrap gap-y-2 justify-center text-sm dark:text-neutral-500">

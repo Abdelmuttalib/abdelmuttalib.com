@@ -18,7 +18,7 @@ export default function CVPage() {
       </Head>
 
       <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
+        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white dark:bg-transparent print:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-1.5">
               <h1 className="text-2xl font-bold">{PORTFOLIO_DATA.name}</h1>
@@ -171,7 +171,20 @@ export default function CVPage() {
             <h2 className="text-xl font-bold">Skills</h2>
             <div className="flex flex-wrap gap-1">
               {PORTFOLIO_DATA.skills.map((skill) => {
-                return <Badge key={skill}>{skill}</Badge>;
+                return (
+                  <>
+                    <Badge key={skill} className="inline-flex dark:hidden">
+                      {skill}
+                    </Badge>
+                    <Badge
+                      key={skill}
+                      className="hidden dark:inline-flex"
+                      variant="secondary"
+                    >
+                      {skill}
+                    </Badge>
+                  </>
+                );
               })}
             </div>
           </Section>
