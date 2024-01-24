@@ -6,24 +6,13 @@ import Link from "next/link";
 import Layout from "@/components/layout";
 import { Blog } from "types";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
-import {
-  ArrowRightIcon,
-  FileText,
-  GlobeIcon,
-  MailIcon,
-  PhoneIcon,
-} from "lucide-react";
+import { ArrowRightIcon, FileText, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import {
-  FollowLinkArrowIcon,
-  GitHubIcon,
-  LinkedInIcon,
-  XIcon,
-} from "@/components/icons";
+import { FollowLinkArrowIcon, GitHubIcon } from "@/components/icons";
 import Head from "next/head";
 
 interface HomeProps {
@@ -33,6 +22,7 @@ interface HomeProps {
 // #ebebeb
 // #4734f7
 // #a3a3a3
+// #808080
 
 export default function Home({ blogs }: HomeProps) {
   return (
@@ -48,7 +38,7 @@ export default function Home({ blogs }: HomeProps) {
             <h1 className="text-5xl sm:text-6xl font-medium tracking-tighter">
               Building beautiful web experiences
             </h1>
-            <p className="text-[#808080] dark:text-neutral-400 text-lg">
+            <p className="text-neutral-600 dark:text-neutral-500 text-lg">
               I&apos;m a software engineer based in the Philippines. I
               specialize in building high-quality websites and applications.
             </p>
@@ -136,7 +126,7 @@ export default function Home({ blogs }: HomeProps) {
                       <ArrowRightIcon className="w-5 h-5 inline-block -rotate-45 text-neutral-300 dark:text-neutral-700 group-hover:text-current" />
                     </Link>
                     <div>
-                      <p className="text-neutral-500 dark:text-neutral-400">
+                      <p className="text-neutral-500 dark:text-neutral-500">
                         {project.description}
                       </p>
                     </div>
@@ -260,10 +250,10 @@ export default function Home({ blogs }: HomeProps) {
               {blogs.map((blog) => (
                 <li key={blog.slug} className="group">
                   <Link href={`/blog/${blog.slug}`} className="space-y-1">
-                    <h1 className="font-medium tracking-tight group-hover:underline dark:group-hover:decoration-[#a3a3a3] decoration-2 group-hover:underline-offset-4">
+                    <h3 className="font-medium tracking-tight group-hover:underline dark:group-hover:decoration-[#a3a3a3] decoration-2 group-hover:underline-offset-4">
                       {blog.frontmatter.title}
-                    </h1>
-                    <p className="text-[#a3a3a3] text-xs">
+                    </h3>
+                    <p className="text-neutral-500 text-xs">
                       {blog.frontmatter.date}
                     </p>
                   </Link>
@@ -290,9 +280,9 @@ function Section({
 }) {
   return (
     <div className={cn("space-y-8", className)}>
-      <h1 className="text-xl font-medium underline underline-offset-2 tracking-tight">
+      <h2 className="text-xl font-medium underline underline-offset-2 tracking-tight">
         {title}
-      </h1>
+      </h2>
       <div className={cn(contentContainerClassName)}>{children}</div>
     </div>
   );

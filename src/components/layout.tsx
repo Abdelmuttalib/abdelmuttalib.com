@@ -1,5 +1,4 @@
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
-import { Inter } from "@next/font/google";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -14,15 +13,11 @@ interface LayoutProps {
 // #4734f7
 // #a3a3a3
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Layout({ children }: LayoutProps) {
   const { pathname } = useRouter();
 
   return (
-    <div
-      className={`${inter.className} w-full h-full min-h-screen flex flex-col relative`}
-    >
+    <div className={` w-full h-full min-h-screen flex flex-col relative`}>
       {pathname !== "/" && <Header />}
       <main className="w-full max-w-7xl mx-auto h-full min-h-screen px-8 sm:px-16 xl:px-36 py-48 md:py-72">
         {children}
@@ -49,9 +44,9 @@ function Footer() {
     <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36">
       <div className="h-full w-full items-center flex px-4 sm:px-6 lg:px-8">
         <div className="py-6 flex flex-col md:flex-row w-full justify-center md:justify-between items-center gap-y-4">
-          <h5 className="dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:via-neutral-500 tracking-tight dark:from-white dark:to-current">
+          <p className="dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:via-neutral-500 tracking-tight dark:from-white dark:to-current">
             Abdelmuttalib Ahmed
-          </h5>
+          </p>
           <div className="w-full md:w-auto flex gap-x-4 flex-wrap gap-y-2 justify-center text-sm dark:text-neutral-500">
             <Link
               href="/cv"
