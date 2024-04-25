@@ -120,6 +120,7 @@ export default function Home({ blogs }: HomeProps) {
                   <div className="flex flex-col gap-y-5 py-8 pr-14">
                     <Link
                       href={project.live}
+                      target="_blank"
                       className="group hover:underline hover:decoration-current hover:underline-offset-4 font-medium tracking-tight inline-flex items-center gap-x-1"
                     >
                       <h3 className="text-xl">{project.name}</h3>
