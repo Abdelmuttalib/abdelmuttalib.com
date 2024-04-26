@@ -171,6 +171,7 @@ export default function Home({ blogs }: HomeProps) {
                 {/* <div className="relative w-[70%] h-96"> */}
                 <Link
                   href={project.live}
+                  target="_blank"
                   className="group relative rounded-lg items-center border-2 border-transparent hover:border-neutral-800 h-fit dark:hover:border-neutral-200 hover:bg-brand-100/20"
                 >
                   {/* <ArrowRightIcon className="absolute top-0 right-0 w-5 h-5 inline-block -rotate-45 text-neutral-300 group-hover:text-current " /> */}
