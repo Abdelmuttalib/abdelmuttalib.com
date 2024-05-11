@@ -39,10 +39,10 @@ export default function BlogPage({
             <p className="text-[#a3a3a3]">{date}</p>
           </div>
           {/* <p>{excerpt}</p> */}
-          <div
+          <article
             dangerouslySetInnerHTML={{ __html: marked(content) }}
             className="text-lg"
-          ></div>
+          ></article>
         </div>
       </Layout>
     </>

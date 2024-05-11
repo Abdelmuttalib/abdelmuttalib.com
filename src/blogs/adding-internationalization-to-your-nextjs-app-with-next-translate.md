@@ -91,8 +91,7 @@ export default function MyComponent() {
 
 **Ready to See It in Action?**
 
-Check out my simple internationalized Todo app
-here [simple internationalized app](https://t3-todo-app-eta-jet.vercel.app/) to
+Check out my [simple internationalized app](https://t3-todo-app-eta-jet.vercel.app/) here to
 experience next-translate in action! This practical
 example demonstrates how to handle dynamic
 content translation seamlessly.
