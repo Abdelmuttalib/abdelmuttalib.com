@@ -19,11 +19,6 @@ interface HomeProps {
   blogs: Blog[];
 }
 
-// #ebebeb
-// #4734f7
-// #a3a3a3
-// #808080
-
 export default function Home({ blogs }: HomeProps) {
   return (
     <>
