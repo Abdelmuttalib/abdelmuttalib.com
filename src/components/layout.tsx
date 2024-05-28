@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { useRouter } from "next/router";
 import ThemeSelect from "./theme-select";
+import Container from "./ui/container";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,15 +13,23 @@ interface LayoutProps {
 // #ebebeb
 // #4734f7
 // #a3a3a3
+// #c6c6c6
+// #0b151e
+// #999999
+
+// px-8 sm:px-16 xl:px-36
 
 export default function Layout({ children }: LayoutProps) {
   const { pathname } = useRouter();
 
   return (
-    <div className={` w-full h-full min-h-screen flex flex-col relative`}>
+    <div className={`w-full h-full min-h-screen flex flex-col relative`}>
       {pathname !== "/" && <Header />}
-      <main className="w-full max-w-7xl mx-auto h-full min-h-screen px-8 sm:px-16 xl:px-36 py-48 md:py-72">
+      {/*  py-48 md:py-72 */}
+      <main className="w-full h-full min-h-screen">
+        {/* <Container className=""> */}
         {children}
+        {/* </Container> */}
       </main>
       <Footer />
     </div>

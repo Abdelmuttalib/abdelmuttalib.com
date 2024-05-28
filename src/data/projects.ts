@@ -74,16 +74,32 @@ export const projects = [
     github: "https://github.com/Abdelmuttalib/Memories",
     live: "https://memories-ashen.vercel.app/",
   },
-  // {
-  //   name: "T3 Todo App",
-  //   description: "...",
-  //   technologies: [
-  //     "Nextjs",
-  //     "Prisma",
-  //     "tTRPC",
-  //     "Tailwind CSS",
-  //   ],
-  //   image: "t3-todo-app.png",
-  //   img: "t3-todo-app-1.png",
-  //   github: "https://github.com/Abdelmut
+  
+];
+
+export const landingPages = [
+  {
+    name: "Football Club Landing Page",
+    description:
+      "A landing page for a football club, showcasing a modern and sleek design.",
+    img: "o15-1-full.png",
+  },
+  {
+    name: "Coffee Company Landing Page",
+    description:
+      "A simple landing page for a coffee company, showcasing a clean and modern design.",
+    img: "coffee-1-full.png",
+  },
+  {
+    name: "3D Rendering Inspection",
+    description:
+      "A 3D rendering inspection tool, allowing users to inspect 3D models and designs.",
+    img: "cranecam-1.png",
+  },
+  {
+    name: "Dashboard",
+    description:
+      "",
+    img: "dashboard-1.png",
+  },
 ];
