@@ -17,6 +17,15 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        // globals.css
+        // --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        // Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+        // "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        // css variable font
+        sans: "var(--font-sans)",
+  
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -51,6 +60,8 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        "layer-1": "hsl(var(--layer-1))",
       },
       borderRadius: {
         lg: "var(--radius)",

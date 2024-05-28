@@ -9,11 +9,11 @@ Internationalization is crucial for reaching users across different languages an
 
 **Why Choose next-translate?**
 
-- **Simple Setup:** Getting started is a piece of cake! Just install the package and follow a few straightforward configuration steps.
+**Simple Setup:** Getting started is a piece of cake! Just install the package and follow a few straightforward configuration steps.
 
-- **Dynamic Content Translation:** next-translate enables you to translate dynamic content like user-generated data or database-driven content effortlessly.
+**Dynamic Content Translation:** next-translate enables you to translate dynamic content like user-generated data or database-driven content effortlessly.
 
-- **SEO-friendly:** Search engines love i18n-friendly apps. next-translate helps you create SEO-friendly URLs for each language, boosting your app's discoverability.
+**SEO-friendly:** Search engines love i18n-friendly apps. next-translate helps you create SEO-friendly URLs for each language, boosting your app's discoverability.
 
 How to Get Started:
 
