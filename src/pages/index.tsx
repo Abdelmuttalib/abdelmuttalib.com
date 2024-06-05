@@ -138,7 +138,7 @@ export default function Home({ blogs }: HomeProps) {
                     <Image
                       src={`/images/projects/${project.img}`}
                       alt={`${project.name} project image`}
-                      className="w-full bg-blue-400 shadow-md rounded lg:w-auto "
+                      className="w-full shadow-md rounded lg:w-auto "
                       width={1280}
                       height={467}
                       // layout="fill"
