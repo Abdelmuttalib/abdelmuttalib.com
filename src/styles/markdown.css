@@ -41,7 +41,7 @@ article em {
 }
 
 article img {
-  @apply  p-3 rounded md:p-5 bg-neutral-100 dark:bg-neutral-800
+  @apply p-3 rounded md:p-5 bg-layer-2 dark:bg-layer-3/70;
 }
 
 /* Blockquote*/
@@ -69,11 +69,13 @@ article blockquote p code {
 /* Code Snippets */
 article pre {
   overflow-x: auto;
-  background: var(--overlay);
+  /* background: var(--layer-3); */
   border-radius: var(--border-radius);
   line-height: 1.8;
   padding: var(--gap) var(--gap-15);
   font-size: var(--font-size-sm);
+
+  @apply bg-layer-2 dark:bg-layer-3/70 text-sm;
 }
 
 article *:not(pre) > code {

@@ -23,7 +23,9 @@ export default function Layout({ children }: LayoutProps) {
   const { pathname } = useRouter();
 
   return (
-    <div className={`w-full h-full min-h-screen flex flex-col relative`}>
+    <div
+      className={`w-full h-full min-h-screen flex flex-col relative bg-background`}
+    >
       {pathname !== "/" && <Header />}
       {/*  py-48 md:py-72 */}
       <main className="w-full h-full min-h-screen">
@@ -50,16 +52,13 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36">
+    <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36 w-full max-w-7xl mx-auto text-sm">
       <div className="h-full w-full items-center flex px-4 sm:px-6 lg:px-8">
         <div className="py-6 flex flex-col md:flex-row w-full justify-center md:justify-between items-center gap-y-4">
-          <p className="dark:text-transparent dark:bg-clip-text dark:bg-gradient-to-b dark:via-neutral-500 tracking-tight dark:from-white dark:to-current">
-            Abdelmuttalib Ahmed
-          </p>
-          <div className="w-full md:w-auto flex gap-x-4 flex-wrap gap-y-2 justify-center text-sm dark:text-neutral-500">
+          <div className="w-full md:w-auto flex gap-x-4 flex-wrap gap-y-2 justify-center text-xs text-foreground-subtle">
             <Link
               href="/cv"
-              className="text-brand-600 hover:text-brand-400 underline decoration decoration-current underline-offset-4"
+              className="underline decoration-current underline-offset-2"
               target="_blank"
               rel="noreferrer"
             >
@@ -68,7 +67,7 @@ function Footer() {
             {PORTFOLIO_DATA.contact.email ? (
               <Link
                 href={`mailto:${PORTFOLIO_DATA.contact.email}`}
-                className="text-brand-600 hover:text-brand-400 underline decoration decoration-current underline-offset-4"
+                className="underline decoration-current underline-offset-2"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -80,7 +79,7 @@ function Footer() {
             {PORTFOLIO_DATA.contact.tel ? (
               <Link
                 href={`tel:${PORTFOLIO_DATA.contact.tel}`}
-                className="text-brand-600 hover:text-brand-400 underline decoration decoration-current underline-offset-4"
+                className="underline decoration-current underline-offset-2"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -90,16 +89,16 @@ function Footer() {
 
             <Link
               href="https://github.com/Abdelmuttalib"
-              className="text-brand-600 hover:text-brand-400 underline decoration decoration-current underline-offset-4"
+              className="underline decoration-current underline-offset-2"
             >
               {/* <GitHubIcon /> */}
               <span>GitHub</span>
             </Link>
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <ThemeSelect />
-            </div>
+            </div> */}
           </div>
-          <div className="mt-2 block md:hidden">
+          <div className="mt-2 block">
             <ThemeSelect />
           </div>
         </div>
