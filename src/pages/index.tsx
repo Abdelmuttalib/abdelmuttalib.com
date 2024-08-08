@@ -19,7 +19,6 @@ export default function Home({ blogs }: HomeProps) {
         <title>{`${PORTFOLIO_DATA.name} | ${PORTFOLIO_DATA.about}`}</title>
         <meta name="description" content={PORTFOLIO_DATA.summary} />
       </Head>
-
       {/* <HomePageView blogs={blogs} /> */}
       <HomePageView2 blogs={blogs} />
     </>
