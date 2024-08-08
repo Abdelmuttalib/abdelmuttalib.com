@@ -40,22 +40,14 @@ export const projects = [
     live: "https://momentum-gamma.vercel.app/",
   },
   {
-    name: "Podx",
+    name: "Dashboard Starter",
     description:
-      "User-friendly podcast web application, offering a smooth and engaging listening experience with integrated podcast APIs.",
-    technologies: [
-      "React",
-      "Nextjs",
-      "TailwindCSS",
-      "SWR",
-      "Typescript",
-      "PWA",
-      "Workbox",
-    ],
-    image: "podx-pwa.png",
-    img: "podx-1.png",
-    github: "https://github.com/Abdelmuttalib/PodX",
-    live: "http://podx.vercel.app/",
+      "Dashboard starter template, featuring a clean and modern design with responsive layout and reusable components.",
+    technologies: ["React", "Nextjs", "Typescript", "TailwindCSS"],
+    image: "dashboard-starter.png",
+    img: "dashboard-starter.png",
+    github: "https://github.com/Abdelmuttalib/nextjs-tailwindcss-dashboard",
+    live: "https://nextjs-tailwindcss-dashboard.vercel.app/",
   },
   {
     name: "Memories",
@@ -74,7 +66,24 @@ export const projects = [
     github: "https://github.com/Abdelmuttalib/Memories",
     live: "https://memories-ashen.vercel.app/",
   },
-  
+  {
+    name: "Podx",
+    description:
+      "User-friendly podcast web application, offering a smooth and engaging listening experience with integrated podcast APIs.",
+    technologies: [
+      "React",
+      "Nextjs",
+      "TailwindCSS",
+      "SWR",
+      "Typescript",
+      "PWA",
+      "Workbox",
+    ],
+    image: "podx-pwa.png",
+    img: "podx-1.png",
+    github: "https://github.com/Abdelmuttalib/PodX",
+    live: "http://podx.vercel.app/",
+  },
 ];
 
 export const landingPages = [
@@ -98,8 +107,7 @@ export const landingPages = [
   },
   {
     name: "Dashboard",
-    description:
-      "",
+    description: "",
     img: "dashboard-1.png",
   },
 ];

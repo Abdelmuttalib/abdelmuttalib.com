@@ -5,7 +5,7 @@ export default function ThemeSelect() {
   return (
     <label className="relative">
       <select
-        className="w-24 relative rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 text-sm px-1 py-0.5 transition-colors focus:outline-none text-nowrap "
+        className="w-24 relative rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 text-xs px-1 py-0.5 transition-colors focus:outline-none text-nowrap "
         value={theme}
         onChange={(e) => setTheme(e.target.value)}
         // id="themeSelect"
