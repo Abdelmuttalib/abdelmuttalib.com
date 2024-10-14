@@ -214,6 +214,7 @@ export default function CVPage() {
               title: "Personal Website",
             },
             ...PORTFOLIO_DATA.contact.social.map((socialMediaLink) => ({
+              key: socialMediaLink.name,
               url: socialMediaLink.url,
               title: socialMediaLink.name,
             })),

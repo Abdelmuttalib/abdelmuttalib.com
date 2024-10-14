@@ -1,5 +1,6 @@
 ---
 title: "Embracing Brave Browser as a Software Developer"
+description: "In the fast-paced world of software development, having the right tools can make all the difference. For years, Chrome has been the go-to browser for developers, thanks to its powerful extensions and robust developer tools. However, a new contender has entered the arena – Brave browser."
 date: "Aug 2, 2023"
 ---
 

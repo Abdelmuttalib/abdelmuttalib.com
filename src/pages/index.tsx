@@ -4,7 +4,7 @@ import path from "path";
 
 import Head from "next/head";
 
-import { HomePageView2 } from "@/components/views/home";
+import { HomePageView3 } from "@/components/views/home";
 import { Blog } from "types";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 
@@ -20,7 +20,8 @@ export default function Home({ blogs }: HomeProps) {
         <meta name="description" content={PORTFOLIO_DATA.summary} />
       </Head>
       {/* <HomePageView blogs={blogs} /> */}
-      <HomePageView2 blogs={blogs} />
+      {/* <HomePageView2 blogs={blogs} /> */}
+      <HomePageView3 blogs={blogs} />
     </>
   );
 }

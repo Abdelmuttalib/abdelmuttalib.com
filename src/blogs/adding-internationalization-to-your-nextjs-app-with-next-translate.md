@@ -1,5 +1,6 @@
 ---
 title: "Adding Internationalization to Your Next.js App with next-translate"
+description: "Internationalization is crucial for reaching users across different languages and cultures. With next-translate, you can seamlessly integrate multiple languages into your app, allowing your content to resonate with users worldwide."
 date: "Aug 14, 2023"
 ---
 
