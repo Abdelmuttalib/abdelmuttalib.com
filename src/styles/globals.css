@@ -40,20 +40,20 @@
     --color-white: 0 0% 100%; /* #ffffff */
     --color-black: 0 0% 0%; /* #000000 */
 
-    --color-base: 0 0% 100%;
-    --color-base-50: 0 0% 98%;
-    --color-base-100: 0 0% 96%;
-    --color-base-200: 0 0% 90%;
-    --color-base-300: 0 0% 83%;
-    --color-base-400: 0 0% 64%;
-    --color-base-500: 0 0% 45%;
-    --color-base-600: 0 0% 32%;
-    --color-base-700: 0 0% 25%;
-    --color-base-800: 0 0% 15%;
-    --color-base-900: 0 0% 9%;
-    --color-base-950: 0 0% 4%;
+    --color-base: 0 0% 100%; /* hsl(0, 0%, 100%) */
+    --color-base-50: 0 0% 98%; /* hsl(0, 0%, 98%) */
+    --color-base-100: 0 0% 96%; /* hsl(0, 0%, 96%) */
+    --color-base-200: 0 0% 90%; /* hsl(0, 0%, 90%) */
+    --color-base-300: 0 0% 83%; /* hsl(0, 0%, 83%) */
+    --color-base-400: 0 0% 64%; /* hsl(0, 0%, 64%) */
+    --color-base-500: 0 0% 45%; /* hsl(0, 0%, 45%) */
+    --color-base-600: 0 0% 32%; /* hsl(0, 0%, 32%) */
+    --color-base-700: 0 0% 25%; /* hsl(0, 0%, 25%) */
+    --color-base-800: 0 0% 15%; /* hsl(0, 0%, 15%) */
+    --color-base-900: 0 0% 9%; /* hsl(0, 0%, 9%) */
+    --color-base-950: 0 0% 4%; /* hsl(0, 0%, 4%) */
 
-    --background: var(--color-white);
+    --background: var(--color-base-100);
     --foreground: var(--color-base-900);
 
     /* --color-base: #ffffff;
@@ -90,7 +90,7 @@
     --popover: var(--color-base);
     --popover-foreground: var(--color-base-900);
 
-    --primary: var(--color-base-50);
+    --primary: var(--color-base-950);
     --primary-foreground: var(--color-base-900);
 
     --secondary: var(--color-base-200);
@@ -129,9 +129,6 @@
   }
 
   .dark {
-    /* --background: "#151515";
-    --foreground: "#fff"; */
-
     --color-base: 0 0% 0%;
     --color-base-50: 0 0% 4%;
     --color-base-100: 0 0% 9%;
@@ -145,7 +142,7 @@
     --color-base-900: 0 0% 96%;
     --color-base-950: 0 0% 98%;
 
-    --color-white: var(--color-base-100);
+    --background: var(--color-base-50);
 
     /* --color-base: #000000;
     --color-base-50: #0a0a0a;
@@ -173,7 +170,7 @@
     '--color-base-900': 'hsl(0, 0%, 96%)',
     '--color-base-950': 'hsl(0, 0%, 98%)' */
 
-    /* --card: 0 0% 3.9%;
+    --card: 0 0% 3.9%;
     --card-foreground: 0 0% 98%;
 
     --popover: 0 0% 3.9%;
@@ -201,7 +198,7 @@
     --color-white: 0 0% 100%;
     --color-black: 0 0% 0%;
 
-    --layer-1: var(--background); */
+    --layer-1: var(--background);
 
     /* --color-gray-50: 0 0% 98%;
     --color-gray-100: 0 0% 96.1%;
@@ -242,10 +239,10 @@
   }
 
   body {
-    background: var(--background);
-    color: var(--foreground);
+    /* background: var(--background); */
+    /* color: var(--foreground); */
 
-    @apply antialiased border-border;
+    @apply antialiased border-border bg-background;
   }
 
   h1,

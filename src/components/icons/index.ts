@@ -4,3 +4,5 @@ import { XIcon } from "./XIcon";
 import { FollowLinkArrowIcon } from "./FollowLinkArrowIcon";
 
 export { GitHubIcon, LinkedInIcon, XIcon, FollowLinkArrowIcon };
+
+export { ArrowUpRight } from "./ArrowUpRight";

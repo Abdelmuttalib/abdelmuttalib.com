@@ -3,7 +3,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { ThemeProvider } from "next-themes";
 
 import "@/styles/globals.css";
-import TailwindIndicator from "@/components/tailwind-indicator";
+import {
+  TailwindIndicator,
+  UICustomizer,
+} from "@/components/tailwind-indicator";
 import { Inter } from "@next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,11 +19,18 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
 
-        {process.env.NODE_ENV === "production" && (
-          <Analytics mode="production" />
-        )}
+        <VercelAnalytics />
         <TailwindIndicator />
+        <UICustomizer />
       </ThemeProvider>
     </>
   );
+}
+
+function VercelAnalytics() {
+  if (process.env.NODE_ENV !== "production") {
+    return null;
+  }
+
+  return <Analytics mode="production" />;
 }

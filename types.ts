@@ -6,6 +6,7 @@ export type Blog = {
   slug: string;
   frontmatter: {
     title: string;
+    description: string;
     date: string;
     excerpt: string;
   };

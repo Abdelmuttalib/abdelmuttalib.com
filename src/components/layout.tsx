@@ -40,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
 
 function Header() {
   return (
-    <header className="w-full h-12 sticky top-0 max-w-7xl mx-auto px-8 sm:px-16 xl:px-36 flex items-center bg-transparent backdrop-blur-xl">
+    <header className="w-full h-12 sticky top-0 max-w-6xl mx-auto px-8 sm:px-16 xl:px-36 flex items-center bg-transparent backdrop-blur-xl">
       <Button className="size-8" size="icon" variant="secondary" asChild>
         <Link href="/">
           <ArrowLeftIcon className="w-5 h-5" />
@@ -52,7 +52,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36 w-full max-w-7xl mx-auto text-sm">
+    <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36 w-full max-w-6xl mx-auto text-sm">
       <div className="h-full w-full items-center flex px-4 sm:px-6 lg:px-8">
         <div className="py-6 flex flex-col md:flex-row w-full justify-center md:justify-between items-center gap-y-4">
           <div className="w-full md:w-auto flex gap-x-4 flex-wrap gap-y-2 justify-center text-xs text-foreground-subtle">

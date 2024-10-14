@@ -10,6 +10,8 @@ import Head from "next/head";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import Container, { BlogContainer } from "@/components/ui/container";
 import { Calendar } from "lucide-react";
+import { cn } from "@/lib/cn";
+import { PCard } from "@/components/views/home";
 
 interface BlogPageProps {
   frontmatter: {
@@ -35,7 +37,7 @@ export default function BlogPage({
       </Head>
 
       <Layout>
-        <BlogContainer>
+        <PCard className="max-w-3xl mx-auto w-full p-10">
           <div className="space-y-16 py-36">
             <div className="space-y-5 md:space-y-10">
               <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-balance">
@@ -52,7 +54,7 @@ export default function BlogPage({
               className="text-neutral-900 dark:text-neutral-200 prose dark:prose-dark max-w-none w-full"
             ></article>
           </div>
-        </BlogContainer>
+        </PCard>
       </Layout>
     </>
   );

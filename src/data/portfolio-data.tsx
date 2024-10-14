@@ -5,12 +5,14 @@ export const PORTFOLIO_DATA = {
   name: "Abdelmuttalib Ahmed",
   initials: "BJ",
   location: "Pangasinan, Philippines",
-  // location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  // location: "",
+  locationLink: "",
   about:
     "Front End Developer focused on building products with extra attention to detail",
   summary:
     "As a Front End Developer, I've played a pivotal role in driving product development from inception to fruition, contributing effectively to multiple successful projects. With nearly 3 years of experience, I've demonstrated my proficiency in JavaScript, TypeScript, React, Vue, Next.js, Node.js, Express.js and Prisma. I thrive in a collaborative environment, working seamlessly with cross-functional teams to deliver high-quality solutions. My journey spans over 2 years of experience in working remotely with companies all around the world.",
+  summary2:
+    "I've played a pivotal role in driving product development from inception to fruition, contributing effectively to multiple successful projects. With nearly 3 years of experience in building web and mobile apps.",
   avatarUrl: "/images/personal-avatar.png",
   // avatarUrl: "https://avatars.githubusercontent.com/u/54845047?v=4",
   personalWebsiteUrl: "https://abdelmuttalib.com",
