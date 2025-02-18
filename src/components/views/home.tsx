@@ -1128,7 +1128,7 @@ export function PCard({ className, children, ...props }: PCardProps) {
   return (
     <div
       className={cn(
-        "w-full h-full flex p-2 sm:p-4 md:p-6 rounded-xl",
+        "w-full h-full flex p-4 sm:p-4 md:p-6 rounded-xl",
         "bg-white dark:bg-base-200",
         // "shadow",
         "shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)]",
