@@ -1,5 +1,21 @@
 export const projects = [
   {
+    name: "shadcn ui styles",
+    description: "Custom shadcn ui kits and styles.",
+    technologies: [
+      "React",
+      "Nextjs",
+      "Typescript",
+      "TailwindCSS",
+      "shadcn ui",
+      "Stripe",
+    ],
+    image: "og-image-2.png",
+    img: "og-image-2.png",
+    github: "#",
+    live: "https://shadcn.style",
+  },
+  {
     name: "Opulent",
     description:
       "Elegant e-commerce website powered by Stripe payments, providing seamless and secure transactions for customers.",
