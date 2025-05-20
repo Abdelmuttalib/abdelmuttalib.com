@@ -9,7 +9,6 @@ import {
   ReactNode,
 } from "react";
 import Link from "next/link";
-import { ArrowUpRight } from "./icons";
 import {
   FigmaURL,
   GithubURL,
@@ -17,6 +16,7 @@ import {
   ResumeURL,
   TwitterURL,
 } from "@/lib/constants";
+import { Icons } from "@/components/icons";
 
 export const SocialLinks = () => {
   const [hoveredButton, setHoveredButton] = useState<string | null>(null);
@@ -60,7 +60,7 @@ export const SocialLinks = () => {
         className="relative -mx-2 flex items-center gap-1 md:gap-2"
       >
         <div
-          className="bg-layer-2 dark:bg-transparent/20 absolute inset-y-0 left-0 rounded h-full scale-95"
+          className="bg-popover dark:bg-transparent/20 absolute inset-y-0 left-0 rounded h-full scale-95"
           style={{ ...getButtonStyles() }}
         />
 
@@ -101,11 +101,11 @@ export const LinkTrigger = ({
       onMouseEnter={repositionHover}
       rel="noopener"
       id={id}
-      className="group/link text-sm inline-flex items-center py-1 px-2 gap-1 relative cursor-pointer bg-transparent border-none text-foreground-subtle hover:text-foreground focus-visible:text-foreground focus-visible:bg-layer-2"
+      className="group/link text-sm inline-flex items-center py-1 px-2 gap-1 relative cursor-pointer bg-transparent border-none text-foreground-subtle hover:text-foreground focus-visible:text-foreground focus-visible:bg-popover"
     >
       {children}
       <span className="grid place-items-center transition-transform pointer-events-none group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-focus-visible/link:translate-x-0.5 group-focus-visible/link:-translate-y-0.5">
-        <ArrowUpRight className="pointer-events-none" width={14} height={14} />
+        <Icons.arrowUpRight className="pointer-events-none" />
       </span>
     </Link>
   );
@@ -126,11 +126,11 @@ export const LocalLinkTrigger = ({
       href={href}
       onMouseEnter={repositionHover}
       id={id}
-      className="group/link text-sm inline-flex items-center py-1 px-2 gap-1 relative cursor-pointer bg-transparent border-none text-foreground-subtle hover:text-foreground focus-visible:text-foreground focus-visible:bg-layer-2"
+      className="group/link text-sm inline-flex items-center py-1 px-2 gap-1 relative cursor-pointer bg-transparent border-none text-foreground-subtle hover:text-foreground focus-visible:text-foreground focus-visible:bg-popover"
     >
       {children}
       <span className="grid place-items-center transition-transform pointer-events-none group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-focus-visible/link:translate-x-0.5 group-focus-visible/link:-translate-y-0.5">
-        <ArrowUpRight className="pointer-events-none" width={14} height={14} />
+        <Icons.arrowUpRight className="pointer-events-none" />
       </span>
     </Link>
   );

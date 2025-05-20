@@ -4,8 +4,8 @@ article {
   letter-spacing: -0.2px;
 }
 article > * + p {
-  color: var(--fg);
-  margin: var(--gap-15) 0;
+  color: var(--foreground);
+  margin: 1.5rem 0;
 }
 
 article img {
@@ -13,7 +13,7 @@ article img {
   width: auto;
   margin: auto;
   display: block;
-  border-radius: var(--border-radius);
+  border-radius: 0.5rem;
 }
 
 article h2 {
@@ -41,7 +41,7 @@ article em {
 }
 
 article img {
-  @apply p-3 rounded md:p-5 bg-layer-2 dark:bg-layer-3/70;
+  @apply p-2 rounded-md md:p-4 bg-accent dark:bg-accent/50;
 }
 
 /* Blockquote*/
@@ -70,12 +70,11 @@ article blockquote p code {
 article pre {
   overflow-x: auto;
   /* background: var(--layer-3); */
-  border-radius: var(--border-radius);
+  border-radius: 0.5rem;
   line-height: 1.8;
-  padding: var(--gap) var(--gap-15);
-  font-size: var(--font-size-sm);
-
-  @apply bg-layer-2 dark:bg-layer-3/70 text-sm;
+  padding: 0.875rem 1rem;
+  font-size: 0.875rem;
+  @apply bg-accent dark:bg-accent/50 text-sm;
 }
 
 article *:not(pre) > code {

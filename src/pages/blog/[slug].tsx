@@ -4,7 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import path from "path";
-import Layout from "../../components/layout";
+import Layout from "@/components/layout";
 import { marked } from "marked";
 import Head from "next/head";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
@@ -12,6 +12,7 @@ import Container, { BlogContainer } from "@/components/ui/container";
 import { Calendar } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { PCard } from "@/components/views/home";
+import { PageContainer } from "@/components/common/page-container";
 
 interface BlogPageProps {
   frontmatter: {
@@ -37,24 +38,23 @@ export default function BlogPage({
       </Head>
 
       <Layout>
-        <PCard className="max-w-3xl mx-auto w-full p-10">
-          <div className="space-y-16 py-36">
-            <div className="space-y-5 md:space-y-10">
-              <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-balance">
-                {title}
-              </h1>
-              <div className="text-neutral-500 dark:text-neutral-400 inline-flex items-center gap-x-2">
-                <Calendar className="w-5 h-5" />
+        <PageContainer>
+          <main className="space-y-16 py-16">
+            <div className="space-y-3">
+              <div className="text-foreground-subtle inline-flex items-center gap-x-2">
                 <p className="font-medium text-sm">{date}</p>
               </div>
+              <h1 className="text-3xl font-semibold tracking-tight text-balance">
+                {title}
+              </h1>
             </div>
             {/* <p>{excerpt}</p> */}
             <article
               dangerouslySetInnerHTML={{ __html: marked(content) }}
-              className="text-neutral-900 dark:text-neutral-200 prose dark:prose-dark max-w-none w-full"
+              className="text-foreground/90 prose dark:prose-dark max-w-none w-full"
             ></article>
-          </div>
-        </PCard>
+          </main>
+        </PageContainer>
       </Layout>
     </>
   );

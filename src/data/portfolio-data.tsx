@@ -1,5 +1,6 @@
 // import { HappySeasonLogo, MedHyveLogo } from "@/images/logos";
-import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
+
+import { Icons } from "@/components/icons";
 
 export const PORTFOLIO_DATA = {
   name: "Abdelmuttalib Ahmed",
@@ -22,19 +23,23 @@ export const PORTFOLIO_DATA = {
     social: [
       {
         name: "GitHub",
+        username: "Abdelmuttalib",
         url: "https://github.com/Abdelmuttalib",
-        icon: GitHubIcon,
+        icon: Icons.github,
+        // icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
+        username: "Abdelmuttalib Ahmed",
         url: "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160/",
-        icon: LinkedInIcon,
+        icon: Icons.linkedin,
       },
-      // {
-      //   name: "X",
-      //   url: "https://x.com/BartoszJarocki",
-      //   icon: XIcon,
-      // },
+      {
+        name: "X (Twitter)",
+        username: "Abdelmuttalib_",
+        url: "https://x.com/Abdelmuttalib_",
+        icon: Icons.twitterX,
+      },
     ],
   },
   education: [
@@ -137,6 +142,7 @@ export const PORTFOLIO_DATA = {
         href: "https://opulent.vercel.app/",
       },
     },
+
     {
       title: "Momentum",
       techStack: [

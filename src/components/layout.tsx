@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { useRouter } from "next/router";
 import ThemeSelect from "./theme-select";
 import Container from "./ui/container";
+import { PageContainer } from "./common/page-container";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -50,7 +51,66 @@ function Header() {
   );
 }
 
-function Footer() {
+export function Footer() {
+  return (
+    <footer>
+      <PageContainer>
+        <div className="border-t py-6">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <p className="text-xs text-muted-foreground">
+                © {new Date().getFullYear()} Abdelmuttalib Ahmed.
+              </p>
+            </div>
+            <div className="flex items-center gap-x-3 justify-between sm:justify-normal sm:w-auto">
+              <ul className="flex flex-wrap items-center">
+                {PORTFOLIO_DATA.contact.social.map((social, index) => (
+                  <li
+                    key={social.name}
+                    className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-neutral-500 dark:before:bg-neutral-600"
+                  >
+                    <a
+                      href={social.url}
+                      target="_blank"
+                      className="text-xs text-muted-foreground underline hover:text-foreground hover:decoration-2 focus:decoration-2 focus:outline-none"
+                      rel="noreferrer"
+                    >
+                      {social.name}
+                      {/* X (Twitter) */}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <ThemeSelect />
+            </div>
+            {/* <ul className="flex flex-wrap items-center">
+                <li className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-neutral-500 dark:before:bg-neutral-600">
+                  <a
+                    className="text-xs text-muted-foreground underline hover:text-foreground hover:decoration-2 focus:decoration-2 focus:outline-none"
+                    href="#"
+                  >
+                    X (Twitter)
+                  </a>
+                </li>
+
+                <li className="inline-block pe-4 text-xs">
+                  <a
+                    className="text-xs text-muted-foreground underline hover:text-foreground hover:decoration-2 focus:decoration-2 focus:outline-none"
+                    href="#"
+                  >
+                    Github
+                  </a>
+                </li>
+              </ul> */}
+          </div>
+        </div>
+      </PageContainer>
+    </footer>
+  );
+}
+
+function Footer2() {
   return (
     <footer className="h-auto border-t dark:border-t-neutral-800 flex mt-36 w-full max-w-6xl mx-auto text-sm">
       <div className="h-full w-full items-center flex px-4 sm:px-6 lg:px-8">

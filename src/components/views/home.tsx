@@ -1,7 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-
 import Link from "next/link";
 import Layout from "@/components/layout";
 import { Blog } from "types";
@@ -14,7 +10,6 @@ import {
   MailIcon,
   MonitorSmartphone,
   PhoneIcon,
-  Smartphone,
   Workflow,
 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -22,7 +17,6 @@ import { landingPages, projects } from "@/data/projects";
 import { cn } from "@/lib/cn";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { FollowLinkArrowIcon, GitHubIcon } from "@/components/icons";
 import Container from "@/components/ui/container";
 import LandingPageCard from "@/components/landing-page-card";
 
@@ -130,7 +124,7 @@ export default function HomePageView({ blogs }: { blogs: Blog[] }) {
                   target="_blank"
                   className="group p-2 sm:p-4 lg:p-6 bg-neutral-100 dark:bg-neutral-800 relative rounded-lg items-center border border-transparent hover:border-neutral-800 h-fit shadow-inner dark:hover:border-neutral-200 hover:bg-brand-100/20"
                 >
-                  <FollowLinkArrowIcon className="absolute -right-2 -top-2 hidden bg-neutral-900 text-gray-100 group-hover:mt-0 group-hover:block dark:bg-neutral-200 dark:text-neutral-900" />
+                  {/* <FollowLinkArrowIcon className="absolute -right-2 -top-2 hidden bg-neutral-900 text-gray-100 group-hover:mt-0 group-hover:block dark:bg-neutral-200 dark:text-neutral-900" /> */}
                   <Image
                     src={`/images/projects/${project.img}`}
                     alt={`${project.name} project image`}
@@ -176,7 +170,7 @@ export default function HomePageView({ blogs }: { blogs: Blog[] }) {
                       asChild
                     >
                       <a href={project.github} target="_blank" rel="noreferrer">
-                        <GitHubIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                        <Icons.github className="w-4 h-4 lg:w-5 lg:h-5" />
                       </a>
                     </Button>
                     <Button
@@ -330,7 +324,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
                 href={`mailto:${PORTFOLIO_DATA.contact.email}`}
                 className="inline-flex items-center gap-x-2"
               >
-                <span className="bg-layer-2 p-2 rounded-lg dark:bg-base-200/40">
+                <span className="bg-popover p-2 rounded-lg dark:bg-base-200/40">
                   <MailIcon className="w-4 h-4" />
                 </span>
 
@@ -416,7 +410,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
       </div>
 
       {/*  */}
-      {/* <div className="bg-layer-2 dark:bg-base-200/40 h-56 w-full relative">
+      {/* <div className="bg-popover dark:bg-base-200/40 h-56 w-full relative">
         <div className="absolute top-0 bg-background h-8 w-full rounded-b-3xl"></div>
       </div> */}
       {/* section */}
@@ -442,7 +436,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
               {expertise.map((data) => (
                 <div
                   key={data.title}
-                  className="flex flex-col gap-y-4 border border-border bg-layer-2 text-left px-5 py-8 rounded dark:bg-base-200/40"
+                  className="flex flex-col gap-y-4 border border-border bg-popover text-left px-5 py-8 rounded dark:bg-base-200/40"
                 >
                   <div className="flex items-center gap-x-2 text-foreground-subtle">
                     {data.icon}
@@ -458,7 +452,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
         </div>
       </div>
       {/* projects */}
-      <div id="projects" className="w-full py-44 bg-layer-2">
+      <div id="projects" className="w-full py-44 bg-popover">
         <div className="w-full h-full flex items-center justify-center">
           <div className="flex flex-col justify-center items-center space-y-5 max-w-7xl text-center">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gap-y-14 w-full">
@@ -526,7 +520,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
                           variant="outline"
                           className="py-1 px-1.5 font-sans font-normal dark:text-neutral-300"
                         > */}
-                      <GitHubIcon className="w-4 h-4 mb-0.5" />
+                      <Icons.github className="w-4 h-4 mb-0.5" />
                       Github
                       {/* </Badge> */}
                     </Link>
@@ -544,7 +538,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
               {blogs.map((blog) => (
                 <li
                   key={blog.slug}
-                  className="flex flex-col gap-y-4 hover:bg-layer-2 text-left rounded-md dark:hover:bg-base-200/40"
+                  className="flex flex-col gap-y-4 hover:bg-popover text-left rounded-md dark:hover:bg-base-200/40"
                 >
                   <Link
                     href={`/blog/${blog.slug}`}
@@ -649,79 +643,9 @@ const expertise = [
   //   icon: <BoxSelect />,
   // },
 ];
-// {/* <div
-//                   key={data.name}
-//                   className="flex flex-col w-full gap-y-4 text-left rounded"
-//                 >
-//                   <div className="flex border border-border items-center gap-x-2 text-foreground-subtle relative min-h-48 aspect-video rounded-lg overflow-hidden">
-//                     <Link href={data.live}>
-//                       <Image
-//                         src={`/images/projects/${data.img}`}
-//                         alt={data.name}
-//                         layout="fill"
-//                         className="object-contain"
-//                       />
-//                     </Link>
-//                   </div>
-//                   <h2 className="text-base font-medium text-base-800">
-//                     {data.name}
-//                   </h2>
-//                   {/* <p className="text-sm text-foreground-subtle">
-//                     {data.description}
-//                   </p> */}
-//                   {/* <div className="flex gap-1.5 flex-wrap">
-//                     {data.technologies.map((technology) => (
-//                       <Badge
-//                         key={technology}
-//                         variant="outline"
-//                         className="py-1 px-1.5 font-sans font-normal dark:text-neutral-300"
-//                       >
-//                         {technology}
-//                       </Badge>
-//                     ))}
-//                   </div> */}
-//                   <div className="flex gap-1.5 w-full">
-//                     <Link
-//                       href={data.live}
-//                       target="_blank"
-//                       className={cn(
-//                         buttonVariants({ variant: "outline", size: "mini" }),
-//                         "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2"
-//                       )}
-//                     >
-//                       {/* <Badge
-//                           key={technology}
-//                           variant="outline"
-//                           className="py-1 px-1.5 font-sans font-normal dark:text-neutral-300"
-//                         > */}
-//                       <ArrowRightIcon className="w-[18px] h-[18px] -rotate-45" />
-//                       Live
-//                       {/* </Badge> */}
-//                     </Link>
-
-//                     <Link
-//                       href={data.live}
-//                       target="_blank"
-//                       className={cn(
-//                         buttonVariants({ variant: "outline", size: "mini" }),
-//                         "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2"
-//                       )}
-//                     >
-//                       {/* <Badge
-//                           key={technology}
-//                           variant="outline"
-//                           className="py-1 px-1.5 font-sans font-normal dark:text-neutral-300"
-//                         > */}
-//                       <GitHubIcon className="w-4 h-4 mb-0.5" />
-//                       Github
-//                       {/* </Badge> */}
-//                     </Link>
-//                   </div>
-//                 </div> */}
-
-import { GithubIcon, LinkedinIcon } from "lucide-react";
 
 import { SocialLinks } from "@/components/social-links";
+import { Icons } from "../icons";
 
 export function HomePageView3({ blogs }: { blogs: Blog[] }) {
   return (
@@ -880,7 +804,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                       "inline-flex items-center pl-3 gap-x-2 text-sm"
                     )}
                   >
-                    <GitHubIcon className="w-4 h-4 mb-0.5" />
+                    <Icons.github className="w-4 h-4 mb-0.5" />
                     Github
                   </Link>
                 </div>
@@ -902,7 +826,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                     "inline-flex items-center pl-3 gap-x-2 text-sm"
                   )}
                 >
-                  <GitHubIcon className="w-4 h-4 mb-0.5" />
+                  <Icons.github className="w-4 h-4 mb-0.5" />
                   Github
                 </Link>
               </div> */}
@@ -942,7 +866,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                       "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2"
                     )}
                   >
-                    <GitHubIcon className="w-4 h-4 mb-0.5" />
+                    <Icons.github className="w-4 h-4 mb-0.5" />
                     Github
                   </Link>
                 </div>
@@ -1063,7 +987,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                       href={social.url}
                       className="inline-flex items-center gap-x-2 w-full text-sm"
                     >
-                      <span className="bg-layer-2 p-2 rounded-lg dark:bg-base-200/40">
+                      <span className="bg-popover p-2 rounded-lg dark:bg-base-200/40">
                         {/* <MailIcon className="w-5 h-5" /> */}
                         <Icon className="w-4 h-4 text-foreground-subtle" />
                       </span>
@@ -1086,7 +1010,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                 href={`mailto:${PORTFOLIO_DATA.contact.email}`}
                 className="inline-flex items-center gap-x-2 w-full"
               >
-                <span className="bg-layer-2 p-2 rounded-lg dark:bg-base-200/40">
+                <span className="bg-popover p-2 rounded-lg dark:bg-base-200/40">
                   <PhoneIcon className="w-4 h-4" />
                 </span>
 
@@ -1101,7 +1025,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                 href={`mailto:${PORTFOLIO_DATA.contact.email}`}
                 className="inline-flex items-center gap-x-2 w-full"
               >
-                <span className="bg-layer-2 p-2 rounded-lg dark:bg-base-200/40">
+                <span className="bg-popover p-2 rounded-lg dark:bg-base-200/40">
                   <MailIcon className="w-4 h-4" />
                 </span>
 
