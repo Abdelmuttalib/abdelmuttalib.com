@@ -184,14 +184,6 @@ const skillsData = [
         icon: "",
       },
       {
-        name: "React",
-        icon: "",
-      },
-      {
-        name: "Tailwind CSS",
-        icon: "",
-      },
-      {
         name: "Prisma",
         icon: "",
       },
@@ -261,10 +253,6 @@ const skillsData = [
       },
       {
         name: "Nuxt.js",
-        icon: "",
-      },
-      {
-        name: "MongoDB",
         icon: "",
       },
     ],
@@ -433,7 +421,6 @@ const workExperiences: WorkExperience[] = [
 
 export function HomeView({ blogs }: { blogs: Blog[] }) {
   const { theme } = useTheme();
-  console.log(theme);
   const [currentHash, setCurrentHash] = React.useState("");
 
   React.useEffect(() => {
@@ -487,9 +474,9 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <line x1="3" x2="21" y1="6" y2="6" />
                   <line x1="3" x2="21" y1="12" y2="12" />
@@ -503,9 +490,9 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M18 6 6 18" />
                   <path d="m6 6 12 12" />
@@ -591,7 +578,10 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
 
               <ul className="mt-5 flex flex-col gap-y-3">
                 {PORTFOLIO_DATA.contact.tel ? (
-                  <li key="mail" className="flex items-center gap-x-2.5">
+                  <li
+                    key="contact-number"
+                    className="flex items-center gap-x-2.5"
+                  >
                     <Phone className="size-3.5 shrink-0" />
                     <span className="text-[13px] text-muted-foreground">
                       {PORTFOLIO_DATA.contact.tel}
@@ -615,12 +605,14 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                   <li key={social.name} className="flex items-center gap-x-2.5">
                     <social.icon className="size-3.5 shrink-0" />
                     <a
-                      className="text-[13px] text-muted-foreground underline hover:text-foreground hover:decoration-2 focus:decoration-2 focus:outline-none"
+                      className="text-[13px] text-muted-foreground underline hover:text-foreground hover:decoration-2 focus:decoration-2 focus:outline-none inline-flex items-center"
                       href={social.url}
                       target="_blank"
                       rel="noreferrer"
                     >
                       {social.username}
+
+                      <ArrowRightIcon className="size-3 shrink-0 -rotate-45" />
                     </a>
                   </li>
                 ))}
@@ -639,7 +631,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <div className="block dark:hidden border overflow-hidden rounded-lg">
+                    <span className="block dark:hidden border overflow-hidden rounded-lg">
                       <Image
                         src={project.imageSrc}
                         alt={project.name}
@@ -650,8 +642,8 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         layout="responsive"
                         className="block dark:hidden"
                       />
-                    </div>
-                    <div className="hidden dark:block border overflow-hidden rounded-lg">
+                    </span>
+                    <span className="hidden dark:block border overflow-hidden rounded-lg">
                       <Image
                         src={project.imageSrcDark}
                         alt={project.name}
@@ -662,9 +654,16 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         layout="responsive"
                         className="hidden dark:block"
                       />
+                    </span>
+
+                    <div className="absolute z-10 bottom-1.5 end-1.5">
+                      <div className="flex items-center gap-x-1 rounded-md border bg-background/[0.8] backdrop-blur-md px-2 py-1 text-foreground">
+                        <ArrowRightIcon className="size-3.5 shrink-0 -rotate-45" />
+                        <span className="text-sm">View</span>
+                      </div>
                     </div>
 
-                    <div className="absolute z-10 bottom-1 end-1 transition">
+                    {/* <div className="absolute z-10 bottom-1 end-1 transition">
                       <div className="flex items-center gap-x-2 rounded-lg border bg-background/[0.8] backdrop-blur-md px-2.5 py-1.5 text-foreground">
                         <a
                           href={project.preview}
@@ -676,7 +675,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                           <span className="text-sm">View</span>
                         </a>
 
-                        {/* <div className="h-5 w-px bg-border"></div>
+                        <div className="h-5 w-px bg-border"></div>
 
                         <a
                           href={project.github}
@@ -686,9 +685,9 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         >
                           <Icons.github className="size-3 shrink-0" />
                           <span className="text-sm">GitHub</span>
-                        </a> */}
+                        </a>
                       </div>
-                    </div>
+                    </div> */}
                     {/* <div className="absolute bottom-1 end-1 opacity-0 transition group-hover:opacity-100">
                       <div className="flex items-center gap-x-1 rounded-lg border bg-background px-2 py-1 text-foreground/90">
                         <Icons.github className="size-3 shrink-0" />
