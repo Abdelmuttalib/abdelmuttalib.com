@@ -196,7 +196,7 @@ const skillsData = [
         icon: "",
       },
       {
-        name: "TRPC",
+        name: "tRPC",
         icon: "",
       },
       {
@@ -253,6 +253,26 @@ const skillsData = [
       },
       {
         name: "Nuxt.js",
+        icon: "",
+      },
+      {
+        name: "3D",
+        icon: "",
+      },
+      {
+        name: "OpenGL",
+        icon: "",
+      },
+      {
+        name: "Three.js",
+        icon: "",
+      },
+      {
+        name: "Xeokit",
+        icon: "",
+      },
+      {
+        name: "3D Rendering",
         icon: "",
       },
     ],
@@ -364,16 +384,20 @@ const workExperiences: WorkExperience[] = [
     role: "Software Developer",
     description: "",
     highlights: [
-      "Designed template UIs and design systems in Figma.",
-      "Converted UIs into responsive HTML and CSS with a mobile-first approach.",
-      "Created custom illustrations and item description banners.",
-      "Provided detailed documentation and customer support on GitHub.",
-      "Engaged with users to address setup inquiries, bug issues, and feedback.",
+      "Developed advanced 3D web applications using Three.js, Xeokit, Blackhole, and custom rendering engines  for smart construction solutions",
+      "Processed, optimized, and converted complex 3D models (e.g., IFC, PLY, GLB, OSGB) using 3D tools and software for high-performance browser-based 3D rendering",
+      "Customized and extended core 3D rendering engines (e.g., Blackhole, Xeokit) to meet product requirements and support product-specific features like sectioning, layer filtering, and model annotations",
+      "Integrated AI/ML model outputs (e.g. object detection, segmentation) into 3D visualizations for intelligent construction monitoring tools",
+      "Designed and implemented 3D user interfaces and visual dashboards, enhancing spatial understanding of construction site metrics",
+      "Built reusable components in React to handle real-time 3D interactions, model transformations, and BIM data visualization",
+      "Applied WebGL performance optimizations, including LOD strategies, efficient material usage, and async loading of large models",
+      "Implemented internationalization (i18n) support for web apps, enabling multilingual capabilities across the platform",
+      "Contributed to CI/CD pipelines for faster deployment cycles and testing automation",
     ],
     company: {
       name: "Invix",
       description:
-        "Invix is a smart construction technology company that develops AI-powered software solutions for construction sites. Their products combine 3D modeling, digital twins, and artificial intelligence to enhance safety, productivity, and oversight in the construction industry.",
+        "Invix is a smart construction technology company that develops AI-powered software solutions for construction sites. Their products combine 3D modeling, digital twins, and artificial intelligence to enhance safety, productivity, and oversight in the construction industry",
       logoImageSrc: "/images/companies/invix-logo-white.jpg",
       url: "http://invix.tech/",
     },
@@ -384,15 +408,20 @@ const workExperiences: WorkExperience[] = [
     description: "",
     highlights: [
       "Led successful SEO optimization initiatives, resulting in a substantial organic traffic boost of nearly 10,000 new visitors from Google searches",
-      "Collaborated with the CTO and CEO to strategically align website improvements with company goals",
+      "Led the frontend development of an e-commerce platform for medical procurement, from wireframes to production",
+      "Delivered responsive and accessible web pages optimized for both mobile and desktop experiences",
       "Ensured user-centric UI designs through close collaboration with the design team and actively contributed to the company's growth by suggesting feature enhancements and process optimizations",
-      "Led frontend development, maintained high coding standards, and seamlessly integrated features with backend developers for a robust and cohesive web application",
+      "Performed cross-platform compatibility testing and browser debugging",
+      "Maintained high coding standards, and seamlessly integrated features with backend developers for a robust and cohesive web application",
+      "Led frontend testing efforts with Jest and Cypress, ensuring stable feature rollouts",
       "Emphasized accessibility and SEO-friendly page construction to further enhance site traffic",
+      "Supported deployment and configuration of CI/CD pipelines for test preview and production releases",
+      "Redesigned older pages for speed and user experience improvements across devices and browsers",
     ],
     company: {
       name: "MedHyve",
       description:
-        "Medhyve is a digital procurement platform for hospitals and clinics, helping streamline the purchase of medical supplies and equipment. It offers an e-commerce experience tailored to the healthcare sector, improving procurement efficiency and transparency.",
+        "Medhyve is a digital procurement platform for hospitals and clinics, helping streamline the purchase of medical supplies and equipment. It offers an e-commerce experience tailored to the healthcare sector, improving procurement efficiency and transparency",
       url: "https://www.linkedin.com/company/medhyve/",
       logoImageSrc: "/images/companies/medhyve-logo.png",
     },
@@ -404,14 +433,19 @@ const workExperiences: WorkExperience[] = [
     description: "",
     highlights: [
       "Led frontend development, collaborating with backend teams to deliver feature-rich web applications, emphasizing UI design enhancements and creating intuitive components",
-      "Conducted rigorous testing for impeccable cross-browser and device performance, actively proposing innovative ideas and updates",
-      "Key contributor to website optimization, focusing on speed, responsiveness, and accessibility",
+      "Translated Figma designs into high-quality, pixel-perfect UI components using CSS",
+      "Built dynamic, mobile-first pages with responsive design principles for cross-device and cross-browser compatibility",
+      "Collaborated with backend developers (Node.js/Express.js) to integrate APIs and implement robust full-stack features",
+      "Key contributor to website optimization, focusing on speed, responsiveness, SEO, and accessibility",
+      "Focused on accessibility (a11y) and performance optimization across key user flows",
+      "Conducted component/unit testing with Jest and performed end-to-end user scenario tests using Cypress",
       "Engaged in agile processes, attending meetings, and staying updated on industry trends for continual improvement",
+      "Implemented automated CI/CD pipelines and participated in continuous delivery cycles for rapid feature testing and deployment",
     ],
     company: {
       name: "Happy Season",
       description:
-        "Happy Season is a an event planning platform designed to simplify organizing and managing various occasions. The platform offers user-friendly interfaces for both businesses and customers, streamlining the booking process across multiple services.",
+        "Happy Season is a an event planning platform designed to simplify organizing and managing various occasions. The platform offers user-friendly interfaces for both businesses and customers, streamlining the booking process across multiple services",
       url: "https://happy-season.com/",
       logoImageSrc: "/images/companies/happy-season.svg",
       icon: "",
@@ -420,7 +454,6 @@ const workExperiences: WorkExperience[] = [
 ];
 
 export function HomeView({ blogs }: { blogs: Blog[] }) {
-  const { theme } = useTheme();
   const [currentHash, setCurrentHash] = React.useState("");
 
   React.useEffect(() => {
@@ -778,7 +811,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
               </h2>
 
               <div>
-                {workExperiences.map((experience, idx) => (
+                {workExperiences.map((experience) => (
                   <div
                     key={experience.period}
                     className="group relative flex gap-x-5"
@@ -817,6 +850,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         is a mutual understanding of expectations and
                         performance. */}
                           {experience.company.description}
+                          {"."}
                         </p>
                       )}
 
@@ -825,6 +859,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                           {experience.highlights.map((highlight, idx) => (
                             <li className="ps-1" key={idx}>
                               {highlight}
+                              {"."}
                             </li>
                           ))}
                         </ul>
