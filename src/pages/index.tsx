@@ -4,10 +4,9 @@ import path from "path";
 
 import Head from "next/head";
 
-import { HomePageView3 } from "@/components/views/home";
 import { Blog } from "types";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
-import { HomeView } from "@/components/views/home-view";
+import { HomeView } from "@/components/views/h";
 
 interface HomeProps {
   blogs: Blog[];
@@ -20,10 +19,11 @@ export default function Home({ blogs }: HomeProps) {
         <title>{`${PORTFOLIO_DATA.name} | ${PORTFOLIO_DATA.about}`}</title>
         <meta name="description" content={PORTFOLIO_DATA.summary} />
       </Head>
+      <HomeView blogs={blogs} />
       {/* <HomePageView blogs={blogs} /> */}
       {/* <HomePageView2 blogs={blogs} /> */}
       {/* <HomePageView3 blogs={blogs} /> */}
-      <HomeView blogs={blogs} />
+      {/* <HomeView blogs={blogs} /> */}
     </>
   );
 }
@@ -35,7 +35,7 @@ export async function getStaticProps() {
     const slug = filename.replace(".md", "");
     const markdownWithMeta = fs.readFileSync(
       path.join("src/blogs", filename),
-      "utf-8"
+      "utf-8",
     );
 
     const { data: frontmatter } = matter(markdownWithMeta);

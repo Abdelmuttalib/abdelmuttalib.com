@@ -3,6 +3,7 @@ import Layout from "@/components/layout";
 import { Blog } from "types";
 import { PORTFOLIO_DATA } from "@/data/portfolio-data";
 import {
+  ArrowLeftIcon,
   ArrowRightIcon,
   BoxSelect,
   Calendar,
@@ -19,6 +20,111 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/container";
 import LandingPageCard from "@/components/landing-page-card";
+
+export function HomeView({ blogs }: { blogs: Blog[] }) {
+  return (
+    <Layout>
+      <header className="w-full h-12 sticky top-0 max-w-6xl mx-auto px-8 sm:px-16 xl:px-36 flex items-center bg-transparent backdrop-blur-xl">
+        {/* <Button className="size-8" size="icon" variant="secondary" asChild>
+          <Link href="/">
+            <ArrowLeftIcon className="w-5 h-5" />
+          </Link>
+        </Button> */}
+      </header>
+      <div className="space-y-96 py-48 md:py-72">
+        <Container>
+          <div className="space-y-4">
+            <h1 className="font-medium text-6xl tracking-[-1.5px] leading-tight">
+              {/* About Cedric */}
+              {/* Building beautiful web experiences */}
+              {/* Hey, I'm Nick
+
+available for new projects */}
+              Frontend & Full Stack Engineer specializing in high-performance
+              web applications and 3D visualization systems.
+            </h1>
+            {/* <h1 className="text-5xl sm:text-6xl font-semibold tracking-tighter">
+              Building beautiful web experiences
+            </h1> */}
+            <p className="text-neutral-600 dark:text-neutral-500 text-lg">
+              I&apos;m a software engineer based in the Philippines. I
+              specialize in building high-quality websites and applications.
+            </p>
+            <div>
+              <div className="flex gap-x-1.5 pt-1 font-mono text-sm text-muted-foreground print:hidden">
+                {PORTFOLIO_DATA.contact.email ? (
+                  <Button
+                    title="Email Address"
+                    className="w-8 h-8 lg:w-10 lg:h-10"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a
+                      href={`mailto:${PORTFOLIO_DATA.contact.email}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <MailIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    </a>
+                  </Button>
+                ) : null}
+                {PORTFOLIO_DATA.contact.tel ? (
+                  <Button
+                    title="Contact Number"
+                    className="w-8 h-8 lg:w-10 lg:h-10"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a
+                      href={`tel:${PORTFOLIO_DATA.contact.tel}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <PhoneIcon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    </a>
+                  </Button>
+                ) : null}
+                {PORTFOLIO_DATA.contact.social.map((social) => (
+                  <Button
+                    key={social.name}
+                    title={social.name}
+                    className="w-8 h-8 lg:w-10 lg:h-10"
+                    variant="outline"
+                    size="icon"
+                    asChild
+                  >
+                    <a href={social.url} target="_blank" rel="noreferrer">
+                      <social.icon className="w-4 h-4 lg:w-5 lg:h-5" />
+                    </a>
+                  </Button>
+                ))}
+                <Button
+                  title="cv"
+                  // className="w-8 h-8 lg:w-10 lg:h-10"
+                  className="font-sans"
+                  variant="outline"
+                  asChild
+                >
+                  <a
+                    href="/cv"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-x-1.5"
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>Resume</span>
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </div>
+    </Layout>
+  );
+}
 
 export default function HomePageView({ blogs }: { blogs: Blog[] }) {
   return (
@@ -399,7 +505,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
                 href="#projects"
                 className={cn(
                   buttonVariants({ variant: "default", size: "lg" }),
-                  "uppercase"
+                  "uppercase",
                 )}
               >
                 View Projects
@@ -494,7 +600,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
                       target="_blank"
                       className={cn(
                         buttonVariants({ variant: "outline", size: "mini" }),
-                        "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2"
+                        "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2",
                       )}
                     >
                       {/* <Badge
@@ -512,7 +618,7 @@ export function HomePageView2({ blogs }: { blogs: Blog[] }) {
                       target="_blank"
                       className={cn(
                         buttonVariants({ variant: "default", size: "mini" }),
-                        "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2"
+                        "border border-input/40 bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center gap-x-2",
                       )}
                     >
                       {/* <Badge
@@ -801,7 +907,7 @@ export function HomePageView3({ blogs }: { blogs: Blog[] }) {
                     href={data.github}
                     target="_blank"
                     className={cn(
-                      "inline-flex items-center pl-3 gap-x-2 text-sm"
+                      "inline-flex items-center pl-3 gap-x-2 text-sm",
                     )}
                   >
                     <Icons.github className="w-4 h-4 mb-0.5" />
@@ -1058,7 +1164,7 @@ export function PCard({ className, children, ...props }: PCardProps) {
         "shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)]",
         "relative overflow-hidden",
         "relative h-full w-full rounded-xl bg-white shadow-[0px_0px_0px_1px_rgba(9,9,11,0.07),0px_2px_2px_0px_rgba(9,9,11,0.05)] dark:bg-zinc-900 dark:shadow-[0px_0px_0px_1px_rgba(255,255,255,0.1)] dark:before:pointer-events-none dark:before:absolute dark:before:-inset-px dark:before:rounded-xl dark:before:shadow-[0px_2px_8px_0px_rgba(0,_0,_0,_0.20),_0px_1px_0px_0px_rgba(255,_255,_255,_0.06)_inset] forced-colors:outline",
-        className
+        className,
       )}
       {...props}
     >
@@ -1135,7 +1241,7 @@ function PCardTag({
         "rounded-md px-2 py-1 text-xs font-medium",
         "ring-1 ring-inset",
         getPCardTypeColor(pCardType),
-        className
+        className,
       )}
     >
       {pCardType}

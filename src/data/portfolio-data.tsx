@@ -22,17 +22,17 @@ export const PORTFOLIO_DATA = {
     tel: "+639455102063",
     social: [
       {
+        name: "LinkedIn",
+        username: "Abdelmuttalib Ahmed",
+        url: "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160/",
+        icon: Icons.linkedin,
+      },
+      {
         name: "GitHub",
         username: "Abdelmuttalib",
         url: "https://github.com/Abdelmuttalib",
         icon: Icons.github,
         // icon: GitHubIcon,
-      },
-      {
-        name: "LinkedIn",
-        username: "Abdelmuttalib Ahmed",
-        url: "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160/",
-        icon: Icons.linkedin,
       },
       {
         name: "X (Twitter)",

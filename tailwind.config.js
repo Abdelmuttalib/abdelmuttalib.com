@@ -20,6 +20,8 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: "var(--font-sans)",
+        headline: "var(--font-mozilla-headline)",
+        text: "var(--font-mozilla-text)",
       },
       colors: {
         foreground: {

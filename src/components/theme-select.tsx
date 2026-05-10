@@ -4,13 +4,13 @@ export default function ThemeSelect() {
   const { theme, setTheme } = useTheme();
   return (
     <select
-      className="w-24 relative rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 text-xs px-1 py-0.5 transition-colors focus:outline-none text-nowrap "
+      className="w-24 relative rounded border bg-white dark:bg-black text-foreground text-xs px-1.5 py-1 focus:outline-none text-nowrap"
       value={theme}
       onChange={(e) => setTheme(e.target.value)}
       // id="themeSelect"
       aria-label="Change theme color"
     >
-      {/* <option value="system">System</option> */}
+      <option value="system">System</option>
       <option value="dark">Dark</option>
       <option value="light">Light</option>
 
