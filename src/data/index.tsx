@@ -65,7 +65,43 @@ export const PORTFOLIO_DATA = {
 
   work: [
     {
-      company: "Invix",
+      period: "2025 - Present",
+
+      link: "/",
+
+      badges: ["Remote"],
+
+      title: "Technical Support & Client Coordinator",
+
+      start: "2025",
+
+      end: "Present",
+
+      company: {
+        name: "Marylin Clinics",
+        description:
+          "Marilyn Clinics is a healthcare and cosmetic services provider based in Riyadh, Saudi Arabia, offering patient consultation, treatment coordination, and digital communication services across multiple clinic branches",
+        logoImageSrc: "",
+        url: "https://marilynclinics.com/",
+      },
+
+      description:
+        "Handled daily customer communications and lead coordination through WhatsApp Business, managing 20–50+ inquiries per day while assisting patients through consultation and onboarding workflows across Riyadh and Jeddah branches. Collaborated with doctors and clinic staff to coordinate preliminary online evaluations, follow-ups, and appointment processing",
+
+      // "Expanded responsibilities beyond support by independently learning and managing TikTok Ads Manager campaigns for clinic marketing initiatives, helping improve digital outreach and lead generation processes. Also assisted with recruitment coordination for a newly acquired clinic by communicating with agencies, organizing candidate interviews, and supporting hiring workflows."
+
+      highlights: [
+        "Developed interactive BIM and digital twin applications for construction monitoring and visualization",
+        "Optimized rendering performance for large-scale 3D models and real-time spatial interactions",
+        "Integrated AI/ML outputs into visualization systems for intelligent construction workflows",
+        "Built reusable frontend architecture and scalable React component systems",
+        "Processed and optimized complex 3D model formats including IFC, GLB, PLY, and OSGB",
+        "Contributed to CI/CD workflows, automated testing, and deployment pipelines",
+        "Implemented multilingual support and accessibility improvements across products",
+      ],
+    },
+    {
+      period: "2023 - Present",
 
       link: "/",
 
@@ -75,18 +111,36 @@ export const PORTFOLIO_DATA = {
 
       start: "2023",
 
-      end: "Present",
+      end: "2025",
+
+      company: {
+        name: "Invix",
+        description:
+          "Invix Technology is a smart construction technology company that develops AI-powered software solutions for construction sites. Their products combine 3D modeling, digital twins, and artificial intelligence to enhance safety, productivity, and oversight in the construction industry",
+        logoImageSrc: "/images/companies/invix-logo-white.jpg",
+        url: "http://invix.tech/",
+      },
 
       description:
         "Developed advanced browser-based 3D visualization systems for smart construction platforms using React, Three.js, xeokit, and custom WebGL rendering pipelines. Worked on BIM viewers, digital twin systems, rendering optimization, model processing, and real-time visualization features for large-scale construction workflows. Built reusable frontend architecture, interactive spatial UI systems, and contributed to CI/CD pipelines, testing workflows, and performance optimization initiatives.",
+
+      highlights: [
+        "Developed interactive BIM and digital twin applications for construction monitoring and visualization",
+        "Optimized rendering performance for large-scale 3D models and real-time spatial interactions",
+        "Integrated AI/ML outputs into visualization systems for intelligent construction workflows",
+        "Built reusable frontend architecture and scalable React component systems",
+        "Processed and optimized complex 3D model formats including IFC, GLB, PLY, and OSGB",
+        "Contributed to CI/CD workflows, automated testing, and deployment pipelines",
+        "Implemented multilingual support and accessibility improvements across products",
+      ],
     },
 
     {
-      company: "MedHyve",
+      period: "2021 - 2023",
 
       link: "/",
 
-      badges: ["Remote"],
+      badges: [],
 
       title: "Frontend / Full Stack Developer",
 
@@ -94,12 +148,29 @@ export const PORTFOLIO_DATA = {
 
       end: "2023",
 
+      company: {
+        name: "MedHyve",
+        description:
+          "Medhyve is a digital procurement platform for hospitals and clinics, helping streamline the purchase of medical supplies and equipment. It offers an e-commerce experience tailored to the healthcare sector, improving procurement efficiency and transparency",
+        url: "https://www.linkedin.com/company/medhyve/",
+        logoImageSrc: "/images/companies/medhyve-logo.png",
+      },
+
       description:
         "Led frontend development for a healthcare procurement platform serving hospitals and clinics. Built scalable and accessible interfaces using React, Next.js, TypeScript, and modern frontend tooling while collaborating closely with product, design, and backend teams. Contributed to SEO initiatives that increased organic traffic by nearly 10,000 users and implemented testing, CI/CD, and performance optimization workflows across the platform.",
+      highlights: [
+        "Increased organic search traffic by nearly 10,000 users through SEO optimization initiatives",
+        "Developed responsive and accessible e-commerce interfaces using React and modern frontend tooling",
+        "Collaborated closely with product, design, and backend teams to deliver scalable platform features",
+        "Built reusable UI systems and improved frontend maintainability",
+        "Implemented testing workflows using Jest and Cypress",
+        "Contributed to CI/CD automation and deployment processes",
+        "Improved application performance, accessibility, and cross-browser compatibility",
+      ],
     },
 
     {
-      company: "Happy Season",
+      period: "2020 - 2021",
 
       link: "https://happy-season.com/",
 
@@ -111,8 +182,25 @@ export const PORTFOLIO_DATA = {
 
       end: "2021",
 
+      company: {
+        name: "Happy Season",
+        description:
+          "Happy Season is a an event planning platform designed to simplify organizing and managing various occasions. The platform offers user-friendly interfaces for both businesses and customers, streamlining the booking process across multiple services",
+        url: "https://happy-season.com/",
+        logoImageSrc: "/images/companies/happy-season.svg",
+        icon: "",
+      },
+
       description:
         "Developed responsive event management and booking interfaces with a strong focus on usability, accessibility, and performance. Collaborated with backend teams to build feature-rich web applications and implemented modern UI systems, testing workflows, and frontend optimizations across multiple user flows.",
+
+      highlights: [
+        "Built mobile-first UI systems from Figma designs",
+        "Integrated frontend systems with backend APIs and Node.js services",
+        "Improved website speed, responsiveness, and accessibility",
+        "Collaborated in agile development cycles and feature planning",
+        "Implemented testing workflows and optimized user experience across devices",
+      ],
     },
   ],
 

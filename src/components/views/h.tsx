@@ -464,7 +464,27 @@ type WorkExperience = {
 
 const workExperiences: WorkExperience[] = [
   {
-    period: "2023 - Present",
+    period: "2025 - Present",
+    role: "Technical Support & Client Coordinator",
+    description: "",
+    highlights: [
+      "Managed daily patient communication and lead coordination through WhatsApp Business, handling inquiries, follow-ups, and appointment workflows across Riyadh and Jeddah branches",
+      "Coordinated preliminary online consultations by organizing patient information, medical images, and doctor feedback for remote evaluations",
+      "Assisted patients throughout onboarding and consultation processes while maintaining clear communication between clients, doctors, and branch staff",
+      "Independently learned and managed TikTok Ads Manager campaigns to support clinic marketing and lead generation initiatives",
+      "Assisted with recruitment coordination by communicating with agencies and organizing candidate interview processes for newly acquired clinic operations",
+      "Demonstrated adaptability by taking on additional operational and marketing responsibilities beyond the initial support role",
+    ],
+    company: {
+      name: "Marylin Clinics",
+      description:
+        "Marilyn Clinics is a healthcare and cosmetic services provider based in Riyadh, Saudi Arabia, offering patient consultation, treatment coordination, and digital communication services across multiple clinic branches",
+      logoImageSrc: "",
+      url: "https://marilynclinics.com/",
+    },
+  },
+  {
+    period: "2023 - 2025",
     role: "Frontend / 3D Software Engineer",
     description: "",
     highlights: [

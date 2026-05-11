@@ -5,7 +5,7 @@ import { CommandMenu } from "@/components/command-menu";
 import { Section } from "@/components/ui/section";
 import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PORTFOLIO_DATA } from "@/data/portfolio-data";
+import { PORTFOLIO_DATA } from "@/data";
 import { ProjectCard } from "@/components/project-card";
 import Head from "next/head";
 
@@ -18,7 +18,7 @@ export default function CVPage() {
       </Head>
 
       <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-        <section className="mx-auto w-full max-w-2xl space-y-8 bg-white dark:bg-transparent print:space-y-6">
+        <section className="mx-auto w-full max-w-2xl space-y-8 dark:bg-transparent print:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex-1 space-y-1.5">
               <h1 className="text-2xl font-bold">{PORTFOLIO_DATA.name}</h1>
@@ -111,12 +111,12 @@ export default function CVPage() {
             <h2 className="text-xl font-bold">Work Experience</h2>
             {PORTFOLIO_DATA.work.map((work) => {
               return (
-                <Card key={work.company}>
+                <Card key={work.company.name}>
                   <CardHeader>
                     <div className="flex items-center justify-between gap-x-2 text-base">
                       <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none">
                         <a className="hover:underline" href={work.link}>
-                          {work.company}
+                          {work.company.name}
                         </a>
 
                         <span className="inline-flex gap-x-1">
@@ -189,7 +189,7 @@ export default function CVPage() {
             </div>
           </Section>
 
-          <Section className=" scroll-mb-16">
+          {/* <Section className=" scroll-mb-16">
             <h2 className="text-xl font-bold">Projects</h2>
             <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
               {PORTFOLIO_DATA.projects.map((project) => {
@@ -204,7 +204,7 @@ export default function CVPage() {
                 );
               })}
             </div>
-          </Section>
+          </Section> */}
         </section>
 
         <CommandMenu
