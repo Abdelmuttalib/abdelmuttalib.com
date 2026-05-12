@@ -275,23 +275,21 @@ export const PORTFOLIO_DATA = {
 
   projects: [
     {
-      title: "Momentum",
+      title: "shadcn ui styles",
 
       techStack: [
         "Next.js",
         "TypeScript",
-        "tRPC",
         "Prisma",
-        "PostgreSQL",
         "Tailwind CSS",
+        "shadcn ui",
       ],
 
-      description:
-        "A modern issue tracking and project management platform focused on productivity, team collaboration, and scalable frontend architecture. Built with a strong emphasis on clean UX, type-safe APIs, and responsive design patterns.",
+      description: "Custom shadcn ui styles, components, palettes, and blocks.",
 
       link: {
         label: "View Project",
-        href: "https://momentum-gamma.vercel.app/",
+        href: "https://www.shadcnmarketplace.com/",
       },
     },
 
@@ -317,45 +315,80 @@ export const PORTFOLIO_DATA = {
     },
 
     {
-      title: "Memories",
+      title: "React Aria",
 
-      techStack: [
-        "Next.js",
-        "TypeScript",
-        "NextAuth",
-        "Prisma",
-        "Supabase",
-        "Tailwind CSS",
-      ],
+      techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Aria Components"],
 
       description:
-        "A social content-sharing platform enabling users to upload, organize, and share personal memories through media-rich experiences powered by cloud storage and authentication systems.",
+        "a react component library for building accessible web apps. Built with Adobe Aria Components.",
 
       link: {
         label: "View Project",
-        href: "https://memories-ashen.vercel.app/",
+        href: "https://www.react-aria.com/",
       },
     },
 
     {
-      title: "PodX",
+      title: "Momentum",
 
       techStack: [
         "Next.js",
         "TypeScript",
-        "PWA",
-        "Podcast API",
+        "tRPC",
+        "Prisma",
+        "PostgreSQL",
         "Tailwind CSS",
       ],
 
       description:
-        "A progressive web podcast platform designed for smooth media consumption, responsive performance, and seamless cross-device listening experiences.",
+        "A modern issue tracking and project management platform focused on productivity, team collaboration, and scalable frontend architecture. Built with a strong emphasis on clean UX, type-safe APIs, and responsive design patterns.",
 
       link: {
         label: "View Project",
-        href: "https://podx.vercel.app/",
+        href: "https://momentum-gamma.vercel.app/",
       },
     },
+
+    // {
+    //   title: "Memories",
+
+    //   techStack: [
+    //     "Next.js",
+    //     "TypeScript",
+    //     "NextAuth",
+    //     "Prisma",
+    //     "Supabase",
+    //     "Tailwind CSS",
+    //   ],
+
+    //   description:
+    //     "A social content-sharing platform enabling users to upload, organize, and share personal memories through media-rich experiences powered by cloud storage and authentication systems.",
+
+    //   link: {
+    //     label: "View Project",
+    //     href: "https://memories-ashen.vercel.app/",
+    //   },
+    // },
+
+    // {
+    //   title: "PodX",
+
+    //   techStack: [
+    //     "Next.js",
+    //     "TypeScript",
+    //     "PWA",
+    //     "Podcast API",
+    //     "Tailwind CSS",
+    //   ],
+
+    //   description:
+    //     "A progressive web podcast platform designed for smooth media consumption, responsive performance, and seamless cross-device listening experiences.",
+
+    //   link: {
+    //     label: "View Project",
+    //     href: "https://podx.vercel.app/",
+    //   },
+    // },
   ],
 } as const;
 

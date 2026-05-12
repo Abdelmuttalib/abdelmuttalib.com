@@ -54,6 +54,25 @@ export const projects = [
     preview: "https://shadcn.style",
   },
   {
+    name: "Opulent",
+    description:
+      "Elegant e-commerce website powered by Stripe payments, providing seamless and secure transactions for customers.",
+    technologies: [
+      "React",
+      "Nextjs",
+      "Typescript",
+      "TailwindCSS",
+      "Railway",
+      "Prisma",
+      "Stripe",
+    ],
+    imageSrc: "/images/projects/opulent-1.png",
+    imageSrcDark: "/images/projects/opulent-1.png",
+    github: "https://github.com/Abdelmuttalib/Opulent",
+    preview: "https://opulent.vercel.app/",
+  },
+
+  {
     name: "React Aria",
     description:
       "a react component library for building accessible web apps. Built with Adobe Aria Components.",
@@ -70,26 +89,7 @@ export const projects = [
     github: "",
     preview: "https://www.react-aria.com/",
   },
-  // {
-  //   name: "Opulent",
-  //   description:
-  //     "Elegant e-commerce website powered by Stripe payments, providing seamless and secure transactions for customers.",
-  //   technologies: [
-  //     "React",
-  //     "Nextjs",
-  //     "Typescript",
-  //     "TailwindCSS",
-  //     "Clerk Authentication",
-  //     "PlanetScale",
-  //     "SQL",
-  //     "Prisma",
-  //     "Stripe",
-  //   ],
-  //   image: "opulent.png",
-  //   img: "opulent-1.png",
-  //   github: "https://github.com/Abdelmuttalib/Opulent/tree/main",
-  //   preview: "https://opulent.vercel.app/",
-  // },
+
   {
     name: "Momentum",
     description:
