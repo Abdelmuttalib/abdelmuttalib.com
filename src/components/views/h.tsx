@@ -1266,7 +1266,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                       <Typography
                         as="p"
                         variant="md/normal"
-                        className="font-medium col-span-2 md:col-span-1"
+                        className="font-medium col-span-4 md:col-span-1"
                       >
                         {PORTFOLIO_DATA.contact.tel}
                       </Typography>
@@ -1275,7 +1275,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                       <Typography
                         as="p"
                         variant="md/normal"
-                        className="font-medium col-span-2 md:col-span-2"
+                        className="font-medium col-span-4 md:col-span-2"
                       >
                         {PORTFOLIO_DATA.contact.email}
                       </Typography>
@@ -1283,12 +1283,12 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                   </div>
                 </div>
                 <div className="items-center gap-x-3 justify-between sm:justify-normal sm:w-auto col-span-4 sm:col-span-2 md:col-span-3">
-                  <ul className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-3 *:border *:bg-background/[0.8] *:p-2 *:rounded-md gap-1">
+                  <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 *:border *:bg-background/[0.8] *:p-2 *:rounded-md gap-1">
                     {PORTFOLIO_DATA.contact.social.map((social, index) => (
                       <li
                         key={social.name}
                         className={cn(
-                          "relative group inline-block pe-4 text-md font-medium before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full last:pe-0 last-of-type:before:hidden",
+                          "relative group inline-block pe-4 text-sm sm:text-md font-medium before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full last:pe-0 last-of-type:before:hidden",
                           {
                             // "col-start-1": index === 0,
                           },
@@ -1297,7 +1297,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         <a
                           href={social.url}
                           target="_blank"
-                          className="text-md text-foreground/90 hover:text-foreground focus:outline-none inline-flex items-center gap-x-1.5"
+                          className="text-sm sm:text-md text-foreground/90 hover:text-foreground focus:outline-none inline-flex items-center gap-x-1.5"
                           rel="noreferrer"
                         >
                           {social.name}
@@ -1314,7 +1314,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                         title="resume"
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-x-1.5 text-md text-foreground/90 hover:text-foreground focus:outline-none"
+                        className="inline-flex items-center gap-x-1.5 text-sm sm:text-md text-foreground/90 hover:text-foreground focus:outline-none"
                       >
                         {/* <FileText className="w-4 h-4" /> */}
                         Resume
