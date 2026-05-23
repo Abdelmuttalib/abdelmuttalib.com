@@ -50,8 +50,8 @@ export const projects = [
     ],
     imageSrc: "/images/projects/shadcn-styles-light.png",
     imageSrcDark: "/images/projects/shadcn-styles-dark.png",
-    github: "",
-    preview: "https://shadcn.style",
+    github: "https://github.com/Abdelmuttalib/shadcnui-marketplace",
+    preview: "https://shadcnmarketplace.com",
   },
   {
     name: "Opulent",
@@ -86,7 +86,7 @@ export const projects = [
     ],
     imageSrc: "/images/projects/react-aria-light.png",
     imageSrcDark: "/images/projects/react-aria-dark.png",
-    github: "",
+    github: "https://github.com/Abdelmuttalib/react-aria",
     preview: "https://www.react-aria.com/",
   },
 
@@ -926,7 +926,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                                 href={project.github}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="inline-flex items-center gap-x-2"
+                                className="inline-flex items-center gap-x-2 border"
                               >
                                 <Icons.github className="size-4 shrink-0" />
                                 <span className="sr-only">View on GitHub</span>
@@ -1301,7 +1301,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                           rel="noreferrer"
                         >
                           {social.name}
-                          <ArrowRightIcon className="w-4 h-4 lg:w-5 lg:h-5 -rotate-45 inline-block text-muted-foreground group-hover:text-current" />
+                          <ArrowRightIcon className="w-4 h-4 -rotate-45 inline-block text-muted-foreground group-hover:text-current" />
                           {/* {social.icon} */}
                           {/* X (Twitter) */}
                         </a>
@@ -1318,7 +1318,7 @@ export function HomeView({ blogs }: { blogs: Blog[] }) {
                       >
                         {/* <FileText className="w-4 h-4" /> */}
                         Resume
-                        <ArrowRightIcon className="w-4 h-4 lg:w-5 lg:h-5 -rotate-45 inline-block text-muted-foreground group-hover:text-current" />
+                        <ArrowRightIcon className="w-4 h-4 -rotate-45 inline-block text-muted-foreground group-hover:text-current" />
                       </Link>
                     </li>
                   </ul>
