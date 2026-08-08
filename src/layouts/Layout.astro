@@ -1,0 +1,146 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title} | Software Developer</title>
+    <meta
+      name="description"
+      content="Abdelmuttalib Ahmed - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href="https://abdelmuttalib.vercel.app/" />
+
+    <!-- <link
+      rel="preload"
+      href="/fonts/montserrat-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    /> -->
+
+    <link
+      rel="preload"
+      href="/fonts/inter-var-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+
+    <meta
+      property="og:title"
+      content="Abdelmuttalib Ahmed | Software Developer"
+    />
+    <meta
+      property="og:description"
+      content="abdelmuttalib of Abdelmuttalib Ahmed, Software Developer specializing in frontend and interactive experiences."
+    />
+    <meta
+      property="og:image"
+      content="https://abdelmuttalib.vercel.app/og.image.png"
+    />
+    <meta property="og:url" content="https://abdelmuttalib.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Abdelmuttalib Ahmed abdelmuttalib" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Abdelmuttalib Ahmed",
+        "alternateName": "Abdelmuttalib Ahmed",
+        "url": "https://abdelmuttalib.vercel.app",
+        "image": "https://abdelmuttalib.vercel.app/og.image.png",
+        "sameAs": [
+          "https://github.com/Abdelmuttalib",
+          "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160"
+        ],
+        "jobTitle": "Software Developer",
+        "description": "Software Developer building interactive and seamless digital experiences."
+      }
+    </script>
+  </head>
+  <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  /* @font-face {
+    font-family: "Montserrat Variable";
+    src: url("/fonts/montserrat-latin-wght-normal.woff2")
+      format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  } */
+
+  /* inter-var-latin */
+
+  @font-face {
+    font-family: "Inter Variable";
+    src: url("/fonts/inter-var-latin.woff2") format("woff2-variations");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --background: #101010;
+    --sec: #a476ff;
+    --white: #dfdfdf;
+    --white-icon: #f3f3f398;
+    --white-icon-tr: #f3f3f310;
+  }
+
+  * {
+    font-family:
+      "Inter Variable",
+      -apple-system,
+      system-ui,
+      sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  *::selection {
+    background-color: var(--sec);
+    color: var(--background);
+  }
+
+  /* Scrollbar styles */
+
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--container);
+    border-radius: 30px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--background);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--pink);
+  }
+
+  /* Scrollbar styles for Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) var(--container);
+  }
+</style>
