@@ -3,15 +3,12 @@ import Layout from "@/layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 ---
 
 <Layout title="Blog">
-  <main
-    id="blog"
-    class="mx-auto max-w-5xl px-6 py-16 text-[var(--white)]"
-  >
+  <main id="blog" class="mx-auto max-w-5xl px-6 py-16 text-[var(--white)]">
     <!-- Back -->
     <a
       href="/#blog"
@@ -65,9 +62,7 @@ const posts = (await getCollection("blog")).sort(
 
               <div class="flex items-start justify-between gap-4">
                 <div class="flex flex-col gap-2">
-                  <h2
-                    class="text-xl font-medium transition-colors group-hover:text-[var(--sec)]"
-                  >
+                  <h2 class="text-xl font-medium transition-colors group-hover:text-[var(--sec)]">
                     {post.data.title}
                   </h2>
 
@@ -84,17 +79,15 @@ const posts = (await getCollection("blog")).sort(
                 </span>
               </div>
 
-              {
-                post.data.tags?.length > 0 && (
-                  <div class="flex flex-wrap gap-2">
-                    {post.data.tags.map((tag) => (
-                      <span class="rounded-md border border-[var(--white-icon-tr)] px-2 py-1 text-xs text-[var(--white-icon)]">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                )
-              }
+              {post.data.tags?.length > 0 && (
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags.map((tag) => (
+                    <span class="rounded-md border border-[var(--white-icon-tr)] px-2 py-1 text-xs text-[var(--white-icon)]">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </article>
           </a>
         ))

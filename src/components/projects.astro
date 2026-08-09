@@ -106,13 +106,13 @@ export const projects = [
 
 <section
   id="projects"
-  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
+  class="border-t border-[#ffffff10] py-12 text-[var(--white)]"
 >
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projects</h3>
+  <div class="mx-auto max-w-5xl">
+    <h2 class="shiny-sec mb-2 text-lg text-[var(--sec)]">My work</h2>
+    <h3 class="mb-8 text-4xl font-medium md:text-5xl">Projects</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
       {
         projects.map((project) => (
           <div class="group">
@@ -122,16 +122,16 @@ export const projects = [
               rel="noopener noreferrer"
               class="block"
             >
-              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
+              <div class="mb-4 overflow-hidden rounded-2xl shadow-lg transition-shadow duration-300 hover:shadow-xl">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300 dark:hidden"
+                  class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-72 dark:hidden"
                 />
                 <Image
                   src={project.imageDark}
                   alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300 hidden dark:block"
+                  class="hidden h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-72 dark:block"
                 />
               </div>
               <div class="flex items-center px-3">
@@ -141,12 +141,12 @@ export const projects = [
                     {project.status}
                   </span>
                 </div>
-                <div class="flex gap-2 ml-auto">
+                <div class="ml-auto flex gap-2">
                   <a
                     target="_blank"
                     href={project.github}
                     aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                    class="border-1 flex size-14 items-center justify-center rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ export const projects = [
                     target="_blank"
                     href={project.preview}
                     aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                    class="border-1 flex size-14 items-center justify-center rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -183,9 +183,9 @@ export const projects = [
       target="_blank"
       href="https://github.com/Abdelmuttalib?tab=repositories"
       aria-label="GitHub"
-      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
+      class="mt-9 flex w-full items-center justify-center gap-2 rounded-full border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:scale-105 hover:bg-[var(--white-icon-tr)] hover:text-white"
     >
-      <span class="md:text-lg text-md">More projects on</span>
+      <span class="text-md md:text-lg">More projects on</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"

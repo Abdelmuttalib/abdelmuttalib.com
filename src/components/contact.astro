@@ -1,10 +1,10 @@
-<section id="contact" class="w-full py-12 border-t border-[#ffffff10]">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Let's talk</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">
+<section id="contact" class="w-full border-t border-[#ffffff10] py-12">
+  <div class="mx-auto max-w-5xl">
+    <h2 class="shiny-sec mb-2 text-lg text-[var(--sec)]">Let's talk</h2>
+    <h3 class="mb-6 text-4xl font-medium text-[var(--white)] md:text-5xl">
       Contact
     </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
       <div class="text-[var(--white-icon)]">
         <p class="mb-4">
           Have a question or a project in mind? Feel free to reach out.
@@ -36,7 +36,7 @@
             name="name"
             placeholder="Name"
             required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
+            class="rounded-lg border border-[var(--white-icon-tr)] bg-[#1414149c] px-4 py-2 text-[var(--white)] focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
           />
 
           <input
@@ -45,14 +45,14 @@
             name="email"
             placeholder="Email"
             required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
+            class="rounded-lg border border-[var(--white-icon-tr)] bg-[#1414149c] px-4 py-2 text-[var(--white)] focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
           />
 
           <select
             id="service"
             name="service"
             required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
+            class="rounded-lg border border-[var(--white-icon-tr)] bg-[#1414149c] px-4 py-2 text-[var(--white)] focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
           >
             <option value="New Website">New Website</option>
             <option value="Website Redesign">Website Redesign</option>
@@ -87,7 +87,7 @@
             placeholder="Message"
             rows="6"
             required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none disabled:opacity-40"
+            class="resize-none rounded-lg border border-[var(--white-icon-tr)] bg-[#1414149c] px-4 py-2 text-[var(--white)] focus:outline-none focus:ring-2 focus:ring-[var(--sec)] disabled:opacity-40"
           ></textarea>
 
           <!-- Honeypot -->
@@ -102,7 +102,7 @@
           <button
             id="contact-submit"
             type="submit"
-            class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)] disabled:opacity-40"
+            class="rounded-lg border border-[var(--white-icon-tr)] bg-[var(--white-icon-tr)] px-4 py-2 text-[var(--white)] transition-opacity hover:bg-[var(--white-icon-tr)] hover:opacity-100 disabled:opacity-40"
             ><span id="contact-submit-text"> Submit </span>
           </button>
         </form>
@@ -112,7 +112,7 @@
           id="form-message"
           role="status"
           aria-live="polite"
-          class="hidden justify-center items-center mt-4 text-[var(--white)] text-lg"
+          class="mt-4 hidden items-center justify-center text-lg text-[var(--white)]"
         >
         </div>
 
