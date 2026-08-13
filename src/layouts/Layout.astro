@@ -1,34 +1,54 @@
 ---
-import Nav from "@/components/nav.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import "../styles/global.css";
+import SiteFooter from "@/components/SiteFooter.astro";
+import { siteConfig } from "@/config/site";
 
 interface Props {
   title: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  noindex?: boolean;
+  prevUrl?: string;
+  nextUrl?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = siteConfig.description,
+  image = siteConfig.socialImage,
+  type = "website",
+  noindex = false,
+  prevUrl,
+  nextUrl,
+  structuredData,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).toString();
+const absoluteImage = new URL(image, siteConfig.siteUrl).toString();
+const pageTitle =
+  title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.siteUrl,
+  description: siteConfig.description,
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.authorName,
+  },
+};
+const schema = structuredData ?? defaultStructuredData;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <title>{title} | Software Developer</title>
-    <meta
-      name="description"
-      content="Abdelmuttalib Ahmed - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
-    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="canonical" href="https://abdelmuttalib.vercel.app/" />
-
-    <!-- <link
-      rel="preload"
-      href="/fonts/montserrat-latin-wght-normal.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    /> -->
-
     <link
       rel="preload"
       href="/fonts/inter-var-latin.woff2"
@@ -36,32 +56,46 @@ const { title } = Astro.props;
       type="font/woff2"
       crossorigin="anonymous"
     />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="canonical" href={canonical} />
 
-    <meta
-      property="og:title"
-      content="Abdelmuttalib Ahmed | Software Developer"
+    <!-- {prevUrl && <link rel="prev" href={new URL(prevUrl, siteConfig.siteUrl).toString()} />}
+    {nextUrl && <link rel="next" href={new URL(nextUrl, siteConfig.siteUrl).toString()} />} -->
+
+    <!-- <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} RSS`} href={new URL("/rss.xml", siteConfig.siteUrl).toString()} /> -->
+
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta property="og:locale" content={siteConfig.locale} />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={absoluteImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteImage} />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
     />
-    <meta
-      property="og:description"
-      content="abdelmuttalib of Abdelmuttalib Ahmed, Software Developer specializing in frontend and interactive experiences."
-    />
-    <meta
-      property="og:image"
-      content="https://abdelmuttalib.vercel.app/og.image.png"
-    />
-    <meta property="og:url" content="https://abdelmuttalib.vercel.app" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Abdelmuttalib Ahmed abdelmuttalib" />
 
     <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
+    <!-- <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Abdelmuttalib Ahmed",
         "alternateName": "Abdelmuttalib Ahmed",
         "url": "https://abdelmuttalib.vercel.app",
-        "image": "https://abdelmuttalib.vercel.app/og.image.png",
+        "image": "https://abdelmuttalib.vercel.app/og-image.png",
         "sameAs": [
           "https://github.com/Abdelmuttalib",
           "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160"
@@ -69,13 +103,85 @@ const { title } = Astro.props;
         "jobTitle": "Software Developer",
         "description": "Software Developer building interactive and seamless digital experiences."
       }
+    </script> -->
+
+    <script is:inline>
+      /*
+       * Runs before first paint so the stored reading mode is applied without a
+       * flash. Falls back to the system preference until the reader picks a side.
+       */
+      (() => {
+        const storageKey = "theme";
+        const root = document.documentElement;
+        const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+        let storedTheme;
+
+        try {
+          storedTheme = localStorage.getItem(storageKey);
+        } catch {
+          storedTheme = null;
+        }
+
+        const updateToggles = (theme) => {
+          const isDark = theme === "dark";
+          document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+            button.setAttribute("aria-checked", String(isDark));
+            button.setAttribute(
+              "aria-label",
+              isDark ? "Switch to light mode" : "Switch to dark mode",
+            );
+          });
+        };
+
+        const setTheme = (theme, persist = false) => {
+          root.dataset.theme = theme;
+          if (persist) {
+            storedTheme = theme;
+            try {
+              localStorage.setItem(storageKey, theme);
+            } catch {}
+          }
+          updateToggles(theme);
+        };
+
+        const preferredTheme =
+          storedTheme === "light" || storedTheme === "dark"
+            ? storedTheme
+            : systemDark.matches
+              ? "dark"
+              : "light";
+
+        setTheme(preferredTheme);
+
+        systemDark.addEventListener("change", (event) => {
+          if (storedTheme === "light" || storedTheme === "dark") return;
+          setTheme(event.matches ? "dark" : "light");
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+          updateToggles(root.dataset.theme || preferredTheme);
+          document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+            button.addEventListener("click", () => {
+              setTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+            });
+          });
+        });
+      })();
     </script>
   </head>
-  <body class="bg-[var(--background)] text-[var(--white)] antialiased">
-    <Nav />
-    <main class="px-6 sm:px-14 md:px-20 lg:px-24">
+  <body
+    class="text-foreground bg-background flex min-h-svh flex-col antialiased"
+  >
+    <a
+      href="#main-content"
+      class="focus:bg-brand-black focus:text-brand-bg sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:px-4 focus:py-2 focus:text-sm"
+      >Skip to content
+    </a>
+    <SiteHeader />
+    <div class="grow">
       <slot />
-    </main>
+    </div>
+    <SiteFooter />
   </body>
 </html>
 
@@ -90,84 +196,4 @@ const { title } = Astro.props;
   } */
 
   /* inter-var-latin */
-
-  @font-face {
-    font-family: "Inter Variable";
-    src: url("/fonts/inter-var-latin.woff2") format("woff2-variations");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  :root {
-    --background: #101010;
-    --sec: #a476ff;
-    --white: #dfdfdf;
-    --white-icon: #f3f3f398;
-    --white-icon-tr: #f3f3f310;
-
-    /* Component palette */
-    --container: #17171b;
-    --line: #2c2c33;
-    --pink: #a476ff;
-    --component-bg: rgba(24, 24, 28, 0.72);
-    --card: #1414149c;
-  }
-
-  * {
-    font-family:
-      "Inter Variable",
-      -apple-system,
-      system-ui,
-      sans-serif;
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  *::selection {
-    background-color: var(--sec);
-    color: var(--background);
-  }
-
-  /* Scrollbar styles */
-
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--container);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--line);
-    border-radius: 9999px;
-    border: 3px solid var(--container);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--pink);
-  }
-
-  /* Scrollbar styles for Firefox */
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: var(--line) var(--container);
-  }
-
-  /* Reduced motion: respect system preferences */
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
 </style>

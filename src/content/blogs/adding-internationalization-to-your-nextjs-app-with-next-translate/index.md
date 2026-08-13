@@ -1,8 +1,13 @@
 ---
 title: "Adding Internationalization to Your Next.js App with next-translate"
-description: "Internationalization is crucial for reaching users across different languages and cultures. With next-translate, you can seamlessly integrate multiple languages into your app, allowing your content to resonate with users worldwide."
+excerpt: "Internationalization is crucial for reaching users across different languages and cultures. With next-translate, you can seamlessly integrate multiple languages into your app, allowing your content to resonate with users worldwide."
 date: "Aug 14, 2023"
 tags: ["Next.js", "i18n"]
+cover:
+  src: "./cover.jpg"
+  alt: "Abstract purple and blue mesh gradient"
+  creditName: "Credits to MagicPattern via Unsplash"
+  creditUrl: "https://unsplash.com/photos/a-blurry-image-of-a-purple-and-blue-background-8h_tctpq4h0"
 ---
 
 Hey Developers! Are you looking to make your React Next.js app accessible to a global audience? 🌍 Adding internationalization (i18n) support is the key, and today I want to share an awesome tool that can make this process a breeze: the next-translate package!
@@ -21,26 +26,25 @@ How to Get Started:
 
 **1. Install the package**
 
-```
+```js
 npm install next-translate
 ```
 
 **2. Install the next-translate-plugin as a dev dependency**
 
-```
+```js
 npm install next-translate-plugin --save-dev
 ```
 
 **3. Configure your Next.js app**
 
-```
+```js
 // in your next.config.js
 
 import nextTranslate from "next-translate-plugin";
 
 const nextConfig = {
   reactStrictMode: true,
-
 };
 export default nextTranslate(nextConfig);
 ```
@@ -51,7 +55,7 @@ wrap your nextConfig options with the nextTranslate function from `next-translat
 
 - create a i18n.json file in the root of your project
 
-```
+```js
 // in your i18n.json
 {
   "locales": ["en", "fr", "es", "de", "zh"],
@@ -78,7 +82,7 @@ Example of a translation file content (in spanish)
 **6. Implement translations in your
 components**
 
-```
+```js
 import useTranslation from "next-translate/useTranslation";
 
 export default function MyComponent() {
@@ -86,7 +90,6 @@ export default function MyComponent() {
 
   return <button>{t("buttons.new_todo")}</button>;
 }
-
 ```
 
 **7. That's it. Your app now supports translations and different languages reaching to global audience.**

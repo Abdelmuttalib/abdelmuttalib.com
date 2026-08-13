@@ -4,25 +4,23 @@ import LogoWall from "../components/logoWall.astro";
 import SkillsList from "../React/SkillsList.tsx";
 ---
 
-<section class="mt-12 text-[var(--white)] md:mt-0" id="home">
+<section id="home" class="text-foreground mt-12 md:mt-0">
   <div class="mx-auto max-w-5xl space-y-8 pb-14 md:py-36">
     <div class="space-y-4 text-left">
-      <p class="text-md shiny-white text-[var(--white-icon)] md:text-lg">
+      <p class="text-md shiny-white text-muted-foreground md:text-lg">
         Hi, I'm Abdelmuttalib Ahmed
       </p>
       <div
-        class="flex flex-col space-y-4 md:gap-4 lg:flex-row lg:items-center lg:space-x-8 lg:space-y-0"
+        class="flex flex-col space-y-4 md:gap-4 lg:flex-row lg:items-center lg:space-y-0 lg:space-x-8"
       >
         <h1
-          class="text-pretty text-5xl font-medium leading-none text-[var(--white)] md:text-6xl"
+          class="text-foreground text-5xl leading-none font-medium text-pretty md:text-6xl"
         >
           Software <br /> Developer
         </h1>
-        <p class="text-md text-[var(--white-icon)] md:text-2xl">
+        <p class="text-md text-muted-foreground md:text-2xl">
           Transforming ideas into interactive and seamless digital experiences
-          with cutting-edge <span class="shiny-sec text-[var(--sec)]"
-            >frontend</span
-          > development.
+          with cutting-edge <span class="text-accent">frontend</span> development.
         </p>
       </div>
       <div class="flex justify-start gap-2 pt-3 md:pt-6">
@@ -30,7 +28,7 @@ import SkillsList from "../React/SkillsList.tsx";
           target="_blank"
           href="https://github.com/Abdelmuttalib"
           aria-label="GitHub"
-          class="border-1 rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
+          class="bg-card border-border text-muted-foreground hover:bg-card rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +45,7 @@ import SkillsList from "../React/SkillsList.tsx";
           target="_blank"
           href="https://linkedin.com/in/andresshernandez-eng"
           aria-label="LinkedIn"
-          class="border-1 rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
+          class="bg-card border-border text-muted-foreground hover:bg-card rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +62,7 @@ import SkillsList from "../React/SkillsList.tsx";
           target="_blank"
           href="https://mail.google.com/mail/?view=cm&fs=1&to=oscarandreshernandezpineda@gmail.com&su=Hey%20Oscar!"
           aria-label="Email"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+          class="text-muted-foreground hover:text-white transition duration-300 ease-in-out border border-border p-3 rounded-xl bg-card hover:bg-card"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -100,24 +98,3 @@ import SkillsList from "../React/SkillsList.tsx";
     </div>
   </div>
 </section>
-
-<style is:global>
-  .shiny-sec {
-    background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shine 3s linear infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: 100% 50%;
-    }
-    30%,
-    70% {
-      background-position: 0% 50%;
-    }
-  }
-</style>

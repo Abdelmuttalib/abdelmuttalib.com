@@ -1,8 +1,13 @@
 ---
 title: "Embracing Brave Browser as a Software Developer"
-description: "In the fast-paced world of software development, having the right tools can make all the difference. For years, Chrome has been the go-to browser for developers, thanks to its powerful extensions and robust developer tools. However, a new contender has entered the arena – Brave browser."
+excerpt: "In the fast-paced world of software development, having the right tools can make all the difference. For years, Chrome has been the go-to browser for developers, thanks to its powerful extensions and robust developer tools. However, a new contender has entered the arena – Brave browser."
 date: "Aug 2, 2023"
 tags: ["Browsers", "Privacy"]
+cover:
+  src: "./cover.jpg"
+  alt: "Code and text on a macbook pro"
+  creditName: "Credits to Emile Perron via Unsplash"
+  creditUrl: "https://unsplash.com/photos/macbook-pro-showing-programming-language-xrVDYZRGdw4"
 ---
 
 **Introduction:**

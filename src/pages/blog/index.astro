@@ -1,93 +1,109 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { visibleBlogs } from "@/lib/blogs";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const blogs = visibleBlogs(await getCollection("blogs"));
 ---
 
 <Layout title="Blog">
-  <main id="blog" class="mx-auto max-w-5xl px-6 py-16 text-[var(--white)]">
-    <!-- Back -->
-    <a
-      href="/#blog"
-      class="text-sm text-[var(--white-icon)] transition-colors hover:text-[var(--sec)]"
-    >
-      ← Back to home
-    </a>
-
+  <main id="main-content" class="outer">
     <!-- Header -->
-    <header class="mt-8 flex flex-col gap-4">
-      <p class="text-sm uppercase tracking-widest text-[var(--sec)]">Blog</p>
+    <header class="canvas mt-8 flex flex-col gap-4">
+      <!-- <p class="text-accent text-sm tracking-widest uppercase">Blog</p> -->
 
       <div class="flex flex-col gap-2">
         <h1 class="text-4xl font-semibold tracking-tight md:text-5xl">
-          Thoughts &amp; Notes
+          <!-- Thoughts &amp; Notes -->
+          Blog
         </h1>
 
-        <p class="max-w-2xl text-[var(--white-icon)]">
+        <!-- <p class="text-muted-foreground max-w-2xl">
           Things I've learned, built, and experimented with.
-        </p>
+        </p> -->
       </div>
     </header>
 
-    <!-- Posts -->
-    <div class="mt-10 flex flex-col gap-4">
+    <!-- Blogs -->
+    <div class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-10 sm:grid-cols-2">
       {
-        posts.map((post) => (
-          <a
-            href={`/blog/${post.id}`}
-            class="group block rounded-lg border border-[var(--white-icon-tr)] bg-[#1414149c] p-5 transition-all duration-200 hover:border-[var(--sec)] hover:bg-[#181818]"
-          >
-            <article class="flex flex-col gap-4">
-              <div class="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider">
-                <time
-                  datetime={post.data.date.toISOString()}
-                  class="text-[var(--white-icon)]"
-                >
-                  {post.data.date.toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })}
-                </time>
-
-                <span class="text-[var(--white-icon)]">•</span>
-
-                <span class="text-[var(--sec)]">
-                  {post.data.tags?.[0] ?? "Article"}
-                </span>
+        blogs.map((blog) => (
+          <a href={`/blog/${blog.id}`} class="group bg-card block">
+            <article class="flex flex-col gap-6">
+              <div>
+                {blog.data.cover && (
+                  <figure class="relative aspect-video overflow-hidden rounded">
+                    <Image
+                      src={blog.data.cover.src}
+                      alt={blog.data.cover.alt}
+                      widths={[640, 960, 1200, 1600, 2000]}
+                      sizes="(min-width: 1200px) 1200px, 100vw"
+                      loading="eager"
+                      decoding="async"
+                      class="w-full"
+                    />
+                    {/* {blog.data.cover.creditName && (
+                      <figcaption>
+                        {blog.data.cover.creditUrl ? (
+                          <a
+                            href={blog.data.cover.creditUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            class="underline underline-offset-2"
+                          >
+                            {blog.data.cover.creditName}
+                          </a>
+                        ) : (
+                          blog.data.cover.creditName
+                        )}
+                      </figcaption>
+                    )} */}
+                  </figure>
+                )}
               </div>
+              <div class="flex flex-col gap-4">
+                <div class="flex flex-wrap items-center gap-3 text-xs tracking-wider uppercase">
+                  <time
+                    datetime={blog.data.date.toISOString()}
+                    class="text-muted-foreground"
+                  >
+                    {blog.data.date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
 
-              <div class="flex items-start justify-between gap-4">
-                <div class="flex flex-col gap-2">
-                  <h2 class="text-xl font-medium transition-colors group-hover:text-[var(--sec)]">
-                    {post.data.title}
-                  </h2>
+                  <span class="text-muted-foreground">•</span>
 
-                  <p class="max-w-3xl text-sm leading-6 text-[var(--white-icon)]">
-                    {post.data.description}
-                  </p>
+                  <span class="text-muted-foreground">
+                    {blog.data.tags?.[0] ?? "Article"}
+                  </span>
                 </div>
 
-                <span
-                  aria-hidden="true"
-                  class="hidden text-xl text-[var(--white-icon)] transition-all duration-200 group-hover:translate-x-1 group-hover:text-[var(--sec)] sm:block"
-                >
-                  →
-                </span>
-              </div>
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex flex-col gap-2">
+                    <h2 class="group-hover:text-accent text-xl tracking-tight transition-colors">
+                      {blog.data.title}
+                    </h2>
 
-              {post.data.tags?.length > 0 && (
-                <div class="flex flex-wrap gap-2">
-                  {post.data.tags.map((tag) => (
-                    <span class="rounded-md border border-[var(--white-icon-tr)] px-2 py-1 text-xs text-[var(--white-icon)]">
-                      #{tag}
-                    </span>
-                  ))}
+                    {/* <p class="text-muted-foreground line-clamp-2 max-w-3xl text-sm leading-6">
+                      {blog.data.excerpt}
+                    </p> */}
+                  </div>
                 </div>
-              )}
+
+                {/* {blog.data.tags?.length > 0 && (
+                  <div class="flex flex-wrap gap-2">
+                    {blog.data.tags.map((tag) => (
+                      <span class="text-muted-foreground border-border rounded-md border px-2 py-1 text-xs">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )} */}
+              </div>
             </article>
           </a>
         ))

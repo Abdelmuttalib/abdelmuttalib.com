@@ -106,10 +106,10 @@ export const projects = [
 
 <section
   id="projects"
-  class="border-t border-[#ffffff10] py-12 text-[var(--white)]"
+  class="text-foreground border-t border-[#ffffff10] py-12"
 >
   <div class="mx-auto max-w-5xl">
-    <h2 class="shiny-sec mb-2 text-lg text-[var(--sec)]">My work</h2>
+    <h2 class="text-accent mb-2 text-lg">My work</h2>
     <h3 class="mb-8 text-4xl font-medium md:text-5xl">Projects</h3>
 
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -137,7 +137,7 @@ export const projects = [
               <div class="flex items-center px-3">
                 <div class="flex-grow">
                   <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
+                  <span class="text-muted-foreground py-1 text-sm">
                     {project.status}
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export const projects = [
                     target="_blank"
                     href={project.github}
                     aria-label="GitHub"
-                    class="border-1 flex size-14 items-center justify-center rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +161,7 @@ export const projects = [
                     target="_blank"
                     href={project.preview}
                     aria-label="Preview"
-                    class="border-1 flex size-14 items-center justify-center rounded-xl border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:bg-[var(--white-icon-tr)] hover:text-white"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ export const projects = [
       target="_blank"
       href="https://github.com/Abdelmuttalib?tab=repositories"
       aria-label="GitHub"
-      class="mt-9 flex w-full items-center justify-center gap-2 rounded-full border border-[var(--white-icon-tr)] bg-[#1414149c] p-3 text-[var(--white-icon)] transition duration-300 ease-in-out hover:scale-105 hover:bg-[var(--white-icon-tr)] hover:text-white"
+      class="text-muted-foreground bg-card border-border hover:bg-card mt-9 flex w-full items-center justify-center gap-2 rounded-full border p-3 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
     >
       <span class="text-md md:text-lg">More projects on</span>
       <svg

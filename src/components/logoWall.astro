@@ -14,7 +14,6 @@ const technologies = [
   "supabase",
   "mysql",
   "bash",
-  "postgresql",
 ];
 ---
 
@@ -44,7 +43,7 @@ const technologies = [
             loading={index < technologies.length ? "eager" : "lazy"}
             decoding="async"
           />
-          <span class="whitespace-nowrap text-lg font-medium text-[var(--white-icon)]">
+          <span class="text-muted-foreground text-lg font-medium whitespace-nowrap">
             {tech.charAt(0).toUpperCase() + tech.slice(1)}
           </span>
         </div>
