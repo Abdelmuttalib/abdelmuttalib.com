@@ -33,7 +33,8 @@ export type FontSize =
   | "5xl"
   | "6xl"
   | "7xl"
-  | "8xl";
+  | "8xl"
+  | "9xl";
 
 export type FontWeight =
   | "light"

@@ -1,12 +1,88 @@
 ---
+import ContactForm from "@/components/ContactForm.astro";
+import BodyText from "@/components/ui/BodyText.astro";
+import Heading from "@/components/ui/Heading.astro";
+import { siteConfig } from "@/config/site";
 import Layout from "@/layouts/Layout.astro";
+
+const socials = siteConfig.socials.map((item) => ({
+  ...item,
+  // icon:
+  //   socialIconByLabel[item.label as keyof typeof socialIconByLabel] ??
+  //   "link-45deg",
+}));
 ---
 
 <Layout title="Contact">
-  <div class="mx-auto max-w-5xl px-6 py-16">
-    <h2 class="text-accent mb-2 text-lg">Contact</h2>
-    <h3 class="text-foreground mb-6 text-4xl font-medium md:text-5xl">
-      Contact Me
-    </h3>
-  </div>
+  <main id="main-content" class="outer grid grid-cols-1 gap-32 py-32">
+    <!-- Header -->
+    <header class="mx-auto flex w-full max-w-6xl flex-col gap-4">
+      <!-- <p class="text-accent text-sm tracking-widest uppercase">Blog</p> -->
+
+      <div class="flex flex-col gap-12">
+        <div class="flex flex-col gap-6">
+          <Heading level={1}> Contact </Heading>
+
+          <!-- <BodyText
+            variant="lg/normal"
+            class="text-muted-foreground max-w-2xl text-balance"
+          >
+            Tell me a little about what you have in mind — a few lines is
+            plenty. I read and reply to every message myself, usually within two
+            days.
+          </BodyText> -->
+        </div>
+
+        <div class="flex flex-col gap-8">
+          <div class="flex flex-wrap gap-8">
+            <a
+              href="mailto:abdelmuttalib1@gmail.com"
+              class="text-foreground decoration-muted-foreground/30 hover:text-foreground hover:decoration-foreground text-2xl underline underline-offset-8 transition duration-300 ease-in-out"
+            >
+              abdelmuttalib1@gmail.com
+              <!-- &copy; {currentYear}. All rights reserved. -->
+            </a>
+            <a
+              href="tel:+639455102063"
+              class="text-foreground decoration-muted-foreground/30 hover:text-foreground hover:decoration-foreground text-2xl underline underline-offset-8 transition duration-300 ease-in-out"
+            >
+              +63 945 510 2063
+              <!-- &copy; {currentYear}. All rights reserved. -->
+            </a>
+          </div>
+          <div>
+            <nav class="flex gap-8">
+              {
+                socials.map((item) => (
+                  <a
+                    href={item.href}
+                    class="group text-foreground relative block w-fit text-base uppercase"
+                  >
+                    {item.label}
+                    <span class="ease-brand bg-foreground absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full rtl:right-0 rtl:left-auto" />
+                  </a>
+                ))
+              }
+            </nav>
+          </div>
+        </div>
+        <!-- <p class="text-muted-foreground max-w-2xl">
+          Things I've learned, built, and experimented with.
+        </p> -->
+      </div>
+    </header>
+    <div class="mx-auto grid w-full max-w-6xl grid-cols-1 gap-12">
+      <div>
+        <!-- <h2 class="text-accent mb-2 text-lg">Contact</h2>
+        <h3 class="text-foreground mb-6 text-4xl font-medium md:text-5xl">
+          Contact Me
+        </h3> -->
+        <Heading level={5}> Send me a message </Heading>
+      </div>
+
+      <div>
+        <ContactForm />
+      </div>
+    </div>
+  </main>
 </Layout>

@@ -1,4 +1,6 @@
 ---
+import Heading from "@/components/ui/Heading.astro";
+import BodyText from "@/components/ui/BodyText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { visibleBlogs } from "@/lib/blogs";
 import { Image } from "astro:assets";
@@ -8,16 +10,17 @@ const blogs = visibleBlogs(await getCollection("blogs"));
 ---
 
 <Layout title="Blog">
-  <main id="main-content" class="outer">
+  <main id="main-content" class="outer grid grid-cols-1 gap-28 py-32">
     <!-- Header -->
-    <header class="canvas mt-8 flex flex-col gap-4">
+    <header class="mx-auto flex w-full max-w-6xl flex-col gap-4">
       <!-- <p class="text-accent text-sm tracking-widest uppercase">Blog</p> -->
 
-      <div class="flex flex-col gap-2">
-        <h1 class="text-4xl font-semibold tracking-tight md:text-5xl">
-          <!-- Thoughts &amp; Notes -->
-          Blog
-        </h1>
+      <div class="flex flex-col gap-6">
+        <Heading level={1}> Blog </Heading>
+
+        <BodyText variant="base/normal">
+          A few recent collaborations across identity, web, product, and motion.
+        </BodyText>
 
         <!-- <p class="text-muted-foreground max-w-2xl">
           Things I've learned, built, and experimented with.
@@ -26,14 +29,16 @@ const blogs = visibleBlogs(await getCollection("blogs"));
     </header>
 
     <!-- Blogs -->
-    <div class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-10 sm:grid-cols-2">
+    <div
+      class="mx-auto grid max-w-6xl grid-cols-1 gap-10 gap-y-32 sm:grid-cols-1"
+    >
       {
         blogs.map((blog) => (
           <a href={`/blog/${blog.id}`} class="group bg-card block">
             <article class="flex flex-col gap-6">
               <div>
                 {blog.data.cover && (
-                  <figure class="relative aspect-video overflow-hidden rounded">
+                  <figure class="relative aspect-video overflow-hidden rounded-2xl">
                     <Image
                       src={blog.data.cover.src}
                       alt={blog.data.cover.alt}
@@ -83,14 +88,18 @@ const blogs = visibleBlogs(await getCollection("blogs"));
                 </div>
 
                 <div class="flex items-start justify-between gap-4">
-                  <div class="flex flex-col gap-2">
-                    <h2 class="group-hover:text-accent text-xl tracking-tight transition-colors">
+                  <div class="flex flex-col gap-6">
+                    {/* <h2 class="group-hover:text-accent text-xl tracking-tight transition-colors">
                       {blog.data.title}
-                    </h2>
+                    </h2> */}
 
-                    {/* <p class="text-muted-foreground line-clamp-2 max-w-3xl text-sm leading-6">
+                    <Heading level={5} as="h2">
+                      {blog.data.title}
+                    </Heading>
+
+                    <p class="text-muted-foreground line-clamp-2 max-w-3xl leading-6">
                       {blog.data.excerpt}
-                    </p> */}
+                    </p>
                   </div>
                 </div>
 

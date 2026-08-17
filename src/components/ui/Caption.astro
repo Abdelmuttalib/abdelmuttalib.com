@@ -1,0 +1,15 @@
+---
+import Typography from "./Typography.astro";
+
+const props = Astro.props;
+---
+
+<Typography
+  as="span"
+  variant="sm/medium"
+  tone="caption"
+  class="tracking-wide"
+  {...props}
+>
+  <slot />
+</Typography>

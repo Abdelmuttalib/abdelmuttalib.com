@@ -1,12 +1,74 @@
 ---
+import BodyText from "@/components/ui/BodyText.astro";
+import Heading from "@/components/ui/Heading.astro";
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="About">
-  <div class="mx-auto max-w-5xl px-6 py-16">
-    <h2 class="text-accent mb-2 text-lg">About</h2>
-    <h3 class="text-foreground mb-6 text-4xl font-medium md:text-5xl">
-      About Me
-    </h3>
-  </div>
+  <main id="main-content" class="outer grid grid-cols-1 gap-28 py-32">
+    <!-- Header -->
+    <header class="mx-auto flex w-full max-w-6xl flex-col gap-4">
+      <!-- <p class="text-accent text-sm tracking-widest uppercase">Blog</p> -->
+
+      <div class="flex flex-col gap-6">
+        <Heading level={1}> About </Heading>
+
+        <!-- <BodyText variant="base/normal">
+          I'm a software developer, building interactive and seamless digital
+          experiences with cutting-edge frontend development.
+        </BodyText> -->
+
+        <!-- <p class="text-muted-foreground max-w-2xl">
+          Things I've learned, built, and experimented with.
+        </p> -->
+      </div>
+    </header>
+    <div class="mx-auto grid w-full max-w-6xl gap-32 py-16">
+      <div class="flex flex-wrap justify-between gap-12">
+        <div class="flex flex-col gap-6">
+          <Heading
+            level={5}
+            class="max-w-4xl text-2xl leading-tight md:leading-tight"
+          >
+            Building digital experiences with cutting-edge software development.
+          </Heading>
+        </div>
+        <div>
+          <Image
+            src="https://avatars.githubusercontent.com/u/54845047?v=4"
+            alt="Me"
+            width={460 / 3}
+            height={460 / 3}
+            class="rounded-2xl object-cover grayscale"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <!-- I’ve built and maintained complex platforms—from e-commerce and booking systems to 3D model rendering apps—taking projects from concept to deployment. With a strong eye for design, I translate UI/UX principles into responsive, accessible interfaces and implement modern best practices including CI/CD pipelines, testing (Jest, Cypress), and performance optimization. -->
+        <Heading
+          level={6}
+          class="max-w-5xl text-2xl leading-tight text-balance md:leading-tight"
+        >
+          I’ve built and maintained complex platforms—from e-commerce and
+          booking systems to 3D model rendering apps
+        </Heading>
+        <!-- <p class="text-2xl leading-relaxed md:leading-relaxed">
+          I’ve built and maintained complex platforms—from e-commerce and
+          booking systems to 3D model rendering apps—taking projects from
+          concept to deployment.
+        </p> -->
+
+        <p class="text-muted-foreground text-xl">
+          With a strong eye for design, I translate UI/UX principles into
+          responsive, accessible interfaces and implement modern best practices
+          including CI/CD pipelines, testing (Jest, Cypress), and performance
+          optimization.
+        </p>
+      </div>
+    </div>
+  </main>
 </Layout>

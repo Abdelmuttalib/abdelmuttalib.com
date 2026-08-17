@@ -22,6 +22,9 @@ import {
   visibleBlogs,
   type Blog,
 } from "@/lib/blogs";
+import Heading from "@/components/ui/Heading.astro";
+import BodyText from "@/components/ui/BodyText.astro";
+import Typography from "@/components/ui/Typography.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blogs");
@@ -112,8 +115,19 @@ const structuredData = {
           </span>
         </p>
 
-        <h1 class="article-title">{data.title}</h1>
-        <p class="article-excerpt">{data.excerpt}</p>
+        <Heading level={4} as="h1" class="mt-6">{data.title}</Heading>
+        <!-- margin: 1.25rem 0 0;
+      color: var(--muted-foreground);
+      font-size: clamp(1.125rem, 2.4vw, 1.4rem);
+      line-height: 1.45;
+      text-wrap: pretty; -->
+        <Typography
+          as="p"
+          variant="xl/normal"
+          class="text-muted-foreground my-5 leading-[1.45] text-pretty"
+        >
+          {data.excerpt}
+        </Typography>
 
         <div class="mt-8 flex flex-wrap items-center gap-2 italic">
           <!-- <h2 id="share-heading" class="eyebrow mr-1 italic">Tags</h2> -->
@@ -338,14 +352,6 @@ const structuredData = {
       word-break: break-word;
     }
 
-    .article-excerpt {
-      margin: 1.25rem 0 0;
-      color: color-mix(in srgb, var(--foreground) 82%, transparent);
-      font-size: clamp(1.125rem, 2.4vw, 1.4rem);
-      line-height: 1.45;
-      text-wrap: pretty;
-    }
-
     /* Only the block margins are set here: the inline `auto` margins come from
        `.inner` and must survive, or the wide feature image stops centering. */
     .article-image {
@@ -390,8 +396,8 @@ const structuredData = {
 
     .share-btn:hover,
     .share-btn:focus-visible {
-      border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
-      color: var(--accent);
+      border-color: color-mix(in srgb, var(--lime) 45%, var(--border));
+      color: var(--lime);
       transform: translateY(-2px);
     }
   </style>

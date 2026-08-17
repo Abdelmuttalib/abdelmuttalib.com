@@ -1,12 +1,223 @@
 ---
+import { projects } from "@/components/projects.astro";
+import BodyText from "@/components/ui/BodyText.astro";
+import Heading from "@/components/ui/Heading.astro";
 import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+// const projectColors = ["#7867ff", "#ff5d50", "#b6ff65", "#f2c7ff"];
+const projectColors = [
+  "#7867ff", // Electric violet
+  "#ff5d50", // Coral red
+  "#5ee7a5", // Lime
+  "#5bc0ff", // Soft lavender
+
+  "#4de1c1", // Mint turquoise
+  "#ffb347", // Warm orange
+  "#5bc0ff", // Sky blue
+  "#ff7eb6", // Pink
+  "#ffd95a", // Golden yellow
+  "#9b8cff", // Periwinkle
+  "#5ee7a5", // Fresh green
+  "#ff8a65", // Soft tangerine
+  "#63b3ed", // Cornflower blue
+  "#d8a7ff", // Light purple
+  "#ff6f91", // Rose
+  "#8ee3ef", // Aqua
+];
 ---
 
 <Layout title="Projects">
-  <div class="mx-auto max-w-5xl px-6 py-16">
-    <h2 class="text-accent mb-2 text-lg">Projects</h2>
-    <h3 class="text-foreground mb-6 text-4xl font-medium md:text-5xl">
-      Projects Me
-    </h3>
-  </div>
+  <main id="main-content" class="outer grid grid-cols-1 gap-28 py-32">
+    <!-- Header -->
+    <header class="mx-auto flex w-full max-w-6xl flex-col gap-4">
+      <!-- <p class="text-accent text-sm tracking-widest uppercase">Blog</p> -->
+
+      <div class="flex flex-col gap-6">
+        <Heading level={1}>
+          Projects
+          <!-- Things we have moved forward. -->
+        </Heading>
+
+        <BodyText variant="base/normal">
+          Brand systems, websites, products, and campaigns built with ambitious
+          teams.
+        </BodyText>
+
+        <!-- <p class="text-muted-foreground max-w-2xl">
+          Things I've learned, built, and experimented with.
+        </p> -->
+      </div>
+    </header>
+
+    <!-- Projects -->
+    <div
+      class="mx-auto grid max-w-400 grid-cols-1 gap-10 gap-y-32 md:grid-cols-2"
+    >
+      {
+        projects.map((project, index) => {
+          let colorIndex: number = projectColors.length - 1;
+
+          if (index < projectColors.length) {
+            colorIndex = index;
+          }
+
+          if (index >= projects.length) {
+            const randomIndexInColorArray = Math.floor(
+              Math.random() * projectColors.length - 1,
+            );
+            colorIndex = randomIndexInColorArray;
+          }
+
+          const color = projectColors[colorIndex];
+
+          return (
+            <div class="group">
+              <a
+                href={project.preview}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative flex h-full w-full flex-col gap-4 overflow-hidden rounded-2xl transition-all duration-700 ease-out"
+              >
+                <div class="border-border relative aspect-video overflow-hidden rounded-xl border">
+                  {/* <div
+                    class="absolute inset-0 z-20 mix-blend-normal group-hover:opacity-10"
+                    style={{
+                      backgroundColor: color,
+                    }}
+                  /> */}
+                  <div class="absolute right-4 bottom-4 z-40 flex size-full items-end justify-end">
+                    <div class="hidden size-8 -rotate-45 items-center justify-center rounded-full bg-white text-black transition-all duration-700 ease-out group-hover:flex group-hover:size-9 group-hover:-rotate-0">
+                      ↗
+                    </div>
+                  </div>
+                  <div class="absolute z-40 flex size-full items-end justify-center text-center">
+                    <div
+                      class:list={[
+                        "bg-opacity-30 m-2 rounded-xl bg-linear-to-t from-(--project-color)/60 via-(--project-color)/30 to-transparent px-2 py-2 backdrop-blur-lg transition-all duration-700 ease-out group-hover:mb-6 group-hover:from-(--project-color)/80 group-hover:via-(--project-color)/40 dark:from-(--project-color)/60 dark:via-(--project-color)/20",
+                        "text-foreground",
+                        "font-medium tracking-tighter",
+                      ]}
+                      style={`--project-color: ${color}`}
+                    >
+                      <Heading level={5} class="font-medium">
+                        {project.label}
+                      </Heading>
+                    </div>
+                  </div>
+
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    class="h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-105 group-hover:blur-xs md:h-full dark:hidden"
+                  />
+                  <Image
+                    src={project.imageDark}
+                    alt={project.title}
+                    class="hidden h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-102 group-hover:blur-xs md:h-full dark:block"
+                  />
+                </div>
+                <div class="flex items-center">
+                  <div class="grow">
+                    {/* <h4 class="text-2xl font-medium tracking-tighter">
+                    {project.title}
+                  </h4> */}
+                    {/* <Heading level={6} as="h4">
+                      {project.title}
+                    </Heading> */}
+
+                    <BodyText as="h4" variant="3xl/normal" class="mt-2">
+                      {project.title}
+                    </BodyText>
+
+                    <BodyText
+                      variant="sm/normal"
+                      class="text-muted-foreground mt-2"
+                    >
+                      {project.description}
+                    </BodyText>
+                    {/* <span class="text-muted-foreground py-1 text-sm">
+                    {project.status}
+                  </span> */}
+                  </div>
+                  <div class="ml-auto flex gap-2">
+                    {/* <a
+                    target="_blank"
+                    href={project.github}
+                    aria-label="GitHub"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
+                    </svg>
+                  </a>
+                  <a
+                    target="_blank"
+                    href={project.preview}
+                    aria-label="Preview"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a> */}
+                  </div>
+                </div>
+                {/* <div class="flex items-center px-3">
+                <div class="grow">
+                  <h4 class="text-2xl font-semibold">{project.title}</h4>
+                  <span class="text-muted-foreground py-1 text-sm">
+                    {project.status}
+                  </span>
+                </div>
+                <div class="ml-auto flex gap-2">
+                  <a
+                    target="_blank"
+                    href={project.github}
+                    aria-label="GitHub"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
+                    </svg>
+                  </a>
+                  <a
+                    target="_blank"
+                    href={project.preview}
+                    aria-label="Preview"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a>
+                </div>
+              </div> */}
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+  </main>
 </Layout>

@@ -135,6 +135,8 @@ const schema = structuredData ?? defaultStructuredData;
 
         const setTheme = (theme, persist = false) => {
           root.dataset.theme = theme;
+          root.classList.remove("dark", "light");
+          root.classList.add(theme);
           if (persist) {
             storedTheme = theme;
             try {
@@ -172,6 +174,21 @@ const schema = structuredData ?? defaultStructuredData;
   <body
     class="text-foreground bg-background flex min-h-svh flex-col antialiased"
   >
+    <!-- DEV -->
+    <div
+      class="bg-brand-accent fixed right-2 bottom-2 z-9999 flex items-end gap-2 border p-1 text-sm font-medium"
+    >
+      <div class="size-fit">
+        <div class="block sm:hidden">xs</div>
+        <div class="hidden sm:block md:hidden">sm</div>
+        <div class="hidden md:block lg:hidden">md</div>
+        <div class="hidden lg:block xl:hidden">lg</div>
+        <div class="hidden xl:block 2xl:hidden">xl</div>
+        <div class="hidden 2xl:block">2xl</div>
+      </div>
+    </div>
+
+    <!-- DEV END -->
     <a
       href="#main-content"
       class="focus:bg-brand-black focus:text-brand-bg sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-full focus:px-4 focus:py-2 focus:text-sm"

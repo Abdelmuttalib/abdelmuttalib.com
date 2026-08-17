@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @source "../**/*.{astro,ts,md,mdx}";
 
 @font-face {
-  font-family: "Geist";
+  font-family: "Geist Variable";
   src:
     url("/fonts/Geist-Variable.woff2") format("woff2-variations"),
     url("/fonts/Geist-Variable.woff2") format("woff2");
@@ -92,11 +93,12 @@ html {
  */
 :root {
   color-scheme: light;
-  --background: #ffffff;
+  --background: #f5f2ed;
+  --foreground: #090909;
   --card: #ffffff;
-  --muted: #f4f4f5;
+  --muted: #090909a6;
   --foreground: #17171a;
-  --muted-foreground: #6b6b73;
+  --muted-foreground: #090909a6;
   --primary: #17171a;
   --primary-foreground: #ffffff;
   --accent: #1a4fa0;
@@ -108,6 +110,9 @@ html {
   --tip: #0f7a52;
   --warning: #8a5b06;
   --danger: #b42318;
+
+  --lime: #b6ff65;
+  --black: #090909;
 
   /* Set --font-display to var(--font-serif) for an editorial serif masthead and
      headline set; body copy and UI keep the sans stack. */
@@ -141,16 +146,15 @@ html {
   --duration-fast: 0.18s;
   --duration: 0.28s;
 
-  --background: #f3f3f3;
-  --sec: #a476ff;
+  --background: #f4f4f4;
 
-  --card: #f3f3f3;
+  --card: #f4f4f4;
   --line: #2c2c33;
   --text: #1a1a1a;
-  --text-muted: #5f5f68;
-  --text-muted-tr: #bcbcc9;
+  --text-muted: #b0b0b0;
+  --text-muted-tr: #c3c3c3;
 
-  --container: #5f5f68;
+  --container: #b0b0b0;
 
   /* Component palette */
   /* --container: #17171b;
@@ -214,14 +218,15 @@ html {
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #101012;
+  --background: #090909;
+  --foreground: #f8f7f2;
   --card: #16161a;
   --muted: #1d1d21;
   --foreground: #f2f2f3;
-  --muted-foreground: #a2a2aa;
+  --muted-foreground: #f8f7f29e;
   --primary: #f2f2f3;
   --primary-foreground: #101012;
-  --accent: #8ab4f8;
+  --accent: #b6ff65;
   --accent-strong: #b3cffb;
   --accent-foreground: #101012;
   --border: #2a2a2f;
@@ -230,22 +235,25 @@ html {
   --warning: #fbbf24;
   --danger: #f87171;
 
-  /* --color-paper: #0c0b0a;
-  --color-ink: #f3f1ea;
-  --color-body: #c9c6bd;
-  --color-muted: #908b80;
-  --color-line: #f3f1ea29;
-  --color-fill: #1b1916; */
-
-  /* --background: #1a1a1a; */
-  --background: #0c0b0a;
-  --sec: #a476ff;
+  --lime: #b6ff65;
+  --black: #090909;
 
   --card: #1a1a1a;
   --line: #2c2c33;
   --text: #f3f1ea;
-  --text-muted: #bcbcc9;
+  --text-muted: #f8f7f29e;
   --text-muted-tr: #bcbcc9;
+
+  /* Background: #080A0D
+Cards: #11151A
+Text: #F2F4F7
+Muted: #8B949E
+Accent: #B6FF65
+
+#B6FF65
+#FF7A6B
+#A78BFA
+*/
 
   --container: #17171b;
 
@@ -261,7 +269,7 @@ html {
 @layer base {
   * {
     font-family:
-      "Inter Variable",
+      "Geist Variable",
       -apple-system,
       system-ui,
       sans-serif;
@@ -298,8 +306,8 @@ html {
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--accent) 20%, transparent);
-    color: var(--foreground);
+    background: var(--lime);
+    color: var(--black);
   }
 }
 
@@ -318,6 +326,11 @@ html {
  * always win over them (`.icon-btn md:hidden` has to be able to hide).
  */
 @layer components {
+  .font-features {
+    font-feature-settings: "ss01", "cv11";
+    text-rendering: optimizeLegibility;
+  }
+
   /* -------------------------------------------------------------- layout --- */
 
   /* Full-width band carrying the shared page gutters. */

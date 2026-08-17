@@ -37,10 +37,16 @@ export const siteConfig = {
     responseTime: "Replies usually go out within two business days.",
   },
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "TikTok", href: "https://www.tiktok.com" },
-    { label: "YouTube", href: "https://www.youtube.com" },
-    { label: "RSS", href: "/rss.xml" },
+    // { label: "Instagram", href: "https://instagram.com" },
+    // { label: "TikTok", href: "https://www.tiktok.com" },
+    // { label: "YouTube", href: "https://www.youtube.com" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160/",
+    },
+    { label: "GitHub", href: "https://github.com/Abdelmuttalib" },
+    { label: "Twitter", href: "https://twitter.com/abdelmuttalib" },
+    // { label: "RSS", href: "/rss.xml" },
   ],
 };
 
@@ -62,3 +68,5 @@ export const footerNavigation = [
   { label: "Privacy", href: "/privacy/" },
   { label: "RSS", href: "/rss.xml" },
 ];
+
+export const socialLinks = siteConfig.socials;
