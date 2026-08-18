@@ -1,6 +1,6 @@
 # abdelmuttalib.com
 
-![abdelmuttalib.com](https://abdelmuttalib.vercel.app/og.image.png)
+![abdelmuttalib.com](https://abdelmuttalib.vercel.app/og-image.png)
 
 ## **Stack**
 

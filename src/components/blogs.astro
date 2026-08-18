@@ -1,0 +1,183 @@
+---
+import { getCollection } from "astro:content";
+import Heading from "./ui/Heading.astro";
+import { Image } from "astro:assets";
+
+const blogs = await getCollection("blogs");
+
+const recentBlogs = blogs
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<section id="blog" class="py-16 lg:py-44">
+  <div class="mx-auto flex max-w-400 flex-col gap-8">
+    <!-- Section Header -->
+    <div class="flex flex-col gap-2">
+      <div
+        class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between"
+      >
+        <div>
+          <Heading level={5} class="text-pretty" as="h2"> Blogs </Heading>
+        </div>
+
+        <a
+          href="/blog"
+          class="text-foreground hover:text-accent text-sm transition-colors"
+        >
+          View all blogs →
+        </a>
+      </div>
+    </div>
+
+    <div
+      class="mx-auto grid max-w-400 grid-cols-1 gap-10 gap-y-32 sm:grid-cols-1 md:grid-cols-2"
+    >
+      {
+        blogs.map((blog) => (
+          <a href={`/blog/${blog.id}`} class="group bg-card block">
+            <article class="flex flex-col gap-6">
+              <div>
+                {blog.data.cover && (
+                  <figure class="relative aspect-video overflow-hidden rounded-2xl">
+                    <Image
+                      src={blog.data.cover as ImageMetadata}
+                      alt={blog.data.coverAlt ?? ""}
+                      widths={[640, 960, 1200, 1600, 2000]}
+                      sizes="(min-width: 1200px) 1200px, 100vw"
+                      loading="eager"
+                      decoding="async"
+                      class="w-full"
+                    />
+                    {/* {blog.data.creditName && (
+                      <figcaption>
+                        {blog.data.creditUrl ? (
+                          <a
+                            href={blog.data.creditUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            class="underline underline-offset-2"
+                          >
+                            {blog.data.creditName}
+                          </a>
+                        ) : (
+                          blog.data.creditName
+                        )}
+                      </figcaption>
+                    )} */}
+                  </figure>
+                )}
+              </div>
+              <div class="flex flex-col gap-4">
+                <div class="flex flex-wrap items-center gap-3 text-xs tracking-wider uppercase">
+                  <time
+                    datetime={blog.data.date.toISOString()}
+                    class="text-muted-foreground"
+                  >
+                    {blog.data.date.toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+
+                  <span class="text-muted-foreground">•</span>
+
+                  <span class="text-muted-foreground">
+                    {blog.data.tags?.[0] ?? "Article"}
+                  </span>
+                </div>
+
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex flex-col gap-6">
+                    {/* <h2 class="group-hover:text-accent text-xl tracking-tight transition-colors">
+                      {blog.data.title}
+                    </h2> */}
+
+                    <Heading level={6} as="h3" class="leading-normal">
+                      {blog.data.title}
+                    </Heading>
+
+                    <p class="text-muted-foreground line-clamp-2 max-w-3xl leading-6">
+                      {blog.data.excerpt}
+                    </p>
+                  </div>
+                </div>
+
+                {/* {blog.data.tags?.length > 0 && (
+                  <div class="flex flex-wrap gap-2">
+                    {blog.data.tags.map((tag) => (
+                      <span class="text-muted-foreground border-border rounded-md border px-2 py-1 text-xs">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )} */}
+              </div>
+            </article>
+          </a>
+        ))
+      }
+    </div>
+    <!-- Blogs -->
+    <!-- <div class="flex flex-col gap-4">
+      {
+        recentBlogs.map((post) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="group bg-card border-border hover:border-accent block rounded-lg border p-5 transition-all duration-200 hover:bg-[#181818]"
+          >
+            <article class="flex flex-col gap-4">
+              <div class="flex flex-wrap items-center gap-3 text-xs tracking-wider uppercase">
+                <time
+                  datetime={post.data.date.toISOString()}
+                  class="text-muted-foreground"
+                >
+                  {post.data.date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+
+                <span class="text-muted-foreground">•</span>
+
+                <span class="text-accent">
+                  {post.data.tags?.[0] ?? "Article"}
+                </span>
+              </div>
+
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex flex-col gap-2">
+                  <h3 class="text-foreground group-hover:text-accent text-xl font-medium transition-colors">
+                    {post.data.title}
+                  </h3>
+
+                  <p class="text-muted-foreground max-w-3xl text-sm leading-6">
+                    {post.data.excerpt}
+                  </p>
+                </div>
+
+                <span
+                  aria-hidden="true"
+                  class="group-hover:text-accent text-muted-foreground hidden text-xl transition-all duration-200 group-hover:translate-x-1 sm:block"
+                >
+                  →
+                </span>
+              </div>
+            </article>
+          </a>
+        ))
+      }
+    </div> -->
+
+    <!-- <div class="flex justify-start sm:justify-end">
+      <a
+        href="/blog"
+        class="text-foreground hover:text-accent border-border hover:border-accent rounded-lg border px-4 py-2 text-sm transition-all"
+      >
+        View all posts →
+      </a>
+    </div> -->
+  </div>
+</section>

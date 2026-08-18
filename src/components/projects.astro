@@ -1,10 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
-import moviesfordevs from "../../public/moviesfordevs.png";
-import velez from "../../public/velez.png";
-
 import shadcnstyles from "../../public/images/projects/shadcn-styles-light.png";
 import reactaria from "../../public/images/projects/react-aria-light.png";
 import opulent from "../../public/images/projects/opulent-1.png";
@@ -16,48 +11,13 @@ import reactariaDark from "../../public/images/projects/react-aria-dark.png";
 import opulentDark from "../../public/images/projects/opulent-1.png";
 import momentumDark from "../../public/images/projects/momentum-dark.png";
 import dashboardstarterDark from "../../public/images/projects/dashboard-starter-dark.png";
-
-interface Project {
-  title: string;
-  image: ImageMetadata;
-  link: string;
-  preview: string;
-  status: string;
-}
-
-// const projects: Project[] = [
-//   {
-//     title: "MoviesForDevs",
-//     image: moviesfordevs as ImageMetadata,
-//     link: "https://github.com/Abdelmuttalib/MoviesForDevs",
-//     preview: "https://movies-for-devs.vercel.app",
-//     status: "Deployed",
-//   },
-//   {
-//     title: "StockIn",
-//     image: stockin as ImageMetadata,
-//     link: "https://github.com/Abdelmuttalib/stockin-demo",
-//     preview: "https://stockin-demo.vercel.app",
-//     status: "On Development",
-//   },
-//   {
-//     title: "Svgl.app",
-//     image: svgl as ImageMetadata,
-//     link: "https://github.com/pheralb/svgl",
-//     preview: "https://svgl.app",
-//     status: "Contributor",
-//   },
-//   {
-//     title: "Rifas Velez Web",
-//     image: velez as ImageMetadata,
-//     link: "https://github.com/Buga-Software/rifasvelez-web",
-//     preview: "https://www.rifasvelez.com",
-//     status: "Deployed",
-//   },
-// ];
+import Typography from "./ui/Typography.astro";
+import Heading from "./ui/Heading.astro";
+import BodyText from "./ui/BodyText.astro";
 
 export const projects = [
   {
+    label: "shadcn.style",
     title: "shadcn ui styles",
     description: "Custom shadcn ui styles, components, palettes, and blocks.",
     technologies: [
@@ -75,6 +35,7 @@ export const projects = [
     status: "Deployed",
   },
   {
+    label: "Opulent",
     title: "Opulent",
     description:
       "Elegant e-commerce website powered by Stripe payments, providing seamless and secure transactions for customers.",
@@ -95,6 +56,7 @@ export const projects = [
   },
 
   {
+    label: "React Aria",
     title: "React Aria",
     description:
       "a react component library for building accessible web apps. Built with Adobe Aria Components.",
@@ -114,6 +76,7 @@ export const projects = [
   },
 
   {
+    label: "Momentum",
     title: "Momentum",
     description:
       "Issue tracking and project management web app, facilitating streamlined team collaboration and task management.",
@@ -134,63 +97,163 @@ export const projects = [
     preview: "https://momentum-gamma.vercel.app/",
     status: "Deployed",
   },
-  {
-    title: "Dashboard Starter",
-    description:
-      "Dashboard starter template, featuring a clean and modern design with responsive layout and reusable components.",
-    technologies: ["React", "Nextjs", "Typescript", "TailwindCSS"],
-    image: dashboardstarter,
-    imageDark: dashboardstarterDark,
-    github: "https://github.com/Abdelmuttalib/nextjs-tailwindcss-dashboard",
-    preview: "https://nextjs-tailwindcss-dashboard.vercel.app/",
-    status: "Deployed",
-  },
+  // {
+  //   label: "Dashboard Starter",
+  //   title: "Dashboard Starter",
+  //   description:
+  //     "Dashboard starter template, featuring a clean and modern design with responsive layout and reusable components.",
+  //   technologies: ["React", "Nextjs", "Typescript", "TailwindCSS"],
+  //   image: dashboardstarter,
+  //   imageDark: dashboardstarterDark,
+  //   github: "https://github.com/Abdelmuttalib/nextjs-tailwindcss-dashboard",
+  //   preview: "https://nextjs-tailwindcss-dashboard.vercel.app/",
+  //   status: "Deployed",
+  // },
+];
+
+const projectColors = [
+  "#7867ff", // Electric violet
+  "#ff5d50", // Coral red
+  "#5ee7a5", // Lime
+  "#5bc0ff", // Soft lavender
+
+  "#4de1c1", // Mint turquoise
+  "#ffb347", // Warm orange
+  "#5bc0ff", // Sky blue
+  "#ff7eb6", // Pink
+  "#ffd95a", // Golden yellow
+  "#9b8cff", // Periwinkle
+  "#5ee7a5", // Fresh green
+  "#ff8a65", // Soft tangerine
+  "#63b3ed", // Cornflower blue
+  "#d8a7ff", // Light purple
+  "#ff6f91", // Rose
+  "#8ee3ef", // Aqua
 ];
 ---
 
-<section
-  id="projects"
-  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
->
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projects</h3>
+<section id="projects" class="text-foreground outer py-12">
+  <div class="mx-auto flex max-w-400 flex-col gap-10">
+    <!-- <h2 class="text-accent mb-2 text-lg">My work</h2> -->
+    <!-- <h3
+      class="mb-8 leading-[.94em] tracking-[-.055em]"
+      style="font-size: clamp(3.25rem,7.4vw,7.4rem);"
+    >
+      Selected motion.
+    </h3> -->
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <Heading level={5} class="text-pretty" as="h3"> Projects </Heading>
+
+    <div
+      class="mx-auto grid max-w-400 grid-cols-1 gap-10 gap-y-32 md:grid-cols-2"
+    >
       {
-        projects.map((project) => (
-          <div class="group">
-            <a
-              href={project.preview}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block"
-            >
-              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300 dark:hidden"
-                />
-                <Image
-                  src={project.imageDark}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300 hidden dark:block"
-                />
-              </div>
-              <div class="flex items-center px-3">
-                <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
-                    {project.status}
-                  </span>
+        projects.map((project, index) => {
+          let colorIndex: number = projectColors.length - 1;
+
+          if (index < projectColors.length) {
+            colorIndex = index;
+          }
+
+          if (index >= projects.length) {
+            const randomIndexInColorArray = Math.floor(
+              Math.random() * projectColors.length - 1,
+            );
+            colorIndex = randomIndexInColorArray;
+          }
+
+          const color = projectColors[colorIndex];
+
+          return (
+            <div class="group">
+              <a
+                href={project.preview}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative flex h-full w-full flex-col gap-4 overflow-hidden rounded-2xl transition-all duration-700 ease-out"
+              >
+                <div class="border-border relative aspect-video overflow-hidden rounded-xl border">
+                  {/* <div
+                    class="absolute inset-0 z-20 mix-blend-normal group-hover:opacity-10"
+                    style={{
+                      backgroundColor: color,
+                    }}
+                  /> */}
+                  <div class="absolute right-4 bottom-4 z-40 flex size-full items-end justify-end">
+                    <div class="hidden size-8 -rotate-45 items-center justify-center rounded-full bg-white text-black transition-all duration-700 ease-out group-hover:flex group-hover:size-9 group-hover:-rotate-0">
+                      ↗
+                    </div>
+                  </div>
+                  <div class="absolute z-40 flex size-full items-end justify-center text-center">
+                    <div
+                      class:list={[
+                        "bg-opacity-30 m-2 rounded-xl bg-linear-to-t from-(--project-color)/60 via-(--project-color)/30 to-transparent px-2 py-2 backdrop-blur-lg transition-all duration-700 ease-out group-hover:mb-6 group-hover:from-(--project-color)/80 group-hover:via-(--project-color)/40 dark:from-(--project-color)/60 dark:via-(--project-color)/20",
+                        "text-foreground",
+                        "font-medium tracking-tighter",
+                      ]}
+                      style={`--project-color: ${color}`}
+                    >
+                      <Heading level={5} class="font-medium">
+                        {project.label}
+                      </Heading>
+                    </div>
+                  </div>
+
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    class="h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-105 group-hover:blur-xs md:h-full dark:hidden"
+                  />
+                  <Image
+                    src={project.imageDark}
+                    alt={project.title}
+                    class="hidden h-full w-full rounded-xl object-cover transition-transform duration-300 group-hover:scale-102 group-hover:blur-xs md:h-full dark:block"
+                  />
                 </div>
-                <div class="flex gap-2 ml-auto">
-                  <a
+                <div class="flex items-center">
+                  <div class="grow">
+                    {/* <h4 class="text-2xl font-medium tracking-tighter">
+                    {project.title}
+                  </h4> */}
+                    {/* <Heading level={6} as="h4">
+                      {project.title}
+                    </Heading> */}
+
+                    <BodyText as="h4" variant="3xl/normal" class="mt-2">
+                      {project.title}
+                    </BodyText>
+
+                    <BodyText
+                      variant="sm/normal"
+                      class="text-muted-foreground mt-2"
+                    >
+                      {project.description}
+                    </BodyText>
+                    {/* <span class="text-muted-foreground py-1 text-sm">
+                    {project.status}
+                  </span> */}
+                  </div>
+                  <div class="ml-auto flex gap-2">
+                    {/* <a
+                      target="_blank"
+                      href={project.github}
+                      aria-label="GitHub"
+                      class="text-muted-foreground border-border hover:bg-card flex size-10 items-center justify-center rounded-xl border bg-red-400 transition duration-300 ease-in-out hover:text-white"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        class="size-7"
+                      >
+                        <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
+                      </svg>
+                    </a> */}
+                    {/* <a
                     target="_blank"
                     href={project.github}
                     aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +268,47 @@ export const projects = [
                     target="_blank"
                     href={project.preview}
                     aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
+                    </svg>
+                  </a> */}
+                  </div>
+                </div>
+                {/* <div class="flex items-center px-3">
+                <div class="grow">
+                  <h4 class="text-2xl font-semibold">{project.title}</h4>
+                  <span class="text-muted-foreground py-1 text-sm">
+                    {project.status}
+                  </span>
+                </div>
+                <div class="ml-auto flex gap-2">
+                  <a
+                    target="_blank"
+                    href={project.github}
+                    aria-label="GitHub"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="size-7"
+                    >
+                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
+                    </svg>
+                  </a>
+                  <a
+                    target="_blank"
+                    href={project.preview}
+                    aria-label="Preview"
+                    class="text-muted-foreground bg-card border-border hover:bg-card flex size-14 items-center justify-center rounded-xl border p-3 transition duration-300 ease-in-out hover:text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -217,19 +320,62 @@ export const projects = [
                     </svg>
                   </a>
                 </div>
+              </div> */}
+              </a>
+            </div>
+          );
+        })
+      }
+    </div>
+
+    <!-- <div class="grid grid-cols-1 gap-12 gap-y-20 md:grid-cols-2">
+      {
+        projects.map((project) => (
+          <div class="group">
+            <a
+              href={project.preview}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative flex h-full w-full flex-col gap-4 overflow-hidden rounded-2xl transition-all duration-700 ease-out"
+            >
+              <div class="relative aspect-video overflow-hidden rounded-xl">
+                <div class="absolute right-4 bottom-4 z-40 flex size-full items-end justify-end">
+                  <div class="hidden size-8 -rotate-45 items-center justify-center rounded-full bg-white text-black transition-all duration-700 ease-out group-hover:flex group-hover:size-9 group-hover:-rotate-0">
+                    ↗
+                  </div>
+                </div>
+
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-full dark:hidden"
+                />
+                <Image
+                  src={project.imageDark}
+                  alt={project.title}
+                  class="hidden h-full w-full object-cover transition-transform duration-300 group-hover:scale-102 md:h-full dark:block"
+                />
+              </div>
+              <div class="flex items-center">
+                <div class="grow">
+                  <h4 class="text-2xl font-medium tracking-tighter">
+                    {project.title}
+                  </h4>
+                </div>
+                <div class="ml-auto flex gap-2" />
               </div>
             </a>
           </div>
         ))
       }
-    </div>
-    <a
+    </div> -->
+    <!-- <a
       target="_blank"
       href="https://github.com/Abdelmuttalib?tab=repositories"
       aria-label="GitHub"
-      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)] hover:scale-105"
+      class="text-muted-foreground border-border hover:bg-card mt-9 flex w-full items-center justify-center gap-2 rounded-xl border p-3 transition duration-300 ease-in-out hover:scale-105 hover:text-white"
     >
-      <span class="md:text-lg text-md">More projects on</span>
+      <span class="text-md md:text-lg">More projects on</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -240,6 +386,6 @@ export const projects = [
           d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
         ></path>
       </svg>
-    </a>
+    </a> -->
   </div>
 </section>

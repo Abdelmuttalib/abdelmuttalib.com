@@ -1,0 +1,72 @@
+export const siteConfig = {
+  /** Wordmark shown in the header and footer. Monograph uses text, never a logo image. */
+  name: "Abdelmuttalib Ahmed",
+  tagline: "A quiet place for long-form writing",
+  title: "Monograph - A minimal Astro blog theme",
+  description:
+    "Software Developer building interactive and seamless digital experiences with cutting-edge frontend development.",
+  siteUrl: "https://abdelmuttalib.vercel.app",
+  authorName: "Abdelmuttalib Ahmed",
+  email: "abdelmuttalib1@gmail.com",
+  language: "en",
+  dateLocale: "en-US",
+  locale: "en_US",
+  socialImage: "/og-image.png",
+  /** Shown in the home sidebar "About" card. */
+  about:
+    "Monograph is a reading-first Astro theme. Notes on building software, published when there is something worth saying.",
+  /**
+   * Both forms below ship enabled with an empty `action`, which makes them fully
+   * interactive demos that submit nowhere: a small script confirms the submit
+   * and clears the fields. Paste your provider's endpoint into `action` to send
+   * real submissions, or set `enabled: false` to disable the controls outright.
+   */
+  newsletter: {
+    enabled: true,
+    action: "",
+    method: "post",
+    emailFieldName: "email",
+    title: "Get new posts by email",
+    description:
+      "One email when something new goes up. No spam, unsubscribe anytime.",
+  },
+  contact: {
+    enabled: true,
+    action: "",
+    method: "post",
+    responseTime: "Replies usually go out within two business days.",
+  },
+  socials: [
+    // { label: "Instagram", href: "https://instagram.com" },
+    // { label: "TikTok", href: "https://www.tiktok.com" },
+    // { label: "YouTube", href: "https://www.youtube.com" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/abdelmuttalib-ahmed-81919b160/",
+    },
+    { label: "GitHub", href: "https://github.com/Abdelmuttalib" },
+    { label: "Twitter", href: "https://twitter.com/abdelmuttalib" },
+    // { label: "RSS", href: "/rss.xml" },
+  ],
+};
+
+/** Header navigation. Add or remove entries freely; the header renders them in order. */
+export const navigation = [
+  // { label: "Archive", href: "/posts/" },
+  // { label: "Categories", href: "/categories/" },
+  // { label: "About", href: "/about/" },
+
+  { label: "About", href: "/about/" },
+  { label: "Projects", href: "/projects/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
+];
+
+/** Secondary navigation rendered in the footer. */
+export const footerNavigation = [
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy", href: "/privacy/" },
+  { label: "RSS", href: "/rss.xml" },
+];
+
+export const socialLinks = siteConfig.socials;

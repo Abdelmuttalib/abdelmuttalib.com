@@ -1,0 +1,21 @@
+---
+import Typography from "./Typography.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  class?: string;
+  as?: keyof HTMLElementTagNameMap;
+}
+
+const { class: className, as: Tag = "p", ...props } = Astro.props;
+---
+
+<Typography
+  as={Tag}
+  variant="base/normal"
+  tone="body"
+  class={cn("font-features leading-8 text-foreground", className)}
+  {...props}
+>
+  <slot />
+</Typography>

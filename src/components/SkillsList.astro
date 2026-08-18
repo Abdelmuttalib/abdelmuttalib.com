@@ -1,0 +1,143 @@
+---
+import Heading from "./ui/Heading.astro";
+
+// const CategoryIcons = {
+//   "Web Development": (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       viewBox="0 0 24 24"
+//       fill="currentColor"
+//       class="text-accent h-6 w-6 opacity-70"
+//     >
+//       <path d="M21 3C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H21ZM20 11H4V19H20V11ZM20 5H4V9H20V5ZM11 6V8H9V6H11ZM7 6V8H5V6H7Z"></path>
+//     </svg>
+//   ),
+//   "Mobile Development": (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       viewBox="0 0 24 24"
+//       fill="currentColor"
+//       class="text-accent h-6 w-6 opacity-70"
+//     >
+//       <path d="M7 4V20H17V4H7ZM6 2H18C18.5523 2 19 2.44772 19 3V21C19 21.5523 18.5523 22 18 22H6C5.44772 22 5 21.5523 5 21V3C5 2.44772 5.44772 2 6 2ZM12 17C12.5523 17 13 17.4477 13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18C11 17.4477 11.4477 17 12 17Z"></path>
+//     </svg>
+//   ),
+//   "UI/UX Design & Prototyping": (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       viewBox="0 0 24 24"
+//       fill="currentColor"
+//       class="text-accent h-6 w-6 opacity-70"
+//     >
+//       <path d="M5.7646 7.99998L5.46944 7.26944C5.26255 6.75737 5.50995 6.17454 6.02202 5.96765L15.2939 2.22158C15.8059 2.01469 16.3888 2.26209 16.5956 2.77416L22.2147 16.6819C22.4216 17.194 22.1742 17.7768 21.6622 17.9837L12.3903 21.7298C11.8783 21.9367 11.2954 21.6893 11.0885 21.1772L11.0002 20.9586V21H7.00021C6.44792 21 6.00021 20.5523 6.00021 20V19.7303L2.65056 18.377C2.13849 18.1701 1.89109 17.5873 2.09798 17.0752L5.7646 7.99998ZM8.00021 19H10.2089L8.00021 13.5333V19ZM6.00021 12.7558L4.32696 16.8972L6.00021 17.6084V12.7558ZM7.69842 7.44741L12.5683 19.5008L19.9858 16.5039L15.1159 4.45055L7.69842 7.44741ZM10.6766 9.47974C10.1645 9.68663 9.5817 9.43924 9.37481 8.92717C9.16792 8.4151 9.41532 7.83227 9.92739 7.62538C10.4395 7.41849 11.0223 7.66588 11.2292 8.17795C11.4361 8.69002 11.1887 9.27286 10.6766 9.47974Z"></path>
+//     </svg>
+//   ),
+// };
+
+const servicesColors = ["#583d96", "#2d6d74", "#78434f", "#4d537f", "#6f6730"];
+
+const skills = {
+  "Web Development": [
+    "Single Page Applications (SPAs)",
+    "Landing pages and business websites",
+  ],
+  "Mobile Development": [
+    "Mobile-friendly web apps",
+    "React Native mobile apps",
+  ],
+  "UI/UX Design & Prototyping": [
+    "UI design with Figma & Canva",
+    "UX research & improvements",
+    "Prototyping for websites & mobile apps",
+  ],
+};
+---
+
+<div class="flex flex-col gap-10 pt-3 text-left md:pt-9">
+  <!-- <h3 class="text-foreground text-3xl font-semibold md:mb-6 md:text-4xl">
+    What I do?
+  </h3> -->
+  <Heading level={5} class="text-pretty" as="h3"> What I do? </Heading>
+  <ul class="mt-4 grid grid-cols-1 gap-6 text-lg md:grid-cols-2 lg:grid-cols-3">
+    {
+      Object.entries(skills).map(([category, items], index) => {
+        let colorIndex: number = servicesColors.length - 1;
+
+        if (index < servicesColors.length) {
+          colorIndex = index;
+        }
+
+        if (index >= servicesColors.length) {
+          const randomIndexInColorArray = Math.floor(
+            Math.random() * servicesColors.length - 1,
+          );
+          colorIndex = randomIndexInColorArray;
+        }
+
+        const color = servicesColors[colorIndex];
+
+        return (
+          <li class="w-full">
+            <div
+              style={`--project-color: ${color}`}
+              class:list={[
+                "h-full w-full cursor-pointer overflow-hidden rounded-2xl p-8 text-left transition-all",
+                "rounded-2xl",
+                "from-foreground via-foreground bg-linear-[145deg] to-(--project-color)",
+                "text-white",
+                "bg-[linear-gradient(145deg,var(--black)_28%,var(--project-color)_68%,color-mix(in_srgb,var(--project-color)_70%,white)_100%)]",
+
+                // "from-background bg-linear-to-br via-(--project-color)/50 to-(--project-color)",
+                "backdrop-blur-lg transition-all duration-700 ease-out",
+                "group-hover:mb-6 group-hover:via-(--project-color)/70",
+              ]}
+            >
+              {/* <div
+                class="bg-[linear-gradient(145deg,#151510_28%,color-mix(in_srgb,var(--project-color)_50%,#151510)_68%,var(--project-color)_100%)]"
+                style={`--project-color: ${color}`}
+              /> */}
+              <div class="flex h-full flex-col justify-between gap-24">
+                <div class="tabular-nums">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
+                <div class="flex flex-col gap-4">
+                  <div class="flex items-center gap-3">
+                    {/* {CategoryIcons[category]} */}
+                    <div class="flex grow items-center justify-between gap-2">
+                      <div class="max-w-52 min-w-0 overflow-hidden">
+                        <Heading
+                          level={6}
+                          as="span"
+                          class="max-w-10 text-white"
+                        >
+                          {category}
+                        </Heading>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <ul class="space-y-2 text-white/60">
+                      {items.map((item, index) => (
+                        <div class="flex items-center">
+                          <span class="pl-1">•</span>
+                          <li class="pl-3">{item}</li>
+                        </div>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+                <div class="">
+                  <button class="inline-flex items-center gap-2 rounded-3xl border border-white px-4 py-2 text-xs font-medium text-white uppercase transition-opacity hover:opacity-100 disabled:opacity-50">
+                    <span> Explore </span>
+                    <span>↗</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ul>
+</div>

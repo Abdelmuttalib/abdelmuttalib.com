@@ -1,0 +1,38 @@
+---
+import Typography from "./Typography.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  class?: string;
+  itemprop?: string;
+  as?: keyof HTMLElementTagNameMap;
+}
+
+const {
+  level = 1,
+  class: className,
+  itemprop,
+  as = "h1",
+  ...props
+} = Astro.props;
+
+const variants = {
+  1: "9xl/normal",
+  2: "8xl/normal",
+  3: "7xl/normal",
+  4: "6xl/normal",
+  5: "5xl/normal",
+  6: "4xl/normal",
+} as const;
+---
+
+<Typography
+  as={as ?? `h${level}`}
+  variant={variants[level]}
+  tone="heading"
+  class={cn("leading-tight tracking-[-.055em] md:leading-[.94]", className)}
+  {...props}
+>
+  <slot />
+</Typography>
