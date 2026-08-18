@@ -40,27 +40,27 @@ const blogs = visibleBlogs(await getCollection("blogs"));
                 {blog.data.cover && (
                   <figure class="relative aspect-video overflow-hidden rounded-2xl">
                     <Image
-                      src={blog.data.cover.src}
-                      alt={blog.data.cover.alt}
+                      src={blog.data.cover as ImageMetadata}
+                      alt={blog.data.coverAlt ?? ""}
                       widths={[640, 960, 1200, 1600, 2000]}
                       sizes="(min-width: 1200px) 1200px, 100vw"
                       loading="eager"
                       decoding="async"
                       class="w-full"
                     />
-                    {/* {blog.data.cover.creditName && (
+                    {/* {blog.data.creditName && (
                       <figcaption>
-                        {blog.data.cover.creditUrl ? (
+                        {blog.data.creditUrl ? (
                           <a
-                            href={blog.data.cover.creditUrl}
+                            href={blog.data.creditUrl}
                             target="_blank"
                             rel="noreferrer"
                             class="underline underline-offset-2"
                           >
-                            {blog.data.cover.creditName}
+                            {blog.data.creditName}
                           </a>
                         ) : (
-                          blog.data.cover.creditName
+                          blog.data.creditName
                         )}
                       </figcaption>
                     )} */}

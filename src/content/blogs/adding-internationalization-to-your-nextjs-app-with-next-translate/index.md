@@ -3,11 +3,10 @@ title: "Adding Internationalization to Your Next.js App with next-translate"
 excerpt: "Internationalization is crucial for reaching users across different languages and cultures. With next-translate, you can seamlessly integrate multiple languages into your app, allowing your content to resonate with users worldwide."
 date: "Aug 14, 2023"
 tags: ["Next.js", "i18n"]
-cover:
-  src: "./cover.jpg"
-  alt: "Abstract purple and blue mesh gradient"
-  creditName: "Credits to MagicPattern via Unsplash"
-  creditUrl: "https://unsplash.com/photos/a-blurry-image-of-a-purple-and-blue-background-8h_tctpq4h0"
+cover: "./cover.jpg"
+coverAlt: "Abstract purple and blue mesh gradient"
+creditName: "Credits to MagicPattern via Unsplash"
+creditUrl: "https://unsplash.com/photos/a-blurry-image-of-a-purple-and-blue-background-8h_tctpq4h0"
 ---
 
 Hey Developers! Are you looking to make your React Next.js app accessible to a global audience? 🌍 Adding internationalization (i18n) support is the key, and today I want to share an awesome tool that can make this process a breeze: the next-translate package!

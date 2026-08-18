@@ -49,7 +49,7 @@ const data = blog.data;
 // const authorHref = `/author/${authorSlug(data.author.name)}/`;
 const articleUrl = new URL(blogHref(blog), siteConfig.siteUrl).toString();
 const socialImage = data.cover
-  ? new URL(data.cover.src.src, siteConfig.siteUrl).toString()
+  ? new URL(data.cover.src, siteConfig.siteUrl).toString()
   : new URL(siteConfig.socialImage, siteConfig.siteUrl).toString();
 const encodedUrl = encodeURIComponent(articleUrl);
 const encodedTitle = encodeURIComponent(data.title);
@@ -194,27 +194,27 @@ const structuredData = {
         data.cover && (
           <figure class="article-image inner">
             <Image
-              src={data.cover.src}
-              alt={data.cover.alt}
+              src={data.cover as ImageMetadata}
+              alt={data.coverAlt ?? ""}
               widths={[640, 960, 1200, 1600, 2000]}
               sizes="(min-width: 1200px) 1200px, 100vw"
               loading="eager"
               decoding="async"
               class="w-full"
             />
-            {data.cover.creditName && (
+            {data.creditName && (
               <figcaption>
-                {data.cover.creditUrl ? (
+                {data.creditUrl ? (
                   <a
-                    href={data.cover.creditUrl}
+                    href={data.creditUrl}
                     target="_blank"
                     rel="noreferrer"
                     class="underline underline-offset-2"
                   >
-                    {data.cover.creditName}
+                    {data.creditName}
                   </a>
                 ) : (
-                  data.cover.creditName
+                  data.creditName
                 )}
               </figcaption>
             )}

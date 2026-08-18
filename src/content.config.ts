@@ -32,14 +32,18 @@ const blogs = defineCollection({
        * Optional feature image. Monograph's post feeds are deliberately
        * text-only, so a cover is only ever shown on the post itself.
        */
-      cover: z
-        .object({
-          src: image(),
-          alt: z.string(),
-          creditName: z.string().optional(),
-          creditUrl: z.url().optional(),
-        })
-        .optional(),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      creditName: z.string().optional(),
+      creditUrl: z.url().optional(),
+      // cover: z
+      //   .object({
+      //     image: image().optional(),
+      //     alt: z.string(),
+      //     creditName: z.string().optional(),
+      //     creditUrl: z.url().optional(),
+      //   })
+      //   .optional(),
       /** Surfaces the post in the "Featured" list in the home sidebar. */
       featured: z.boolean().default(false),
       draft: z.boolean().default(false),
