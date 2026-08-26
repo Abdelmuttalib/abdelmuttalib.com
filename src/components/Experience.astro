@@ -1,0 +1,146 @@
+---
+import Heading from "./ui/Heading.astro";
+
+import { Image } from "astro:assets";
+import { PORTFOLIO_DATA } from "@/data/portfolio-data";
+import PageContainer from "./common/PageContainer.astro";
+
+const servicesColors = ["#583d96", "#2d6d74", "#78434f", "#4d537f", "#6f6730"];
+
+const experiences = PORTFOLIO_DATA.work;
+---
+
+<section
+  id="experience"
+  class="flex w-full flex-col items-center gap-8 lg:flex-row"
+>
+  <PageContainer>
+    <div
+      class="flex w-full flex-col gap-10 pt-3 pb-14 text-left md:py-44 md:pt-9 lg:py-60"
+    >
+      <div class="flex flex-col gap-6 md:flex-row md:justify-between">
+        <!-- <Heading level={1} class="uppercase"> Blog </Heading> -->
+        <Heading level={2} class="uppercase"> Experience </Heading>
+
+        <a
+          href="/cv"
+          class="group text-muted-foreground border-border relative inline-flex items-center gap-2 border p-2 tracking-tight uppercase transition duration-300 ease-in-out hover:border-transparent hover:bg-neutral-50 sm:p-3 lg:p-4 dark:hover:bg-neutral-900"
+        >
+          Download CV
+        </a>
+        <!-- <BodyText variant="base/normal" class="leading-6 md:max-w-56">
+        I'm a software developer, building interactive and seamless digital
+        experiences with cutting-edge software development.
+      </BodyText> -->
+
+        <!-- <p class="text-muted-foreground max-w-2xl">
+          Things I've learned, built, and experimented with.
+        </p> -->
+      </div>
+
+      <!-- <div class="flex flex-col justify-end bg-red-400 md:col-span-1">
+        <a
+          href="#"
+          class="group text-muted-foreground border-border relative inline-flex items-center gap-2 border p-2 tracking-tight uppercase italic transition duration-300 ease-in-out hover:border-transparent hover:bg-neutral-50 sm:p-3 lg:p-4 dark:hover:bg-neutral-900"
+        >
+          Download CV
+        </a>
+      </div> -->
+
+      <ul class="relative grid grid-cols-1 gap-20">
+        {
+          experiences.map(
+            (
+              {
+                title,
+                description,
+                company,
+                location,
+                badges,
+                startDate,
+                endDate,
+                startYear,
+                endYear,
+                desc,
+              },
+              index,
+            ) => {
+              let colorIndex: number = servicesColors.length - 1;
+
+              if (index < servicesColors.length) {
+                colorIndex = index;
+              }
+
+              if (index >= servicesColors.length) {
+                const randomIndexInColorArray = Math.floor(
+                  Math.random() * servicesColors.length - 1,
+                );
+                colorIndex = randomIndexInColorArray;
+              }
+
+              const color = servicesColors[colorIndex];
+
+              return (
+                <li class="w-full">
+                  <div
+                    class:list={[
+                      "border-border/70 h-full w-full overflow-hidden py-12 text-left",
+                    ]}
+                  >
+                    <div class="grid h-full grid-cols-1 gap-8 md:grid-cols-3 md:justify-between md:gap-24">
+                      <div class="grid grid-cols-1 flex-col gap-10 md:col-span-2 md:grid-cols-1">
+                        <div class="flex items-center gap-3">
+                          <div class="flex grow items-center justify-between gap-2">
+                            <div class="flex min-w-0 flex-col gap-4 overflow-hidden">
+                              <h4 class="text-2xl font-medium tracking-tight uppercase">
+                                {title}
+                              </h4>
+                              <div class="flex items-center gap-2">
+                                <div class="size-5">
+                                  <Image
+                                    src={"/images/companies/" + company.logo}
+                                    alt={company.name}
+                                    width={30}
+                                    height={30}
+                                    loading="eager"
+                                    decoding="async"
+                                    class="w-full rounded-xs"
+                                    loading="lazy"
+                                  />
+                                </div>
+                                <h4 class="text-foreground/70 text-xl">
+                                  {company.name}
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="my-auto h-fit">
+                          <ul class="text-muted-foreground flex flex-col gap-4">
+                            {desc.map((item, index) => (
+                              <div class="flex md:items-center">
+                                <span>-</span>
+                                <li class="ms-1 text-lg">{item}</li>
+                              </div>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      <div class="order-first md:order-last md:ms-auto">
+                        <p class="text-foreground text-2xl">
+                          {startYear} - {endYear}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              );
+            },
+          )
+        }
+      </ul>
+    </div>
+  </PageContainer>
+</section>

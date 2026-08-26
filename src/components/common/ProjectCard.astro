@@ -1,0 +1,56 @@
+---
+import { cn } from "@/lib/utils";
+import ArrowIcon from "../icons/ArrowIcon.astro";
+
+interface Props {
+  class?: string;
+  title: string;
+  description: string;
+  tags: string[];
+  link?: string;
+}
+
+const { class: className = "", title, description, tags, link } = Astro.props;
+---
+
+<div
+  class="border-border bg-card flex flex-col gap-4 overflow-hidden rounded-lg border p-3 print:border-none print:bg-transparent print:p-0"
+>
+  <div class="">
+    <div class="flex flex-col gap-2">
+      <h5 class="text-base">
+        {
+          link ? (
+            <a
+              href={link}
+              class="inline-flex items-center gap-1 hover:underline"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {title} <span class="size-1 rounded-full bg-green-500" />
+            </a>
+          ) : (
+            title
+          )
+        }
+      </h5>
+      <div class="hidden font-mono text-xs underline print:visible">
+        {link?.replace("https://", "").replace("www.", "").replace("/", "")}
+      </div>
+      <div class="text-muted-foreground font-mono text-sm">
+        {description}
+      </div>
+    </div>
+  </div>
+  <div class="mt-auto flex">
+    <div class="flex flex-wrap gap-2">
+      {
+        tags.map((tag) => (
+          <span class="text-muted-foreground border-border border px-1 py-0.5 font-mono text-xs">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>

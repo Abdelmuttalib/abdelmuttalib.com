@@ -1,7 +1,13 @@
 ---
 import LocalIcon from "@/components/LocalIcon.astro";
-import { navigation, footerNavigation, siteConfig } from "@/config/site";
+import { footerNavigation, siteConfig } from "@/config/site";
 import Heading from "./ui/Heading.astro";
+import ArrowIcon from "./icons/ArrowIcon.astro";
+import SocialIcon from "./icons/SocialIcon.astro";
+import MailIcon from "./icons/MailIcon.astro";
+import PhoneIcon from "./icons/PhoneIcon.astro";
+import Underline from "./common/Underline.astro";
+import PageContainer from "./common/PageContainer.astro";
 
 const socialIconByLabel = {
   Instagram: "instagram",
@@ -15,126 +21,158 @@ const socialIconByLabel = {
 
 const socials = siteConfig.socials.map((item) => ({
   ...item,
-  icon:
-    socialIconByLabel[item.label as keyof typeof socialIconByLabel] ??
-    "link-45deg",
+  // icon:
+  //   socialIconByLabel[item.label as keyof typeof socialIconByLabel] ??
+  //   "link-45deg",
 }));
 const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="outer border-border mt-(--space-section) border-t bg-white dark:bg-black"
+  class="border-border mt-(--space-section) border-t bg-white dark:bg-black"
 >
-  <div
-    class="mx-auto grid max-w-6xl gap-10 py-24 text-center md:grid-cols-1 md:items-center md:gap-8 md:text-left"
-  >
-    <div class="flex flex-col gap-9">
-      <Heading level={2}>
-        Let's work <span class="italic"> together</span>.
-      </Heading>
+  <PageContainer>
+    <div
+      class="grid gap-10 py-24 text-center md:grid-cols-1 md:items-center md:gap-8 md:text-left"
+    >
+      <div class="flex flex-col gap-9 md:gap-14">
+        <Heading level={2} class:list={["font-normal"]}>
+          Let's work <span class="italic"> together</span>.
+        </Heading>
 
-      <div class="flex flex-wrap gap-6">
-        <a
-          href="mailto:abdelmuttalib1@gmail.com"
-          class="text-muted-foreground decoration-muted-foreground/50 hover:text-foreground hover:decoration-foreground underline underline-offset-8 transition duration-300 ease-in-out"
+        <div
+          class="flex flex-col justify-between gap-10 lg:flex-row lg:items-center"
         >
-          abdelmuttalib1@gmail.com
-          <!-- &copy; {currentYear}. All rights reserved. -->
-        </a>
+          <div class="flex flex-wrap justify-center gap-6 md:justify-start">
+            <a
+              href="mailto:abdelmuttalib1@gmail.com"
+              class="group text-muted-foreground relative inline-flex items-center gap-2 bg-neutral-50 p-2 text-lg tracking-tight transition duration-300 ease-in-out hover:bg-neutral-100 sm:p-3 lg:p-4 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+            >
+              <MailIcon class="size-5" />
+              abdelmuttalib1@gmail.com
+              <!-- &copy; {currentYear}. All rights reserved. -->
+            </a>
 
+            <a
+              href="tel:+639455102063"
+              class="group text-muted-foreground relative inline-flex items-center gap-2 bg-neutral-50 p-2 text-lg tracking-tight transition duration-300 ease-in-out hover:bg-neutral-100 sm:p-3 lg:p-4 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+            >
+              <PhoneIcon class="size-5" />
+              +63 945 510 2063
+            </a>
+
+            <!-- <a
+            href="/contact"
+            class="text-muted-foreground inline-flex items-center gap-2 bg-neutral-50 p-2 sm:p-3 lg:p-4 text-lg tracking-tight transition duration-300 ease-in-out hover:bg-neutral-100 dark:bg-neutral-900 dark:hover:bg-neutral-800"
+          >
+            <ArrowIcon class="size-5" />
+            Send me a message
+          </a> -->
+          </div>
+
+          <div>
+            <a
+              href="/contact"
+              class="group text-muted-foreground border-border relative inline-flex items-center gap-2 border p-2 tracking-tight uppercase italic transition duration-300 ease-in-out hover:border-transparent hover:bg-neutral-50 sm:p-3 lg:p-4 dark:hover:bg-neutral-900"
+            >
+              Send me a message
+              <ArrowIcon class="text-muted-foreground ms-auto size-5" />
+            </a>
+          </div>
+        </div>
+
+        <!-- <div>
         <a
-          href="tel:+639455102063"
-          class="text-muted-foreground decoration-muted-foreground/50 hover:text-foreground hover:decoration-foreground underline underline-offset-8 transition duration-300 ease-in-out"
+          href="/contact"
+          class="group text-muted-foreground relative inline-flex items-center gap-2 tracking-tight uppercase italic transition duration-300 ease-in-out"
         >
-          +63 945 510 2063
-
-          <!-- &copy; {currentYear}. All rights reserved. -->
+          Send me a message
+          <ArrowIcon
+            class="text-muted-foreground group-hover:text-foreground ms-auto size-5"
+          />
+          <Underline />
         </a>
+      </div> -->
       </div>
     </div>
-  </div>
 
-  <div
-    class="inner border-border/60 grid gap-10 border-t py-16 text-center md:grid-cols-2 md:gap-8 md:text-left"
-  >
-    <div class="col-span-1 text-left">
-      <a href="/" class="text-xl">{siteConfig.name}</a>
-      <p class="text-muted-foreground mt-2">Available for new projects.</p>
-      <!-- <p class="text-muted-foreground mt-2 text-xs">
-        &copy; {currentYear}. All rights reserved.
-      </p> -->
-    </div>
+    <div
+      class="border-border/50 mx-auto grid max-w-360 gap-10 border-t py-16 text-center md:grid-cols-1 md:gap-8 md:text-left"
+    >
+      <div
+        class="flex w-full flex-col gap-14 md:flex-row md:justify-between lg:grid-cols-2 lg:gap-20"
+      >
+        <div class="flex w-full flex-col items-center md:items-start">
+          <p class="text-muted-foreground mb-5 text-left text-sm">
+            <!-- {item.section} -->
+            Navigation
+          </p>
 
-    <div class="col-span-1 grid grid-cols-2 gap-6 lg:grid-cols-2 lg:gap-20">
-      <div class="w-full">
-        <p class="text-muted-foreground mb-5 text-left text-sm">
-          <!-- {item.section} -->
-          Navigation
-        </p>
+          <nav aria-label="Footer navigation" class="">
+            <ul
+              class="flex flex-wrap justify-center gap-8 md:justify-start lg:gap-10"
+            >
+              {
+                footerNavigation.map((item) => (
+                  <li>
+                    <a
+                      href={item.href}
+                      class="group text-foreground relative block w-fit text-base uppercase"
+                    >
+                      {item.label}
+                      <span class="ease-brand bg-foreground absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full rtl:right-0 rtl:left-auto" />
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
 
-        <nav aria-label="Footer navigation" class="">
-          <ul class="flex flex-col flex-wrap gap-x-4 gap-y-4">
+        <div class="flex w-full flex-col items-center md:items-end">
+          <p class="text-muted-foreground mb-5 text-left text-sm">
+            <!-- {item.section} -->
+            Social
+          </p>
+
+          <nav class="flex flex-wrap gap-6">
             {
-              navigation.map((item) => (
-                <li>
-                  <a
-                    href={item.href}
-                    class="group text-foreground relative block w-fit text-base"
-                  >
-                    {item.label}
-                    <span class="ease-brand bg-foreground absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full rtl:right-0 rtl:left-auto" />
-                  </a>
-                </li>
+              socials.map((item) => (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="group text-foreground hover:text-foreground relative block w-fit text-base uppercase"
+                >
+                  <SocialIcon platform={item.iconId as any} class="size-6" />
+                  <span class="sr-only">{item.label}</span>
+                </a>
               ))
             }
-          </ul>
-        </nav>
-      </div>
-
-      <div class="w-full">
-        <p class="text-muted-foreground mb-5 text-left text-sm">
-          <!-- {item.section} -->
-          Social
-        </p>
-
-        <nav class="space-y-4">
-          {
-            socials.map((item) => (
-              <a
-                href={item.href}
-                target="_blank"
-                rel="noreferrer"
-                class="group text-foreground relative block w-fit text-base"
-              >
-                {item.label}
-                <span class="ms-1.5">↗</span>
-                <span class="ease-brand bg-foreground absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full rtl:right-0 rtl:left-auto" />
-              </a>
-            ))
-          }
-        </nav>
-      </div>
-      <!-- <p class="text-muted-foreground text-xs md:text-right">
+          </nav>
+        </div>
+        <!-- <p class="text-muted-foreground text-xs md:text-right">
         Built with <a
           href="https://astro.build/"
           rel="noreferrer"
           class="link-quiet underline underline-offset-2">Astro</a
         >
       </p> -->
+      </div>
     </div>
-  </div>
 
-  <div
-    class="inner border-border/60 grid gap-10 border-t py-8 pb-12 text-center md:grid-cols-1 md:items-center md:justify-center md:gap-8 md:text-left"
-  >
-    <div class="text-center">
-      <p class="text-muted-foreground text-sm">
-        &copy; {currentYear}{" "}
-        {siteConfig.name}. All rights reserved.
-      </p>
-      <!-- <p>© 2026 Maren Voss · Photographer, Lisbon, Portugal</p> -->
+    <div
+      class="border-border/50 mx-auto grid max-w-360 gap-10 border-t py-8 pb-12 text-center md:grid-cols-1 md:items-center md:justify-center md:gap-8 md:text-left"
+    >
+      <div class="text-center">
+        <p class="text-muted-foreground text-sm">
+          &copy; {currentYear}{" "}
+          {siteConfig.name}. All rights reserved.
+        </p>
+        <!-- <p>© 2026 Maren Voss · Photographer, Lisbon, Portugal</p> -->
+      </div>
     </div>
-  </div>
+  </PageContainer>
 </footer>
 
 <style>

@@ -1,0 +1,52 @@
+---
+// components/icons/SocialIcon.astro
+
+import Instagram from "@/components/icons/social/instagram.astro";
+import Facebook from "@/components/icons/social/facebook.astro";
+import Youtube from "@/components/icons/social/youtube.astro";
+import X from "@/components/icons/social/xtwitter.astro";
+import Tiktok from "./social/tiktok.astro";
+import Snapchat from "./social/snapchat.astro";
+import Threads from "./social/threads.astro";
+import Jaco from "./social/jaco.astro";
+import LinkedIn from "./social/linkedin.astro";
+import Github from "./social/github.astro";
+
+interface Props {
+  platform:
+    | "instagram"
+    | "facebook"
+    | "youtube"
+    | "x"
+    | "tiktok"
+    | "snapchat"
+    | "threads"
+    | "jaco"
+    | "linkedin"
+    | "github";
+  class?: string;
+}
+
+const { platform, class: className = "" } = Astro.props;
+
+const icons = {
+  instagram: Instagram,
+  tiktok: Tiktok,
+  facebook: Facebook,
+  youtube: Youtube,
+  x: X,
+  snapchat: Snapchat,
+  threads: Threads,
+  jaco: Jaco,
+  linkedin: LinkedIn,
+  github: Github,
+};
+
+const Icon = icons[platform];
+
+if (!Icon) {
+  return null;
+}
+---
+
+<Icon class={className} />

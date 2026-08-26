@@ -1,12 +1,12 @@
 ---
 import Heading from "./ui/Heading.astro";
 
-import brandImage from "../../public/images/brand.avif";
 import webImage from "../../public/images/web.avif";
 import dataImage from "../../public/images/data.avif";
 import designImage from "../../public/images/design.avif";
 import { Image } from "astro:assets";
 import BodyText from "./ui/BodyText.astro";
+import PageContainer from "./common/PageContainer.astro";
 
 const servicesColors = ["#583d96", "#2d6d74", "#78434f", "#4d537f", "#6f6730"];
 
@@ -37,105 +37,102 @@ const services = [
 ];
 ---
 
-<div class="flex w-full flex-col gap-10 pt-3 text-left md:pt-9">
-  <div class="flex flex-col gap-6 md:flex-row md:justify-between">
-    <!-- <Heading level={1} class="uppercase"> Blog </Heading> -->
-    <Heading level={2} class="uppercase"> What I Do </Heading>
+<div class="flex w-full flex-col items-center gap-8 lg:flex-row">
+  <PageContainer>
+    <div class="flex w-full flex-col gap-10 py-20 text-left md:py-44 lg:py-60">
+      <div class="flex flex-col gap-6 md:flex-row md:justify-between">
+        <Heading level={2} class="uppercase"> What I Do </Heading>
 
-    <BodyText variant="base/normal" class="leading-6 md:max-w-56">
-      We work across art direction, branding, editorial design, and web
-      development.
-    </BodyText>
+        <!-- <BodyText variant="base/normal" class="leading-6 md:max-w-56">
+        We work across art direction, branding, editorial design, and web
+        development.
+      </BodyText> -->
+      </div>
+      <ul class="mt-4 grid grid-cols-1 gap-6">
+        {
+          services.map(({ title, items, image }, index) => {
+            let colorIndex: number = servicesColors.length - 1;
 
-    <!-- <p class="text-muted-foreground max-w-2xl">
-          Things I've learned, built, and experimented with.
-        </p> -->
-  </div>
-  <ul class="mt-4 grid grid-cols-1 gap-6">
-    {
-      services.map(({ title, items, image }, index) => {
-        let colorIndex: number = servicesColors.length - 1;
+            if (index < servicesColors.length) {
+              colorIndex = index;
+            }
 
-        if (index < servicesColors.length) {
-          colorIndex = index;
-        }
+            if (index >= servicesColors.length) {
+              const randomIndexInColorArray = Math.floor(
+                Math.random() * servicesColors.length - 1,
+              );
+              colorIndex = randomIndexInColorArray;
+            }
 
-        if (index >= servicesColors.length) {
-          const randomIndexInColorArray = Math.floor(
-            Math.random() * servicesColors.length - 1,
-          );
-          colorIndex = randomIndexInColorArray;
-        }
+            const color = servicesColors[colorIndex];
 
-        const color = servicesColors[colorIndex];
+            return (
+              <li class="w-full">
+                <div
+                  class:list={[
+                    "border-border/70 h-full w-full overflow-hidden border-t py-12 text-left transition-all",
 
-        return (
-          <li class="w-full">
-            <div
-              class:list={[
-                "border-border/70 h-full w-full overflow-hidden border-t py-12 text-left transition-all",
-
-                "backdrop-blur-lg transition-all duration-700 ease-out",
-              ]}
-            >
-              <div class="grid h-full grid-cols-1 flex-col justify-between gap-24 md:grid-cols-4">
-                <div>
-                  <p class="text-muted-foreground/15 text-4xl font-medium tabular-nums">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                </div>
-                <div class="grid grid-cols-1 flex-col gap-20 md:col-span-2 md:grid-cols-1">
-                  <div class="flex items-center gap-3">
-                    <div class="flex grow items-center justify-between gap-2">
-                      {/* <div class="tabular-nums">
+                    "backdrop-blur-lg transition-all duration-700 ease-out",
+                  ]}
+                >
+                  <div class="grid h-full grid-cols-1 flex-col justify-between gap-24 md:grid-cols-4">
+                    <div>
+                      <p class="text-muted-foreground/15 text-4xl font-medium tabular-nums">
+                        {String(index + 1).padStart(2, "0")}
+                      </p>
+                    </div>
+                    <div class="grid grid-cols-1 flex-col gap-20 md:col-span-2 md:grid-cols-1">
+                      <div class="flex items-center gap-3">
+                        <div class="flex grow items-center justify-between gap-2">
+                          {/* <div class="tabular-nums">
                         {String(index + 1).padStart(2, "0")}
                       </div> */}
-                      <div class="min-w-0 overflow-hidden">
-                        {/* <Heading
+                          <div class="min-w-0 overflow-hidden">
+                            {/* <Heading
                           level={6}
                           as="span"
                           class="max-w-10 text-white"
                         >
                           {category}
                         </Heading> */}
-                        <h4 class="text-3xl font-medium tracking-tight uppercase">
-                          {title}
-                        </h4>
+                            <h4 class="text-3xl font-medium tracking-tight uppercase">
+                              {title}
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="my-auto h-fit">
+                        <ul class="text-muted-foreground flex flex-col gap-6">
+                          {items.map((item, index) => (
+                            <div class="flex items-center">
+                              {/* <span class="pl-1">-</span> */}
+                              <li class="">{item}</li>
+                            </div>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="my-auto h-fit">
-                    <ul class="text-muted-foreground flex flex-col gap-6">
-                      {items.map((item, index) => (
-                        <div class="flex items-center">
-                          {/* <span class="pl-1">-</span> */}
-                          <li class="">{item}</li>
-                        </div>
-                      ))}
-                    </ul>
+                    <div class="size-52 md:ms-auto">
+                      <Image
+                        src={image}
+                        alt={title}
+                        width={304}
+                        height={304}
+                        loading="eager"
+                        decoding="async"
+                        class="w-full"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div class="size-52 md:ms-auto">
-                  <Image
-                    src={image}
-                    alt={title}
-                    width={304}
-                    height={304}
-                    loading="eager"
-                    decoding="async"
-                    class="w-full"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </li>
-        );
-      })
-    }
-  </ul>
-  <!-- <ul class="mt-4 grid grid-cols-1 gap-6 text-lg md:grid-cols-2 lg:grid-cols-3">
+              </li>
+            );
+          })
+        }
+      </ul>
+      <!-- <ul class="mt-4 grid grid-cols-1 gap-6 text-lg md:grid-cols-2 lg:grid-cols-3">
     {
       Object.entries(skills).map(([category, items], index) => {
         let colorIndex: number = servicesColors.length - 1;
@@ -211,4 +208,6 @@ const services = [
       })
     }
   </ul> -->
+    </div>
+  </PageContainer>
 </div>

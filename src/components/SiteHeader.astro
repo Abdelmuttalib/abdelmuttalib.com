@@ -7,6 +7,7 @@ import {
   visibleBlogs,
   type Blog,
 } from "@/lib/blogs";
+import PageContainer from "./common/PageContainer.astro";
 
 // interface Props {
 //   blogs: Blog[];
@@ -28,30 +29,33 @@ const isCurrentPath = (href: string) =>
   currentPath === href || (href !== "/" && currentPath.startsWith(href));
 ---
 
-<header class="site-header outer w-full">
-  <div class="mx-auto flex h-18 max-w-6xl items-center justify-between gap-6">
-    <a href="/" class="text-xl">{siteConfig.name}</a>
-
-    <div class="flex items-center gap-5">
-      <nav
-        class="hidden items-center gap-6 text-lg md:flex"
-        aria-label="Primary navigation"
+<header class="site-header w-full">
+  <PageContainer>
+    <div class="flex h-14 items-center justify-between gap-6 sm:h-18">
+      <a href="/" class="text-lg font-medium tracking-tight uppercase"
+        >{siteConfig.name}</a
       >
-        {
-          navigation.map((item) => (
-            <a
-              href={item.href}
-              class="nav-link"
-              aria-current={isCurrentPath(item.href) ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          ))
-        }
-      </nav>
 
-      <div class="flex items-center gap-1">
-        <!-- <a
+      <div class="flex items-center gap-5">
+        <nav
+          class="hidden items-center gap-6 text-lg md:flex lg:gap-8"
+          aria-label="Primary navigation"
+        >
+          {
+            navigation.map((item) => (
+              <a
+                href={item.href}
+                class="nav-link tracking-normal"
+                aria-current={isCurrentPath(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="flex items-center gap-2 sm:gap-4">
+          <!-- <a
           href="/search/"
           class="icon-btn"
           aria-label="Search this site"
@@ -79,16 +83,18 @@ const isCurrentPath = (href: string) =>
           </svg>
         </a> -->
 
-        <button
-          type="button"
-          class="theme-switch ml-1"
-          role="switch"
-          aria-checked="false"
-          data-theme-toggle
-          aria-label="Switch to dark mode"
-        >
-          <span class="theme-switch__knob" aria-hidden="true">
-            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none">
+          <button
+            type="button"
+            class="ml-1 block"
+            role="switch"
+            data-theme-toggle
+            aria-label="Switch to dark mode"
+          >
+            <svg
+              class="block size-4 dark:hidden"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
               <path
                 d="M12 4V2M12 22v-2M4 12H2M22 12h-2M5 5 3.5 3.5M20.5 20.5 19 19M19 5l1.5-1.5M3.5 20.5 5 19"
                 stroke="currentColor"
@@ -101,40 +107,44 @@ const isCurrentPath = (href: string) =>
                 stroke="currentColor"
                 stroke-width="2.25"></circle>
             </svg>
-            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none">
+            <svg
+              class="hidden size-4 dark:block"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
               <path
                 d="M20 14.2A7.4 7.4 0 0 1 9.8 4a8.6 8.6 0 1 0 10.2 10.2Z"
                 stroke="currentColor"
                 stroke-width="2.25"
                 stroke-linejoin="round"></path>
             </svg>
-          </span>
-        </button>
+          </button>
 
-        <button
-          type="button"
-          class="icon-btn md:hidden"
-          aria-controls="mobile-menu-panel"
-          aria-expanded="false"
-          data-mobile-menu-toggle
-        >
-          <svg
-            aria-hidden="true"
-            class="h-5 w-5"
-            viewBox="0 0 24 24"
-            fill="none"
+          <button
+            type="button"
+            class="icon-btn md:hidden"
+            aria-controls="mobile-menu-panel"
+            aria-expanded="false"
+            data-mobile-menu-toggle
           >
-            <path
-              d="M4 7h16M4 12h16M4 17h16"
-              stroke="currentColor"
-              stroke-width="1.75"
-              stroke-linecap="round"></path>
-          </svg>
-          <span class="sr-only">Open navigation menu</span>
-        </button>
+            <svg
+              aria-hidden="true"
+              class="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"></path>
+            </svg>
+            <span class="sr-only">Open navigation menu</span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </PageContainer>
 </header>
 
 <div
@@ -173,7 +183,7 @@ const isCurrentPath = (href: string) =>
             <a
               href={item.href}
               aria-current={isCurrentPath(item.href) ? "page" : undefined}
-              class="border-border aria-[current=page]:text-accent block border-b py-4 text-2xl font-semibold tracking-tight"
+              class="border-border aria-[current=page]:text-accent block border-b py-4 text-2xl font-medium tracking-tight"
             >
               {item.label}
             </a>
