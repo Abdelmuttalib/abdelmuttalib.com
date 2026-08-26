@@ -4,7 +4,8 @@ export const siteConfig = {
   /** Wordmark shown in the header and footer. Monograph uses text, never a logo image. */
   name: PORTFOLIO_DATA.name,
   tagline: PORTFOLIO_DATA.summary,
-  title: ` - `,
+  // title: ` - `,
+  title: `Abdelmuttalib Ahmed`,
   description:
     "Software Developer building interactive and seamless digital experiences with cutting-edge software development.",
   siteUrl: "https://abdelmuttalib.vercel.app",
