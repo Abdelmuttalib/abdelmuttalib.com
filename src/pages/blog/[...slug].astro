@@ -7,9 +7,6 @@ import CodeGroupItem from "@/components/mdx/CodeGroupItem.astro";
 
 import { Image } from "astro:assets";
 import LocalIcon from "@/components/LocalIcon.astro";
-import BlogCard from "@/components/BlogCard.astro";
-import SiteFooter from "@/components/SiteFooter.astro";
-import SiteHeader from "@/components/SiteHeader.astro";
 import { siteConfig } from "@/config/site";
 import {
   authorSlug,
@@ -25,6 +22,7 @@ import {
 import Heading from "@/components/ui/Heading.astro";
 import BodyText from "@/components/ui/BodyText.astro";
 import Typography from "@/components/ui/Typography.astro";
+import PageContainer from "@/components/common/PageContainer.astro";
 
 export async function getStaticPaths() {
   const blogs = await getCollection("blogs");
@@ -92,11 +90,12 @@ const structuredData = {
 <Layout title={blog.data.title}>
   <!-- <title>{blog.data.title} | Abdelmuttalib</title> -->
 
-  <main id="main-content" class="outer">
-    <article>
-      <header class="canvas pt-10 md:pt-14">
-        <p class="meta post-meta">
-          <!-- <span class="post-meta__byline">
+  <main id="main-content">
+    <PageContainer>
+      <article>
+        <header class="py-14 md:pt-28">
+          <p class="meta post-meta">
+            <!-- <span class="post-meta__byline">
             By <a href={authorHref} class="link-sweep post-meta__link"
               >{data.author.name}</a
             > in{" "}
@@ -105,32 +104,36 @@ const structuredData = {
               class="link-sweep post-meta__link">{data.category}</a
             >
           </span> -->
-          <span class="post-meta__dates">
-            <span class="meta-accent"
+            <span class="post-meta__dates">
+              <!-- <span class="meta-accent"
               ><time datetime={data.date.toISOString()}
                 >{formatDate(data.date, "long")}</time
               ></span
-            >
-            <span>{readingLabel(blog)}</span>
-          </span>
-        </p>
+            > -->
+              <span>{readingLabel(blog)}</span>
+            </span>
+          </p>
 
-        <Heading level={4} as="h1" class="mt-6">{data.title}</Heading>
-        <!-- margin: 1.25rem 0 0;
+          <Heading
+            level={4}
+            as="h1"
+            class="mt-2 max-w-4xl font-medium uppercase md:leading-tight"
+            >{data.title}</Heading
+          >
+          <!-- margin: 1.25rem 0 0;
       color: var(--muted-foreground);
       font-size: clamp(1.125rem, 2.4vw, 1.4rem);
       line-height: 1.45;
       text-wrap: pretty; -->
-        <Typography
-          as="p"
-          variant="xl/normal"
-          class="text-muted-foreground my-5 leading-[1.45] text-pretty"
-        >
-          {data.excerpt}
-        </Typography>
+          <Typography
+            as="p"
+            variant="lg/normal"
+            class="text-muted-foreground my-5 max-w-4xl leading-[1.45] text-pretty"
+          >
+            {data.excerpt}
+          </Typography>
 
-        <div class="mt-8 flex flex-wrap items-center gap-2 italic">
-          <!-- <h2 id="share-heading" class="eyebrow mr-1 italic">Tags</h2> -->
+          <!-- <div class="mt-8 flex flex-wrap items-center gap-2 italic">
           {
             data.tags.map((tag) => (
               <span class="text-muted-foreground rounded-md px-2 py-1 font-mono text-sm">
@@ -138,9 +141,9 @@ const structuredData = {
               </span>
             ))
           }
-        </div>
+        </div> -->
 
-        <!-- {
+          <!-- {
           data.updatedDate && (
             <p class="meta mt-5">
               <span>
@@ -153,7 +156,7 @@ const structuredData = {
           )
         } -->
 
-        <div
+          <!-- <div
           class="border-border mt-8 flex flex-wrap items-center gap-2 border-t pt-6"
           role="group"
           aria-labelledby="share-heading"
@@ -187,46 +190,46 @@ const structuredData = {
             data-copy-status
           >
           </p>
+        </div> -->
+        </header>
+
+        {
+          data.cover && (
+            <figure class="article-image">
+              <Image
+                src={data.cover as ImageMetadata}
+                alt={data.coverAlt ?? ""}
+                widths={[640, 960, 1200, 1600, 2000]}
+                sizes="(min-width: 1200px) 1200px, 100vw"
+                loading="eager"
+                decoding="async"
+                class="w-full"
+              />
+              {data.creditName && (
+                <figcaption>
+                  {data.creditUrl ? (
+                    <a
+                      href={data.creditUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="underline underline-offset-2"
+                    >
+                      {data.creditName}
+                    </a>
+                  ) : (
+                    data.creditName
+                  )}
+                </figcaption>
+              )}
+            </figure>
+          )
+        }
+
+        <div class="prose canvas mt-12">
+          <Content components={mdxComponents} />
         </div>
-      </header>
 
-      {
-        data.cover && (
-          <figure class="article-image inner">
-            <Image
-              src={data.cover as ImageMetadata}
-              alt={data.coverAlt ?? ""}
-              widths={[640, 960, 1200, 1600, 2000]}
-              sizes="(min-width: 1200px) 1200px, 100vw"
-              loading="eager"
-              decoding="async"
-              class="w-full"
-            />
-            {data.creditName && (
-              <figcaption>
-                {data.creditUrl ? (
-                  <a
-                    href={data.creditUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="underline underline-offset-2"
-                  >
-                    {data.creditName}
-                  </a>
-                ) : (
-                  data.creditName
-                )}
-              </figcaption>
-            )}
-          </figure>
-        )
-      }
-
-      <div class="prose canvas mt-12">
-        <Content components={mdxComponents} />
-      </div>
-
-      <!-- <footer class="border-border mt-16 border-t pt-6">
+        <!-- <footer class="border-border mt-16 border-t pt-6">
         <a
           href="/blog"
           class="text-foreground hover:text-accent text-sm transition-colors"
@@ -234,7 +237,8 @@ const structuredData = {
           ← Back to blog
         </a>
       </footer> -->
-    </article>
+      </article>
+    </PageContainer>
   </main>
 
   <script is:inline>
@@ -362,8 +366,8 @@ const structuredData = {
     /* Capped so an unusually tall cover cannot push the article's first
        paragraph below the fold. */
     .article-image :global(img) {
-      max-height: 32rem;
-      width: 90%;
+      max-height: 48rem;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       object-fit: cover;

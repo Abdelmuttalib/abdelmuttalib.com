@@ -1,0 +1,253 @@
+---
+import CVSection from "@/components/common/CVSection.astro";
+import MailIcon from "@/components/icons/MailIcon.astro";
+import PhoneIcon from "@/components/icons/PhoneIcon.astro";
+import ProjectCard from "@/components/common/ProjectCard.astro";
+import { PORTFOLIO_DATA } from "@/data/portfolio-data";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ArrowIcon from "@/components/icons/ArrowIcon.astro";
+import SocialIcon from "@/components/icons/SocialIcon.astro";
+---
+
+<Layout
+  title={`CV ${PORTFOLIO_DATA.name} | ${PORTFOLIO_DATA.about}`}
+  description={PORTFOLIO_DATA.summary}
+>
+  <main
+    id="main-content"
+    class="relative container mx-auto scroll-my-12 overflow-auto p-4 md:p-16 print:p-12"
+  >
+    <div
+      class="mx-auto w-full max-w-2xl space-y-12 dark:bg-transparent print:space-y-6"
+    >
+      <div class="flex justify-between">
+        <div class="flex-1 space-y-4">
+          <h1 class="text-2xl font-medium">{PORTFOLIO_DATA.name}</h1>
+          <p
+            class="text-muted-foreground max-w-md font-mono text-sm text-pretty"
+          >
+            {PORTFOLIO_DATA.about}
+          </p>
+          <p
+            class="text-muted-foreground max-w-md items-center font-mono text-xs text-pretty"
+          >
+            <p
+              class="text-muted-foreground inline-flex gap-x-1.5 align-baseline text-xs leading-none hover:underline"
+            >
+              <!-- <GlobeIcon class="size-3" /> -->
+              {PORTFOLIO_DATA.location}
+            </p>
+          </p>
+          <div
+            class="text-muted-foreground flex gap-2 font-mono text-sm print:hidden"
+          >
+            {
+              PORTFOLIO_DATA.contact.email ? (
+                <a
+                  href={`mailto:${PORTFOLIO_DATA.contact.email}`}
+                  class="bg-muted text-muted-foreground inline-flex size-8 items-center justify-center rounded font-mono text-sm"
+                >
+                  <MailIcon class="size-5" />
+                  <span class="sr-only">Email</span>
+                </a>
+              ) : null
+            }
+            {
+              PORTFOLIO_DATA.contact.tel ? (
+                <a
+                  href={`tel:${PORTFOLIO_DATA.contact.tel}`}
+                  class="bg-muted text-muted-foreground inline-flex size-8 items-center justify-center rounded font-mono text-sm"
+                >
+                  <PhoneIcon class="size-5" />
+                  <span class="sr-only">Phone</span>
+                </a>
+              ) : null
+            }
+            {
+              PORTFOLIO_DATA.contact.social.map((social) => (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="bg-muted text-muted-foreground inline-flex size-8 items-center justify-center rounded font-mono text-sm"
+                >
+                  <SocialIcon platform={social.iconId} class="size-5" />
+                  <span class="sr-only">{social.name}</span>
+                  <span class="sr-only">{social.url}</span>
+                </a>
+              ))
+            }
+          </div>
+          <div
+            class="text-muted-foreground hidden flex-col gap-x-1 font-mono text-sm print:flex"
+          >
+            {
+              PORTFOLIO_DATA.contact.email ? (
+                <a href={`mailto:${PORTFOLIO_DATA.contact.email}`}>
+                  <span class="underline">{PORTFOLIO_DATA.contact.email}</span>
+                </a>
+              ) : null
+            }
+            {
+              PORTFOLIO_DATA.contact.tel ? (
+                <a href={`tel:${PORTFOLIO_DATA.contact.tel}`}>
+                  <span class="underline">{PORTFOLIO_DATA.contact.tel}</span>
+                </a>
+              ) : null
+            }
+            {
+              PORTFOLIO_DATA.contact.social.map((social) => (
+                <a href={social.url}>
+                  <span class="underline">{social.name}</span>
+                </a>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="size-20">
+          <Image
+            src={PORTFOLIO_DATA.avatarUrl}
+            alt={PORTFOLIO_DATA.name}
+            width={200}
+            height={200}
+            loading="eager"
+            decoding="async"
+            class="rounded-md"
+          />
+        </div>
+
+        <!-- <Avatar class="size-28">
+          <AvatarImage
+            alt={PORTFOLIO_DATA.name}
+            src={PORTFOLIO_DATA.avatarUrl}
+          />
+          <AvatarFallback>{PORTFOLIO_DATA.initials}</AvatarFallback>
+        </Avatar> -->
+      </div>
+      <CVSection>
+        <h2 class="text-xl font-medium">About</h2>
+        <p class="text-muted-foreground font-mono text-sm text-pretty">
+          {PORTFOLIO_DATA.summary}
+        </p>
+      </CVSection>
+      <CVSection>
+        <h2 class="text-xl font-medium">Work Experience</h2>
+        <ul class="grid grid-cols-1 gap-8 print:gap-2">
+          {
+            PORTFOLIO_DATA.work.map((work) => {
+              return (
+                <div class="flex flex-col gap-4">
+                  <div class="flex flex-col gap-2">
+                    <div class="flex items-center justify-between gap-x-2 text-base">
+                      <h3 class="mt-1 font-mono leading-none font-medium">
+                        {work.title}
+                      </h3>
+
+                      <div class="text-muted-foreground text-sm tabular-nums">
+                        {work.startYear} - {work.endYear}
+                      </div>
+                    </div>
+
+                    <h4 class="text-foreground/70 inline-flex gap-x-2 text-sm leading-none">
+                      <a
+                        href={work.company.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        class="text-foreground/70 inline-flex items-center gap-1 text-sm hover:underline"
+                      >
+                        <span>
+                          <Image
+                            src={"/images/companies/" + work.company.logo}
+                            alt={work.company.name}
+                            width={14}
+                            height={14}
+                            loading="eager"
+                            decoding="async"
+                            class="rounded-xs"
+                          />
+                        </span>
+                        <span>{work.company.name}</span>{" "}
+                        <ArrowIcon class="inline size-3" />
+                      </a>
+                    </h4>
+                  </div>
+                  <div class="text-muted-foreground text-sm">
+                    {work.description}
+                  </div>
+                  <ul class="text-muted-foreground grid gap-1 text-sm">
+                    {work.desc.map((item, index) => (
+                      <li class="flex items-center">
+                        <span class="text-muted-foreground">•</span>
+                        <span class="ms-1">{item}</span>
+                        {/* {index < work.desc.length - 1 && ","} */}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })
+          }
+        </ul>
+      </CVSection>
+      <CVSection>
+        <h2 class="text-xl font-medium">Education</h2>
+        {
+          PORTFOLIO_DATA.education.map((education) => {
+            return (
+              <div class="flex flex-col gap-1">
+                <div>
+                  <div class="flex items-center justify-between gap-x-2 text-base">
+                    <h3 class="leading-none">{education.degree}</h3>
+                    <div class="text-muted-foreground text-sm tabular-nums">
+                      {education.start} - {education.end}
+                    </div>
+                  </div>
+                </div>
+                <p class="text-muted-foreground text-sm">{education.school}</p>
+              </div>
+            );
+          })
+        }
+      </CVSection>
+      <CVSection>
+        <h2 class="text-xl font-medium">Skills</h2>
+        <div class="flex flex-wrap gap-1">
+          {
+            PORTFOLIO_DATA.skills.map((skill, index) => {
+              return (
+                <span class="text-muted-foreground inline-flex">
+                  {skill}
+                  {index < PORTFOLIO_DATA.skills.length - 1 && ","}
+                  {/* , */}
+                  {/* • */}
+                </span>
+              );
+            })
+          }
+        </div>
+      </CVSection>
+
+      <CVSection class="scroll-mb-16">
+        <h2 class="text-xl font-medium">Projects</h2>
+        <div
+          class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-2 print:grid-cols-1 print:gap-2"
+        >
+          {
+            PORTFOLIO_DATA.projects.map((project) => {
+              return (
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  tags={project.techStack as unknown as string[]}
+                  link={"link" in project ? project.link.href : undefined}
+                />
+              );
+            })
+          }
+        </div>
+      </CVSection>
+    </div>
+  </main>
+</Layout>
